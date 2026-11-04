@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-11-03T21:49:13.710Z",
+  "browser": "Chromium /usr/bin/chromium via Playwright",
+  "baseUrl": "http://127.0.0.1:4173",
+  "results": [
+    {
+      "name": "fixed daily weekly counts and endless setup labels match actual rules",
+      "status": "passed",
+      "milliseconds": 2731
+    }
+  ],
+  "consoleErrors": [],
+  "passed": 1,
+  "failed": 0,
+  "skipped": 0,
+  "notes": [
+    "All data were isolated in fresh test browser contexts.",
+    "Some lifecycle tests call actual application functions directly using real bank questions. Native type controls, setup, exam navigation and backup controls are also exercised through actual DOM actions.",
+    "Timer expiry is accelerated by moving recorded start timestamps backward; no claim of a 45-minute wall-clock wait.",
+    "No testing on physical phones, Safari or Firefox."
+  ]
+}

@@ -1,0 +1,1469 @@
+{
+  "schema_version": "1.0.0",
+  "document_id": "islamic_education_g11_s2_2025",
+  "question_count": 26,
+  "eligibility_note": "Technical/editorial eligibility is not complete scientific certification. See CONTENT_COVERAGE.md.",
+  "questions": [
+    {
+      "id": "u03_l01_q049",
+      "unit_id": "u03",
+      "lesson_id": "u03_l01",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "المفردات",
+      "prompt": "أي معنى أنسب لكلمة «قوامًا» في سياق الإنفاق؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "الإسراف في الإنفاق على الدوام"
+          },
+          {
+            "id": "o2",
+            "text": "الامتناع عن الإنفاق مطلقًا"
+          },
+          {
+            "id": "o3",
+            "text": "إنفاق المال دون ضابط"
+          },
+          {
+            "id": "o4",
+            "text": "الموازنة بين الإسراف والتقتير"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o4"
+      },
+      "explanation": "ورد في شرح مفردات الآيات أن قوامًا تعني وسطًا، أي اعتدال الإنفاق.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          93
+        ],
+        "pdf_pages": [
+          93
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "المفردات"
+      ]
+    },
+    {
+      "id": "u03_l01_q050",
+      "unit_id": "u03",
+      "lesson_id": "u03_l01",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "topic": "السلوك والعبادة",
+      "prompt": "شخص يستجيب للإساءة بلا إساءة مقابلة؛ أي سمة من سمات عباد الرحمن يطبّق؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "مقابلة الجاهلين بالسلام"
+          },
+          {
+            "id": "o2",
+            "text": "الإسراف في الإنفاق على الناس"
+          },
+          {
+            "id": "o3",
+            "text": "هجر العبادة عند الاستفزاز"
+          },
+          {
+            "id": "o4",
+            "text": "طلب الثناء من الآخرين"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o1"
+      },
+      "explanation": "يتناول الدرس موقف عباد الرحمن من الجاهلين ومعاملتهم بالحلم والسلام.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          95
+        ],
+        "pdf_pages": [
+          95
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "السلوك",
+        "والعبادة"
+      ]
+    },
+    {
+      "id": "u03_l01_q051",
+      "unit_id": "u03",
+      "lesson_id": "u03_l01",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "topic": "السلوك والعبادة",
+      "prompt": "أسرة تتحكم في إنفاقها وترد الإساءة بهدوء؛ أي جمع بين السلوكين يوافق صفات عباد الرحمن؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "الاقتصار على العبادة دون التعامل"
+          },
+          {
+            "id": "o2",
+            "text": "الاعتدال في الإنفاق والحلم في الرد"
+          },
+          {
+            "id": "o3",
+            "text": "التقتير في الإنفاق والصمت دائمًا"
+          },
+          {
+            "id": "o4",
+            "text": "الإنفاق بلا ضابط وتجنب الحوار"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o2"
+      },
+      "explanation": "يعرض الدرس الاعتدال في الإنفاق وترك مقابلة الجاهلين بالإساءة ضمن صفات عباد الرحمن.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          96
+        ],
+        "pdf_pages": [
+          96
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "السلوك",
+        "والعبادة"
+      ]
+    },
+    {
+      "id": "u03_l02_q037",
+      "unit_id": "u03",
+      "lesson_id": "u03_l02",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "المفهوم والمشروعية",
+      "prompt": "أي موقف يعبّر عن الطلاق لا عن النشوز في مصطلحات الدرس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "سعي الزوجين إلى الإصلاح"
+          },
+          {
+            "id": "o2",
+            "text": "تدخل الحكمين لحل الخلاف"
+          },
+          {
+            "id": "o3",
+            "text": "حل رابطة الزوجية بلفظ دال"
+          },
+          {
+            "id": "o4",
+            "text": "إعراض أحد الزوجين عن الحقوق"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o3"
+      },
+      "explanation": "الطلاق حل رباط الزوجية بعبارة تفيد ذلك، بخلاف النشوز.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          100
+        ],
+        "pdf_pages": [
+          100
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "المفهوم",
+        "والمشروعية"
+      ]
+    },
+    {
+      "id": "u03_l02_q038",
+      "unit_id": "u03",
+      "lesson_id": "u03_l02",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "أقسام الطلاق وآثارها",
+      "prompt": "إذا انتهى الزواج بلفظ صريح يفيد حلّ رابطة الزوجية، فما المصطلح المقصود؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "النشوز"
+          },
+          {
+            "id": "o2",
+            "text": "الرجعة"
+          },
+          {
+            "id": "o3",
+            "text": "العدة"
+          },
+          {
+            "id": "o4",
+            "text": "الطلاق"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o4"
+      },
+      "explanation": "يعرف الدرس الطلاق بأنه حل رابطة الزوجية بعبارة تفيد ذلك.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          102
+        ],
+        "pdf_pages": [
+          102
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "أقسام",
+        "الطلاق",
+        "وآثارها"
+      ]
+    },
+    {
+      "id": "u03_l03_q034",
+      "unit_id": "u03",
+      "lesson_id": "u03_l03",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "المفهوم والحكمة",
+      "prompt": "في أي واقعة تبدأ المرأة احتساب العدة حسب تعريف الدرس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "توقيع عقد الزواج ابتداءً"
+          },
+          {
+            "id": "o2",
+            "text": "إتمام جميع إجراءات الخطبة"
+          },
+          {
+            "id": "o3",
+            "text": "حدوث الفرقة بين الزوجين"
+          },
+          {
+            "id": "o4",
+            "text": "بدء محادثة الإصلاح بينهما"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o3"
+      },
+      "explanation": "تبدأ العدة من حدوث الفرقة بين الزوجين كما ورد في الدرس.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          107
+        ],
+        "pdf_pages": [
+          107
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "المفهوم",
+        "والحكمة"
+      ]
+    },
+    {
+      "id": "u03_l03_q035",
+      "unit_id": "u03",
+      "lesson_id": "u03_l03",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "حالات العدة ومددها",
+      "prompt": "ما الوضع الذي لا يوجب عدة الطلاق بحسب الدرس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "طلاق المدخول بها الحامل"
+          },
+          {
+            "id": "o2",
+            "text": "طلاق المدخول بها الحائض"
+          },
+          {
+            "id": "o3",
+            "text": "طلاق المدخول بها الآيسة"
+          },
+          {
+            "id": "o4",
+            "text": "الطلاق قبل الدخول"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o4"
+      },
+      "explanation": "ذكر الدرس أن المطلقة قبل الدخول لا عدة عليها.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          108
+        ],
+        "pdf_pages": [
+          108
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "حالات",
+        "العدة",
+        "ومددها"
+      ]
+    },
+    {
+      "id": "u03_l04_q034",
+      "unit_id": "u03",
+      "lesson_id": "u03_l04",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "المفهوم والحكمة",
+      "prompt": "متى يبدأ أثر الوصية المالية في التعريف المقرر؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "قبل تحديد المستفيد منها"
+          },
+          {
+            "id": "o2",
+            "text": "بعد وفاة الشخص الموصي"
+          },
+          {
+            "id": "o3",
+            "text": "منذ إبرام عقد زواجه"
+          },
+          {
+            "id": "o4",
+            "text": "عند وصول صاحبها للبلوغ"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o2"
+      },
+      "explanation": "الوصية تبرع مضاف إلى ما بعد الموت.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          114
+        ],
+        "pdf_pages": [
+          114
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "المفهوم",
+        "والحكمة"
+      ]
+    },
+    {
+      "id": "u03_l04_q035",
+      "unit_id": "u03",
+      "lesson_id": "u03_l04",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "ضوابط الوصية",
+      "prompt": "لماذا لا تعد الوصية وسيلة صحيحة لإلحاق الأذى بالورثة؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "لأن كل وصية مالية ممنوعة"
+          },
+          {
+            "id": "o2",
+            "text": "لأن الوصية لا تتعلق بالمال"
+          },
+          {
+            "id": "o3",
+            "text": "لأن الإضرار بهم محظور"
+          },
+          {
+            "id": "o4",
+            "text": "لأن التوثيق وحده محظور"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o3"
+      },
+      "explanation": "تؤكد أحكام الوصية الواردة في الدرس منع قصد الإضرار بالورثة.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          116
+        ],
+        "pdf_pages": [
+          116
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "ضوابط",
+        "الوصية"
+      ]
+    },
+    {
+      "id": "u03_l05_q035",
+      "unit_id": "u03",
+      "lesson_id": "u03_l05",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "المفهوم والحكمة والأسباب",
+      "prompt": "أي رابطة مما يأتي تعد سببًا للإرث بحسب الدرس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "الصداقة بين الشخصين"
+          },
+          {
+            "id": "o2",
+            "text": "الزوجية الصحيحة"
+          },
+          {
+            "id": "o3",
+            "text": "الجوار بين المنزلين"
+          },
+          {
+            "id": "o4",
+            "text": "زمالة العمل الطويلة"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o2"
+      },
+      "explanation": "يعرض الدرس رابطة الزوجية الصحيحة بوصفها سببًا من أسباب الإرث.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          119
+        ],
+        "pdf_pages": [
+          119
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "المفهوم",
+        "والحكمة",
+        "والأسباب"
+      ]
+    },
+    {
+      "id": "u03_l05_q036",
+      "unit_id": "u03",
+      "lesson_id": "u03_l05",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "أحكام التركة",
+      "prompt": "أي حق يتقدم تنفيذ الوصية في ترتيب حقوق التركة كما يذكر الدرس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "تنفيذ الوصايا التبرعية"
+          },
+          {
+            "id": "o2",
+            "text": "قسمة المال بالتساوي"
+          },
+          {
+            "id": "o3",
+            "text": "سداد الديون الواجبة"
+          },
+          {
+            "id": "o4",
+            "text": "توزيع المال على الورثة"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o3"
+      },
+      "explanation": "يرتب الدرس قضاء الديون قبل تنفيذ الوصايا المتعلقة بالتركة.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          120
+        ],
+        "pdf_pages": [
+          120
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "أحكام",
+        "التركة"
+      ]
+    },
+    {
+      "id": "u03_l06_q036",
+      "unit_id": "u03",
+      "lesson_id": "u03_l06",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "المفهوم والخصائص",
+      "prompt": "أي وصف أقرب للوسطية بوصفها خاصية للشريعة الإسلامية؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "ترك التوازن بين الحقوق"
+          },
+          {
+            "id": "o2",
+            "text": "الاعتدال دون غلو أو تفريط"
+          },
+          {
+            "id": "o3",
+            "text": "التشدد في كل أمر مباح"
+          },
+          {
+            "id": "o4",
+            "text": "التساهل في كل واجب شرعي"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o2"
+      },
+      "explanation": "تعني الوسطية الاعتدال والابتعاد عن الغلو والتفريط.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          125
+        ],
+        "pdf_pages": [
+          125
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "المفهوم",
+        "والخصائص"
+      ]
+    },
+    {
+      "id": "u03_l06_q037",
+      "unit_id": "u03",
+      "lesson_id": "u03_l06",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "topic": "الوسطية في التشريع والأخلاق",
+      "prompt": "عندما يختار المرء الأيسر من خيارين مباحين دون إثم، ماذا يظهر من منهج الدرس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "التشدد دون وجود حاجة"
+          },
+          {
+            "id": "o2",
+            "text": "الامتناع عن كل اختيار"
+          },
+          {
+            "id": "o3",
+            "text": "التيسير المنضبط بالشرع"
+          },
+          {
+            "id": "o4",
+            "text": "التساهل في المحرمات"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o3"
+      },
+      "explanation": "يذكر الدرس اختيار النبي ﷺ أيسر الأمرين ما لم يكن إثمًا.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          127
+        ],
+        "pdf_pages": [
+          127
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "الوسطية",
+        "في",
+        "التشريع",
+        "والأخلاق"
+      ]
+    },
+    {
+      "id": "u03_l07_q042",
+      "unit_id": "u03",
+      "lesson_id": "u03_l07",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "topic": "الوقف العلمي",
+      "prompt": "تبرع شخص بمبنى تُصرف منفعته باستمرار للتعليم دون بيع أصله؛ كيف يصنَّف؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "ميراث مؤجل"
+          },
+          {
+            "id": "o2",
+            "text": "قرض تعليمي"
+          },
+          {
+            "id": "o3",
+            "text": "وقف علمي"
+          },
+          {
+            "id": "o4",
+            "text": "تبرع مستهلك لمرة واحدة"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o3"
+      },
+      "explanation": "يكون الوقف بحبس الأصل وتسبيل منفعته، وتخصيصه للتعليم يدخل في الوقف العلمي.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          134
+        ],
+        "pdf_pages": [
+          134
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "الوقف",
+        "العلمي"
+      ]
+    },
+    {
+      "id": "u03_l07_q043",
+      "unit_id": "u03",
+      "lesson_id": "u03_l07",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "topic": "الوقف الصحي",
+      "prompt": "أي تصرف أقرب إلى هدف الوقف الصحي في التنمية؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "حصر منفعة الوقف في التجار"
+          },
+          {
+            "id": "o2",
+            "text": "بيع الأصل الموقوف عند أول طلب"
+          },
+          {
+            "id": "o3",
+            "text": "إيقاف خدمات العلاج للمحتاجين"
+          },
+          {
+            "id": "o4",
+            "text": "تخصيص منفعة دائمة للخدمات العلاجية"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o4"
+      },
+      "explanation": "يربط الدرس الوقف الصحي برعاية المرضى والخدمات الصحية.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          136
+        ],
+        "pdf_pages": [
+          136
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "الوقف",
+        "الصحي"
+      ]
+    },
+    {
+      "id": "u04_l01_q036",
+      "unit_id": "u04",
+      "lesson_id": "u04_l01",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "topic": "العدل والجزاء",
+      "prompt": "شخص يؤدي عبادات لكنه يؤذي غيره ويعتدي على حقوقهم؛ بماذا يحذّر حديث المفلس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "زيادة الحقوق على المتضررين"
+          },
+          {
+            "id": "o2",
+            "text": "سقوط جميع حقوق الآخرين"
+          },
+          {
+            "id": "o3",
+            "text": "عدم صلة الأذى بالحساب"
+          },
+          {
+            "id": "o4",
+            "text": "ضياع الحسنات في رد المظالم"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o4"
+      },
+      "explanation": "يُبيّن حديث المفلس أثر الاعتداء على حقوق الناس عند الجزاء يوم القيامة.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          142
+        ],
+        "pdf_pages": [
+          142
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "العدل",
+        "والجزاء"
+      ]
+    },
+    {
+      "id": "u04_l02_q044",
+      "unit_id": "u04",
+      "lesson_id": "u04_l02",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "المفهوم",
+      "prompt": "أي وصف أدق لمقاصد الشريعة في الدرس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "الألفاظ التي تشترط للمعاملات"
+          },
+          {
+            "id": "o2",
+            "text": "الوسائل التقنية لتنفيذ الأحكام"
+          },
+          {
+            "id": "o3",
+            "text": "الغايات التي تستهدفها الأحكام"
+          },
+          {
+            "id": "o4",
+            "text": "الأسماء التي تحملها الأحكام"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o3"
+      },
+      "explanation": "يعرف الدرس المقاصد بأنها الغايات التي تهدف الشريعة إلى تحقيقها.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          145
+        ],
+        "pdf_pages": [
+          145
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "المفهوم"
+      ]
+    },
+    {
+      "id": "u04_l02_q045",
+      "unit_id": "u04",
+      "lesson_id": "u04_l02",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "حفظ النفس",
+      "prompt": "حماية الناس من الاعتداء على حياتهم مثال على مقصد حفظ ماذا؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "المال"
+          },
+          {
+            "id": "o2",
+            "text": "العقل"
+          },
+          {
+            "id": "o3",
+            "text": "النسل"
+          },
+          {
+            "id": "o4",
+            "text": "النفس"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o4"
+      },
+      "explanation": "حفظ النفس من مقاصد الشريعة الإسلامية الخمسة.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          147
+        ],
+        "pdf_pages": [
+          147
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "حفظ",
+        "النفس"
+      ]
+    },
+    {
+      "id": "u04_l03_q043",
+      "unit_id": "u04",
+      "lesson_id": "u04_l03",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "المفهوم والآثار",
+      "prompt": "أي أمر يعدّ من نتائج انتشار الجريمة في المجتمع وفق الدرس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "انتشار الخوف والقلق"
+          },
+          {
+            "id": "o2",
+            "text": "تعزيز الأمن والطمأنينة"
+          },
+          {
+            "id": "o3",
+            "text": "زيادة الثقة بالمجتمع"
+          },
+          {
+            "id": "o4",
+            "text": "استقرار العلاقات تلقائيًا"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o1"
+      },
+      "explanation": "يذكر الدرس الخوف والقلق من الآثار الاجتماعية لانتشار الجريمة.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          152
+        ],
+        "pdf_pages": [
+          152
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "المفهوم",
+        "والآثار"
+      ]
+    },
+    {
+      "id": "u04_l03_q044",
+      "unit_id": "u04",
+      "lesson_id": "u04_l03",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "topic": "التدابير الوقائية",
+      "prompt": "أي معالجة أقرب إلى المنهج الوقائي لمكافحة الجريمة؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "إلغاء توعية الأفراد بمخاطرها"
+          },
+          {
+            "id": "o2",
+            "text": "معالجة أسباب الانحراف قبل وقوعه"
+          },
+          {
+            "id": "o3",
+            "text": "تجاهل الظروف المؤدية للجريمة"
+          },
+          {
+            "id": "o4",
+            "text": "الاكتفاء برد الفعل بعد وقوعها"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o2"
+      },
+      "explanation": "يفرق الدرس بين التدابير الوقائية التي تمنع أسباب الجريمة والعلاجية بعد وقوعها.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          154
+        ],
+        "pdf_pages": [
+          154
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "التدابير",
+        "الوقائية"
+      ]
+    },
+    {
+      "id": "u04_l04_q044",
+      "unit_id": "u04",
+      "lesson_id": "u04_l04",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "التعريف بحجة الوداع",
+      "prompt": "في أي سنة هجرية وقعت حجة الوداع وفق تمهيد الدرس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "السنة العاشرة"
+          },
+          {
+            "id": "o2",
+            "text": "السنة التاسعة"
+          },
+          {
+            "id": "o3",
+            "text": "السنة الثامنة"
+          },
+          {
+            "id": "o4",
+            "text": "السنة الحادية عشرة"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o1"
+      },
+      "explanation": "يقرر الدرس أن حجة الوداع كانت في السنة العاشرة للهجرة.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          159
+        ],
+        "pdf_pages": [
+          159
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "التعريف",
+        "بحجة",
+        "الوداع"
+      ]
+    },
+    {
+      "id": "u04_l04_q045",
+      "unit_id": "u04",
+      "lesson_id": "u04_l04",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "topic": "حرمة الحقوق والمساواة",
+      "prompt": "ما أوسع نتيجة لفكرة حرمة الدماء والأموال والأعراض في الوصايا؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "قصر الحماية على فئة واحدة"
+          },
+          {
+            "id": "o2",
+            "text": "حماية الحقوق من الاعتداء"
+          },
+          {
+            "id": "o3",
+            "text": "إباحة الاعتداء عند الاختلاف"
+          },
+          {
+            "id": "o4",
+            "text": "تقديم الثأر على الإصلاح"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o2"
+      },
+      "explanation": "تؤكد الوصايا حرمة الدماء والأموال والأعراض وحماية أصحابها.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          161
+        ],
+        "pdf_pages": [
+          161
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "حرمة",
+        "الحقوق",
+        "والمساواة"
+      ]
+    },
+    {
+      "id": "u04_l05_q037",
+      "unit_id": "u04",
+      "lesson_id": "u04_l05",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "المفهوم والدوافع",
+      "prompt": "أي شخص تقتصر عليه المسؤولية المجتمعية وفق الدرس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "لا تقتصر على فئة بعينها"
+          },
+          {
+            "id": "o2",
+            "text": "تقتصر على أصحاب المناصب"
+          },
+          {
+            "id": "o3",
+            "text": "تقتصر على الكبار دون الشباب"
+          },
+          {
+            "id": "o4",
+            "text": "تقتصر على العاملين في المؤسسات"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o1"
+      },
+      "explanation": "يوضح الدرس أنها مسؤولية كل فرد مهما كان موقعه.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          166
+        ],
+        "pdf_pages": [
+          166
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "المفهوم",
+        "والدوافع"
+      ]
+    },
+    {
+      "id": "u04_l05_q038",
+      "unit_id": "u04",
+      "lesson_id": "u04_l05",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "topic": "الآثار والمؤسسات",
+      "prompt": "طالب يسهم في مبادرة جماعية لخدمة الحي؛ ما العلاقة الأصح بالمفهوم المقرر؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "التخلي عن دور المجتمع"
+          },
+          {
+            "id": "o2",
+            "text": "تحويل الانتماء إلى عمل نافع"
+          },
+          {
+            "id": "o3",
+            "text": "قصر الخدمة على العمل المدفوع"
+          },
+          {
+            "id": "o4",
+            "text": "إبعاد الشباب عن التطوع"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o2"
+      },
+      "explanation": "يربط الدرس حب الوطن بالعمل الإيجابي وخدمة المجتمع.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          169
+        ],
+        "pdf_pages": [
+          169
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "الآثار",
+        "والمؤسسات"
+      ]
+    },
+    {
+      "id": "u04_l06_q047",
+      "unit_id": "u04",
+      "lesson_id": "u04_l06",
+      "difficulty": "easy",
+      "type": "multiple_choice",
+      "topic": "المفهوم والمرتكزات",
+      "prompt": "أي سنة ميلادية شهدت إقرار الإعلان العالمي لحقوق الإنسان كما يذكر الكتاب؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "1952"
+          },
+          {
+            "id": "o2",
+            "text": "1948"
+          },
+          {
+            "id": "o3",
+            "text": "1946"
+          },
+          {
+            "id": "o4",
+            "text": "1950"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o2"
+      },
+      "explanation": "ذكر الدرس إقرار الإعلان العالمي لحقوق الإنسان عام 1948م.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          172
+        ],
+        "pdf_pages": [
+          172
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "المفهوم",
+        "والمرتكزات"
+      ]
+    },
+    {
+      "id": "u04_l06_q048",
+      "unit_id": "u04",
+      "lesson_id": "u04_l06",
+      "difficulty": "hard",
+      "type": "multiple_choice",
+      "topic": "الحقوق الأساسية",
+      "prompt": "لماذا لا يجوز فهم الحرية على أنها اعتداء على حقوق الآخرين في سياق الدرس؟",
+      "payload": {
+        "options": [
+          {
+            "id": "o1",
+            "text": "لأن الحقوق لا تمتد إلا إلى الفرد"
+          },
+          {
+            "id": "o2",
+            "text": "لأن حقوق الآخرين أقل أهمية"
+          },
+          {
+            "id": "o3",
+            "text": "لأن ممارسة الحق مقيدة باحترام حقوق الغير"
+          },
+          {
+            "id": "o4",
+            "text": "لأن الحرية تمنع جميع الواجبات"
+          }
+        ]
+      },
+      "answer": {
+        "option_id": "o3"
+      },
+      "explanation": "يقارن الدرس الحقوق والحريات مع ضوابطها واحترام حقوق الآخرين.",
+      "source": {
+        "document_id": "islamic_education_g11_s2_2025",
+        "printed_pages": [
+          175
+        ],
+        "pdf_pages": [
+          175
+        ]
+      },
+      "review": {
+        "source_checked": false,
+        "answer_checked": false,
+        "review_method": "draft_from_attached_bank_and_cited_book_sections",
+        "independent_review": false,
+        "legacy_source_checked": false,
+        "verification_status": "draft_excluded",
+        "verification_scope": "structural_and_page_range_only",
+        "human_review_required": true
+      },
+      "keywords": [
+        "الحقوق",
+        "الأساسية"
+      ]
+    }
+  ]
+}

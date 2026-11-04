@@ -1,0 +1,16 @@
+{
+  "version": "2.1.0",
+  "production_bytes": 2700039,
+  "production_sha256": "6cb46165d6bbfd9a4ee9e0d9804fe08bec43bb523a547694d7186dbf1e3d2bf7",
+  "account_service_configured": false,
+  "live_oauth_tested": false,
+  "tests": {
+    "node_passed": 86,
+    "sql_local_passed": 19,
+    "historical_browser_with_account_fixture_passed": 35,
+    "historical_browser_skipped": 1,
+    "auth_ui_real_guest_and_mocked_accounts_passed": 12
+  },
+  "admin_bootstrap_email": "ayobalbtoosh41@gmail.com",
+  "scope": "guest memory-only; per-account cache and prepared Supabase backend"
+}

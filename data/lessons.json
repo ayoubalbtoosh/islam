@@ -1,0 +1,238 @@
+[
+  {
+    "id": "u01",
+    "name": "الوحدة الأولى",
+    "theme": "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",
+    "lessons": [
+      {
+        "id": "u01_l01",
+        "name": "سورة البقرة: الآيات الكريمة 284–286",
+        "unitId": "u01",
+        "number": 1,
+        "startPage": 6,
+        "questionCount": 90
+      },
+      {
+        "id": "u01_l02",
+        "name": "دلائل وجود الله تعالى",
+        "unitId": "u01",
+        "number": 2,
+        "startPage": 14,
+        "questionCount": 90
+      },
+      {
+        "id": "u01_l03",
+        "name": "إعجاز القرآن الكريم",
+        "unitId": "u01",
+        "number": 3,
+        "startPage": 21,
+        "questionCount": 90
+      },
+      {
+        "id": "u01_l04",
+        "name": "الأمر بالمعروف والنهي عن المنكر",
+        "unitId": "u01",
+        "number": 4,
+        "startPage": 28,
+        "questionCount": 90
+      },
+      {
+        "id": "u01_l05",
+        "name": "اليوم الآخر: أحداثه وآثار الإيمان به",
+        "unitId": "u01",
+        "number": 5,
+        "startPage": 34,
+        "questionCount": 90
+      },
+      {
+        "id": "u01_l06",
+        "name": "الاجتهاد في الشريعة الإسلامية",
+        "unitId": "u01",
+        "number": 6,
+        "startPage": 41,
+        "questionCount": 90
+      }
+    ]
+  },
+  {
+    "id": "u02",
+    "name": "الوحدة الثانية",
+    "theme": "وَمَا أَرْسَلْنَاكَ إِلَّا رَحْمَةً لِلْعَالَمِينَ",
+    "lessons": [
+      {
+        "id": "u02_l01",
+        "name": "سورة الأعراف: الآيات الكريمة 31–34",
+        "unitId": "u02",
+        "number": 1,
+        "startPage": 48,
+        "questionCount": 90
+      },
+      {
+        "id": "u02_l02",
+        "name": "مراعاة المصالح في الشريعة الإسلامية",
+        "unitId": "u02",
+        "number": 2,
+        "startPage": 55,
+        "questionCount": 90
+      },
+      {
+        "id": "u02_l03",
+        "name": "جهود علماء المسلمين في الحفاظ على السنة النبوية الشريفة",
+        "unitId": "u02",
+        "number": 3,
+        "startPage": 61,
+        "questionCount": 90
+      },
+      {
+        "id": "u02_l04",
+        "name": "الحديث الشريف: منهج الإسلام في الحياة",
+        "unitId": "u02",
+        "number": 4,
+        "startPage": 67,
+        "questionCount": 90
+      },
+      {
+        "id": "u02_l05",
+        "name": "رسائل النبي ﷺ إلى الملوك والزعماء في عصره",
+        "unitId": "u02",
+        "number": 5,
+        "startPage": 73,
+        "questionCount": 90
+      },
+      {
+        "id": "u02_l06",
+        "name": "يوم تبوك 9هـ",
+        "unitId": "u02",
+        "number": 6,
+        "startPage": 79,
+        "questionCount": 90
+      },
+      {
+        "id": "u02_l07",
+        "name": "الحقوق السياسية للمرأة في الإسلام",
+        "unitId": "u02",
+        "number": 7,
+        "startPage": 85,
+        "questionCount": 90
+      }
+    ]
+  },
+  {
+    "id": "u03",
+    "name": "الوحدة الثالثة",
+    "theme": "وَبِعَهْدِ اللَّهِ أَوْفُوا",
+    "lessons": [
+      {
+        "id": "u03_l01",
+        "name": "سورة الفرقان: الآيات الكريمة 63–77",
+        "unitId": "u03",
+        "number": 1,
+        "startPage": 93,
+        "questionCount": 90
+      },
+      {
+        "id": "u03_l02",
+        "name": "الطلاق",
+        "unitId": "u03",
+        "number": 2,
+        "startPage": 100,
+        "questionCount": 90
+      },
+      {
+        "id": "u03_l03",
+        "name": "العدة",
+        "unitId": "u03",
+        "number": 3,
+        "startPage": 107,
+        "questionCount": 90
+      },
+      {
+        "id": "u03_l04",
+        "name": "الوصية في الشريعة الإسلامية",
+        "unitId": "u03",
+        "number": 4,
+        "startPage": 114,
+        "questionCount": 90
+      },
+      {
+        "id": "u03_l05",
+        "name": "الميراث في الشريعة الإسلامية",
+        "unitId": "u03",
+        "number": 5,
+        "startPage": 119,
+        "questionCount": 90
+      },
+      {
+        "id": "u03_l06",
+        "name": "من خصائص الشريعة الإسلامية: الوسطية",
+        "unitId": "u03",
+        "number": 6,
+        "startPage": 125,
+        "questionCount": 90
+      },
+      {
+        "id": "u03_l07",
+        "name": "مجالات الوقف ودورها في التنمية",
+        "unitId": "u03",
+        "number": 7,
+        "startPage": 133,
+        "questionCount": 90
+      }
+    ]
+  },
+  {
+    "id": "u04",
+    "name": "الوحدة الرابعة",
+    "theme": "يَا أَيُّهَا النَّاسُ اتَّقُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ مِنْ نَفْسٍ وَاحِدَةٍ",
+    "lessons": [
+      {
+        "id": "u04_l01",
+        "name": "الحديث الشريف: مفهوم الإفلاس بين الدنيا والآخرة",
+        "unitId": "u04",
+        "number": 1,
+        "startPage": 140,
+        "questionCount": 90
+      },
+      {
+        "id": "u04_l02",
+        "name": "مقاصد الشريعة الإسلامية",
+        "unitId": "u04",
+        "number": 2,
+        "startPage": 145,
+        "questionCount": 90
+      },
+      {
+        "id": "u04_l03",
+        "name": "منهج الإسلام في مكافحة الجريمة",
+        "unitId": "u04",
+        "number": 3,
+        "startPage": 152,
+        "questionCount": 90
+      },
+      {
+        "id": "u04_l04",
+        "name": "من وصايا النبي ﷺ في حجة الوداع",
+        "unitId": "u04",
+        "number": 4,
+        "startPage": 159,
+        "questionCount": 90
+      },
+      {
+        "id": "u04_l05",
+        "name": "المسؤولية المجتمعية في الإسلام",
+        "unitId": "u04",
+        "number": 5,
+        "startPage": 166,
+        "questionCount": 90
+      },
+      {
+        "id": "u04_l06",
+        "name": "حقوق الإنسان بين الإسلام والإعلان العالمي لحقوق الإنسان",
+        "unitId": "u04",
+        "number": 6,
+        "startPage": 172,
+        "questionCount": 90
+      }
+    ]
+  }
+]

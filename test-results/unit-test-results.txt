@@ -1,0 +1,50 @@
+
+> tahadi-tawjihi-islamic@2.0.0 test
+> node --test --test-isolation=none tests/*.test.mjs
+
+✔ all original records: schema accepts approved bank; native wrong shapes fail safely (65.965695ms)
+✔ each native question answer survives presentation shuffle (101.895208ms)
+✔ six repeated attempts use a whole bag without duplicate and avoid previous round (30.298826ms)
+✔ score timeout is unattempted and no wrong-answer points (37.480007ms)
+✔ exam respects scope/easy and never substitutes hard (45.76726ms)
+✔ duel creates 20 questions for 10 each with equal pair difficulty/topic and no duplicate (62.187769ms)
+✔ duel handoff waits without decrement and alternates exactly (37.65751ms)
+✔ expired answer cannot score; single submission auto-advances once (30.774841ms)
+✔ last exam answer retained, revision allowed, explicit finish is idempotent (37.089105ms)
+✔ exam expires during modal and away from game, not after 45 min per question (31.284971ms)
+✔ ordinary paused round preserves remaining time; partial draft saved (33.018084ms)
+✔ endless extension exhausts finite pool without repeat (47.679229ms)
+✔ two concurrent clicks record one answer and transition once (42.493114ms)
+✔ duel streak looks only at the current competitor history (56.877895ms)
+✔ failed atomic result write preserves active round and rolls back XP (32.532796ms)
+✔ duel replay prioritizes different question set when pool is sufficient (43.102613ms)
+✔ new challenge refuses to replace an active saved round (55.142359ms)
+✔ valid backup import waits for confirmation and cancellation preserves data (45.197462ms)
+✔ confirmed import replaces in one operation then reloads without stale active writes (40.125906ms)
+✔ mistake review honors selected unit and difficulty (27.931228ms)
+✔ reset drains queued active saves and pagehide cannot recreate cleared progress (40.712541ms)
+✔ failed reset releases guards and preserves active round and cache (29.89325ms)
+✔ single-writer boot refuses another tab without initializing or writing (40.546252ms)
+✔ single-writer boot holds exclusive lock through app lifetime and releases on pagehide (34.635948ms)
+✔ answer storage failure renders recoverable lock; next retries save before advancing (31.856379ms)
+✔ legacy localStorage records survive initialization and writes are isolated snapshots (2.265263ms)
+✔ queued batch persists related result/profile changes and deletes active together (3.212734ms)
+✔ denied storage stays usable in memory and explicitly reports non-persistence (1.558239ms)
+✔ quota failure retains this tab progress and announces fallback instead of claiming persistence (1.358465ms)
+✔ backup validates before replacement; malformed/prototype/unknown keys are rejected (4.15263ms)
+✔ valid legacy backup roundtrips without clearing separate data on a failed validation (3.441431ms)
+✔ active backups reject foreign questions and replace question text/answers with bundled content (2.051819ms)
+✔ duplicate results and malformed response IDs are rejected (1.775758ms)
+✔ duel imports require both players, finite separate scores and an explicit valid winner (1.628694ms)
+✔ result import rejects invalid rewards, duplicate question items and invalid optional scopes (2.436131ms)
+✔ achievement imports require a map of valid dated entries (1.387188ms)
+✔ active session imports accept real current epoch values and validate optional runtime settings (2.580415ms)
+✔ visited lesson metadata roundtrips but cannot inject invalid last lesson or timestamps (1.916158ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1312.546288

@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-11-04T22:55:35.488Z",
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "name": "real unconfigured service shows honest login gate without nickname bypass",
+      "status": "passed",
+      "milliseconds": 1453
+    },
+    {
+      "name": "real guest progress is temporary, isolated, and cleared by reload",
+      "status": "passed",
+      "milliseconds": 2860
+    },
+    {
+      "name": "auth gate and guest banner fit phone tablet desktop and preserve source attribution",
+      "status": "passed",
+      "milliseconds": 10352
+    },
+    {
+      "name": "mocked provider uses official Google OAuth API without accepting a Google password",
+      "status": "passed",
+      "milliseconds": 1069
+    },
+    {
+      "name": "mocked rejected credentials stay signed out and clear password without logging it",
+      "status": "passed",
+      "milliseconds": 1950
+    },
+    {
+      "name": "mocked allowlist denies an authenticated but unapproved email",
+      "status": "passed",
+      "milliseconds": 2150
+    },
+    {
+      "name": "mocked account A/B storage is separate and account A restores from cloud in fresh browser context",
+      "status": "passed",
+      "milliseconds": 8063
+    },
+    {
+      "name": "mocked SDK identity change cannot upload account A progress under account B",
+      "status": "passed",
+      "milliseconds": 4299
+    },
+    {
+      "name": "mocked admin roster is role-gated escaped and supports allow/disable without passwords",
+      "status": "passed",
+      "milliseconds": 7167
+    },
+    {
+      "name": "mocked offline cloud cannot trap sign-out and preserves account cache",
+      "status": "passed",
+      "milliseconds": 3834
+    },
+    {
+      "name": "mocked cloud conflict requires explicit choice and cancellation does not overwrite data",
+      "status": "passed",
+      "milliseconds": 4225
+    },
+    {
+      "name": "no unexpected browser errors in auth UI checks",
+      "status": "passed",
+      "milliseconds": 0
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Guest/unconfigured checks use the actual production bridge and browser memory storage.",
+    "Configured account, admin, Google API contract and cloud checks replace SDK transport in a routed HTML response with a deterministic test double. No production test switch exists.",
+    "These checks do not prove live Google OAuth, Supabase delivery, hosted RLS or a deployed account service."
+  ]
+}

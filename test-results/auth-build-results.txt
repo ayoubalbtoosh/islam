@@ -1,0 +1,5 @@
+
+> tahadi-tawjihi-islamic@2.1.0 build
+> node scripts/build.mjs
+
+Production + standalone built: 4 units, 26 lessons, 2340 bank records, 2700039 bytes.

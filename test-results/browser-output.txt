@@ -1,0 +1,41 @@
+
+> tahadi-tawjihi-islamic@2.1.0 test:browser
+> node tests/browser.spec.mjs
+
+PASS initial load, real data counts, creator separate from learner
+PASS lesson visit is distinct from solved/completed/mastered and survives reload
+PASS 78 actual lesson-level sessions, all requested timer choices and exam counts
+PASS all four units, 26 lessons and three difficulty setup pages
+PASS actual setup buttons select level, lesson, count and timer
+PASS native answer interface: multiple_choice
+PASS native answer interface: fill_blank
+PASS native answer interface: true_false
+PASS native answer interface: multi_select
+PASS native answer interface: matching
+PASS native answer interface: ordering
+PASS training feedback is opt-in and compound partial answer survives reload
+PASS all eleven modes start and finish; session counts are unique
+PASS six-second mode excludes long compound types; deadline timeout progresses once
+PASS late answer is rejected, repeated answer and finish are idempotent
+PASS replay and persistent rotation avoid previous round with enough alternatives
+PASS duel readiness, equal per-player questions, alternation, hidden answers, winner and replay
+PASS duel tie derives from answers and survives reload at handoff
+PASS exam difficulty and unit filters, total 45 minutes, last answer kept editable
+PASS exam timeout submits while confirmation modal is open, once only
+PASS settings persist after fresh page, export JSON, malformed import rejected
+PASS IndexedDB actual backup export/import roundtrip restores profile and completed results
+PASS storage denied retains playable session and reports memory fallback
+PASS desktop and phone layouts, no horizontal overflow, all pages and light theme
+PASS exam reload preserves deadline and saved answer, revised answer reaches final result
+PASS 360px game/setup/results: matching ordering, exam navigation stay within viewport
+PASS mistake scope honors selected unit and difficulty buttons update pressed state
+PASS injected active-save failure keeps answer locked and Next retry preserves it
+PASS second tab cannot overwrite progress and acquires writer lock after first closes
+PASS closing Chromium process and reopening same profile preserves ongoing exam
+PASS sound toggle initializes short Web Audio effects and mute persists
+PASS confirmed reset clears active session and does not resurrect it on reload
+PASS fixed daily weekly counts and endless setup labels match actual rules
+SKIP standalone file opens without network dependencies: Managed Chromium policy blocks file:// navigation; local Windows file opening remains untested.
+PASS standalone inline bundle renders in opaque origin without external requests
+PASS no browser JavaScript or console errors
+35 passed, 0 failed.

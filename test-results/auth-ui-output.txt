@@ -1,0 +1,13 @@
+PASS real unconfigured service shows honest login gate without nickname bypass
+PASS real guest progress is temporary, isolated, and cleared by reload
+PASS auth gate and guest banner fit phone tablet desktop and preserve source attribution
+PASS mocked provider uses official Google OAuth API without accepting a Google password
+PASS mocked rejected credentials stay signed out and clear password without logging it
+PASS mocked allowlist denies an authenticated but unapproved email
+PASS mocked account A/B storage is separate and account A restores from cloud in fresh browser context
+PASS mocked SDK identity change cannot upload account A progress under account B
+PASS mocked admin roster is role-gated escaped and supports allow/disable without passwords
+PASS mocked offline cloud cannot trap sign-out and preserves account cache
+PASS mocked cloud conflict requires explicit choice and cancellation does not overwrite data
+PASS no unexpected browser errors in auth UI checks
+12 passed, 0 failed.

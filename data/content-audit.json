@@ -1,0 +1,1246 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-11-04",
+  "total_units": 4,
+  "total_lessons": 26,
+  "total_questions": 2340,
+  "structurally_valid": 2340,
+  "eligible_questions": 2314,
+  "excluded_questions": 26,
+  "scientifically_certified_questions": 0,
+  "sample_checked_questions": 52,
+  "human_review_pending": 2262,
+  "types_imported": {
+    "multiple_choice": 1878,
+    "fill_blank": 86,
+    "matching": 137,
+    "true_false": 46,
+    "multi_select": 167,
+    "ordering": 26
+  },
+  "types_eligible": {
+    "multiple_choice": 1852,
+    "fill_blank": 86,
+    "matching": 137,
+    "true_false": 46,
+    "multi_select": 167,
+    "ordering": 26
+  },
+  "difficulty_imported": {
+    "easy": 780,
+    "medium": 780,
+    "hard": 780
+  },
+  "difficulty_eligible": {
+    "easy": 764,
+    "medium": 780,
+    "hard": 770
+  },
+  "duplicate_id_count": 0,
+  "duplicate_prompt_groups": [],
+  "near_duplicate_candidates": [
+    {
+      "ids": [
+        "u01_l06_q030",
+        "u01_l06_q029"
+      ],
+      "similarity": 0.871,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l01_q052",
+        "u03_l01_q059"
+      ],
+      "similarity": 0.863,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l01_q052",
+        "u03_l01_q068"
+      ],
+      "similarity": 0.863,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l01_q058",
+        "u03_l01_q062"
+      ],
+      "similarity": 0.865,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l01_q061",
+        "u03_l01_q064"
+      ],
+      "similarity": 0.868,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l02_q039",
+        "u03_l02_q040"
+      ],
+      "similarity": 0.864,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l02_q042",
+        "u03_l02_q054"
+      ],
+      "similarity": 0.882,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l02_q043",
+        "u03_l02_q046"
+      ],
+      "similarity": 0.931,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l02_q043",
+        "u03_l02_q056"
+      ],
+      "similarity": 0.926,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l02_q046",
+        "u03_l02_q056"
+      ],
+      "similarity": 0.926,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l02_q060",
+        "u03_l02_q063"
+      ],
+      "similarity": 0.923,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l03_q037",
+        "u03_l03_q040"
+      ],
+      "similarity": 0.862,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l03_q064",
+        "u03_l03_q065"
+      ],
+      "similarity": 0.879,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l04_q037",
+        "u03_l04_q038"
+      ],
+      "similarity": 0.918,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l04_q037",
+        "u03_l04_q046"
+      ],
+      "similarity": 0.87,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l04_q054",
+        "u03_l04_q059"
+      ],
+      "similarity": 0.884,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l04_q055",
+        "u03_l04_q069"
+      ],
+      "similarity": 0.904,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l04_q058",
+        "u03_l04_q064"
+      ],
+      "similarity": 0.862,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l06_q040",
+        "u03_l06_q046"
+      ],
+      "similarity": 0.871,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l06_q044",
+        "u03_l06_q047"
+      ],
+      "similarity": 0.862,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l06_q047",
+        "u03_l06_q050"
+      ],
+      "similarity": 0.879,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l06_q062",
+        "u03_l06_q065"
+      ],
+      "similarity": 0.874,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l06_q063",
+        "u03_l06_q066"
+      ],
+      "similarity": 0.876,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l07_q049",
+        "u03_l07_q056"
+      ],
+      "similarity": 0.863,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u03_l07_q067",
+        "u03_l07_q070"
+      ],
+      "similarity": 0.879,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l01_q042",
+        "u04_l01_q046"
+      ],
+      "similarity": 0.873,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l01_q042",
+        "u04_l01_q052"
+      ],
+      "similarity": 0.883,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l01_q042",
+        "u04_l01_q055"
+      ],
+      "similarity": 0.885,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l01_q046",
+        "u04_l01_q055"
+      ],
+      "similarity": 0.904,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l01_q052",
+        "u04_l01_q055"
+      ],
+      "similarity": 0.895,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l02_q046",
+        "u04_l02_q055"
+      ],
+      "similarity": 0.937,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l02_q046",
+        "u04_l02_q060"
+      ],
+      "similarity": 0.862,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l02_q047",
+        "u04_l02_q057"
+      ],
+      "similarity": 0.87,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l02_q049",
+        "u04_l02_q057"
+      ],
+      "similarity": 0.876,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l02_q050",
+        "u04_l02_q056"
+      ],
+      "similarity": 0.863,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l02_q055",
+        "u04_l02_q060"
+      ],
+      "similarity": 0.87,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l02_q062",
+        "u04_l02_q069"
+      ],
+      "similarity": 0.86,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l02_q065",
+        "u04_l02_q066"
+      ],
+      "similarity": 0.912,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l02_q066",
+        "u04_l02_q067"
+      ],
+      "similarity": 0.875,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l03_q053",
+        "u04_l03_q055"
+      ],
+      "similarity": 0.86,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l03_q065",
+        "u04_l03_q071"
+      ],
+      "similarity": 0.867,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l04_q049",
+        "u04_l04_q051"
+      ],
+      "similarity": 0.903,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l04_q054",
+        "u04_l04_q056"
+      ],
+      "similarity": 0.889,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l04_q056",
+        "u04_l04_q060"
+      ],
+      "similarity": 0.881,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l05_q050",
+        "u04_l05_q055"
+      ],
+      "similarity": 0.875,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l05_q068",
+        "u04_l05_q070"
+      ],
+      "similarity": 0.911,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l06_q049",
+        "u04_l06_q067"
+      ],
+      "similarity": 0.872,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l06_q053",
+        "u04_l06_q056"
+      ],
+      "similarity": 0.876,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l06_q054",
+        "u04_l06_q065"
+      ],
+      "similarity": 0.861,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l06_q056",
+        "u04_l06_q057"
+      ],
+      "similarity": 0.887,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    },
+    {
+      "ids": [
+        "u04_l06_q060",
+        "u04_l06_q066"
+      ],
+      "similarity": 0.868,
+      "status": "teacher_review_candidate_not_proven_duplicate"
+    }
+  ],
+  "missing_explanations": 0,
+  "missing_sources": 0,
+  "single_answer_id_distribution": {
+    "o1": 543,
+    "o2": 492,
+    "o3": 465,
+    "o4": 438
+  },
+  "correct_is_uniquely_longest": {
+    "count": 762,
+    "denominator": 1938
+  },
+  "invalid": [],
+  "excluded": [
+    {
+      "id": "u03_l01_q049",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l01_q050",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l01_q051",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l02_q037",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l02_q038",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l03_q034",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l03_q035",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l04_q034",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l04_q035",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l05_q035",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l05_q036",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l06_q036",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l06_q037",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l07_q042",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u03_l07_q043",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u04_l01_q036",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u04_l02_q044",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u04_l02_q045",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u04_l03_q043",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u04_l03_q044",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u04_l04_q044",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u04_l04_q045",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u04_l05_q037",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u04_l05_q038",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u04_l06_q047",
+      "reason": "legacy_draft_source_unchecked"
+    },
+    {
+      "id": "u04_l06_q048",
+      "reason": "legacy_draft_source_unchecked"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "u01_l01",
+      "name": "سورة البقرة: الآيات الكريمة 284–286",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 69,
+        "fill_blank": 4,
+        "matching": 5,
+        "true_false": 4,
+        "multi_select": 5,
+        "ordering": 3
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u01_l02",
+      "name": "دلائل وجود الله تعالى",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 74,
+        "true_false": 3,
+        "fill_blank": 3,
+        "matching": 5,
+        "multi_select": 4,
+        "ordering": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u01_l03",
+      "name": "إعجاز القرآن الكريم",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 73,
+        "matching": 5,
+        "fill_blank": 3,
+        "true_false": 3,
+        "multi_select": 5,
+        "ordering": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u01_l04",
+      "name": "الأمر بالمعروف والنهي عن المنكر",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 74,
+        "fill_blank": 1,
+        "matching": 5,
+        "true_false": 4,
+        "multi_select": 5,
+        "ordering": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u01_l05",
+      "name": "اليوم الآخر: أحداثه وآثار الإيمان به",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 66,
+        "matching": 7,
+        "fill_blank": 4,
+        "multi_select": 6,
+        "true_false": 6,
+        "ordering": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u01_l06",
+      "name": "الاجتهاد في الشريعة الإسلامية",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multi_select": 10,
+        "multiple_choice": 71,
+        "matching": 4,
+        "true_false": 2,
+        "ordering": 2,
+        "fill_blank": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u02_l01",
+      "name": "سورة الأعراف: الآيات الكريمة 31–34",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 71,
+        "fill_blank": 2,
+        "matching": 6,
+        "multi_select": 7,
+        "true_false": 3,
+        "ordering": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u02_l02",
+      "name": "مراعاة المصالح في الشريعة الإسلامية",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 74,
+        "matching": 4,
+        "multi_select": 10,
+        "fill_blank": 1,
+        "true_false": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u02_l03",
+      "name": "جهود علماء المسلمين في الحفاظ على السنة النبوية الشريفة",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 73,
+        "fill_blank": 1,
+        "multi_select": 9,
+        "true_false": 1,
+        "matching": 4,
+        "ordering": 2
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u02_l04",
+      "name": "الحديث الشريف: منهج الإسلام في الحياة",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 74,
+        "matching": 6,
+        "fill_blank": 1,
+        "true_false": 2,
+        "multi_select": 6,
+        "ordering": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u02_l05",
+      "name": "رسائل النبي ﷺ إلى الملوك والزعماء في عصره",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 74,
+        "fill_blank": 3,
+        "matching": 4,
+        "true_false": 1,
+        "multi_select": 6,
+        "ordering": 2
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u02_l06",
+      "name": "يوم تبوك 9هـ",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 73,
+        "fill_blank": 5,
+        "true_false": 3,
+        "multi_select": 5,
+        "matching": 3,
+        "ordering": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u02_l07",
+      "name": "الحقوق السياسية للمرأة في الإسلام",
+      "imported": 90,
+      "eligible": 90,
+      "excluded": 0,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multi_select": 7,
+        "multiple_choice": 79,
+        "fill_blank": 1,
+        "true_false": 1,
+        "matching": 2
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u03_l01",
+      "name": "سورة الفرقان: الآيات الكريمة 63–77",
+      "imported": 90,
+      "eligible": 87,
+      "excluded": 3,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 29,
+        "medium": 30,
+        "hard": 28
+      },
+      "types": {
+        "multiple_choice": 68,
+        "fill_blank": 4,
+        "matching": 6,
+        "multi_select": 7,
+        "ordering": 2
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u03_l02",
+      "name": "الطلاق",
+      "imported": 90,
+      "eligible": 88,
+      "excluded": 2,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 28,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "fill_blank": 7,
+        "multiple_choice": 69,
+        "true_false": 2,
+        "multi_select": 4,
+        "matching": 5,
+        "ordering": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u03_l03",
+      "name": "العدة",
+      "imported": 90,
+      "eligible": 88,
+      "excluded": 2,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 28,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 75,
+        "fill_blank": 4,
+        "multi_select": 4,
+        "true_false": 1,
+        "matching": 4
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u03_l04",
+      "name": "الوصية في الشريعة الإسلامية",
+      "imported": 90,
+      "eligible": 88,
+      "excluded": 2,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 28,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 74,
+        "multi_select": 3,
+        "fill_blank": 4,
+        "true_false": 1,
+        "matching": 6
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u03_l05",
+      "name": "الميراث في الشريعة الإسلامية",
+      "imported": 90,
+      "eligible": 88,
+      "excluded": 2,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 28,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 71,
+        "multi_select": 5,
+        "true_false": 2,
+        "ordering": 1,
+        "matching": 5,
+        "fill_blank": 4
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u03_l06",
+      "name": "من خصائص الشريعة الإسلامية: الوسطية",
+      "imported": 90,
+      "eligible": 88,
+      "excluded": 2,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 29,
+        "medium": 30,
+        "hard": 29
+      },
+      "types": {
+        "multiple_choice": 68,
+        "matching": 9,
+        "true_false": 1,
+        "multi_select": 6,
+        "fill_blank": 4
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u03_l07",
+      "name": "مجالات الوقف ودورها في التنمية",
+      "imported": 90,
+      "eligible": 88,
+      "excluded": 2,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 28
+      },
+      "types": {
+        "multiple_choice": 67,
+        "true_false": 1,
+        "multi_select": 6,
+        "fill_blank": 4,
+        "matching": 9,
+        "ordering": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u04_l01",
+      "name": "الحديث الشريف: مفهوم الإفلاس بين الدنيا والآخرة",
+      "imported": 90,
+      "eligible": 89,
+      "excluded": 1,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 29
+      },
+      "types": {
+        "multiple_choice": 71,
+        "matching": 3,
+        "true_false": 1,
+        "multi_select": 8,
+        "ordering": 3,
+        "fill_blank": 3
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u04_l02",
+      "name": "مقاصد الشريعة الإسلامية",
+      "imported": 90,
+      "eligible": 88,
+      "excluded": 2,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 28,
+        "medium": 30,
+        "hard": 30
+      },
+      "types": {
+        "multiple_choice": 72,
+        "multi_select": 10,
+        "fill_blank": 2,
+        "matching": 4
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u04_l03",
+      "name": "منهج الإسلام في مكافحة الجريمة",
+      "imported": 90,
+      "eligible": 88,
+      "excluded": 2,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 29,
+        "medium": 30,
+        "hard": 29
+      },
+      "types": {
+        "multiple_choice": 69,
+        "multi_select": 9,
+        "fill_blank": 5,
+        "matching": 5
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u04_l04",
+      "name": "من وصايا النبي ﷺ في حجة الوداع",
+      "imported": 90,
+      "eligible": 88,
+      "excluded": 2,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 29,
+        "medium": 30,
+        "hard": 29
+      },
+      "types": {
+        "fill_blank": 3,
+        "multiple_choice": 69,
+        "matching": 10,
+        "multi_select": 4,
+        "true_false": 1,
+        "ordering": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u04_l05",
+      "name": "المسؤولية المجتمعية في الإسلام",
+      "imported": 90,
+      "eligible": 88,
+      "excluded": 2,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 29,
+        "medium": 30,
+        "hard": 29
+      },
+      "types": {
+        "multiple_choice": 67,
+        "true_false": 1,
+        "multi_select": 7,
+        "fill_blank": 6,
+        "matching": 6,
+        "ordering": 1
+      },
+      "sample_checked": 2
+    },
+    {
+      "id": "u04_l06",
+      "name": "حقوق الإنسان بين الإسلام والإعلان العالمي لحقوق الإنسان",
+      "imported": 90,
+      "eligible": 88,
+      "excluded": 2,
+      "difficulty_imported": {
+        "easy": 30,
+        "medium": 30,
+        "hard": 30
+      },
+      "difficulty_eligible": {
+        "easy": 29,
+        "medium": 30,
+        "hard": 29
+      },
+      "types": {
+        "multiple_choice": 67,
+        "multi_select": 9,
+        "fill_blank": 6,
+        "matching": 5,
+        "true_false": 1
+      },
+      "sample_checked": 2
+    }
+  ],
+  "pdf": {
+    "checked_this_run": true,
+    "pages": 180,
+    "sha256": "ef0f7ce86bc69e908b3261ea82d3d91fb740a9e956413418f3170e693b188329",
+    "text_pages": 179,
+    "quran_glyph_limitation": true,
+    "out_of_range_question_ids": []
+  },
+  "semantic_verification_note": "Eligibility means structural usability plus original editorial inclusion. It is NOT complete independent religious verification. All records require teacher sign-off before formal assessment."
+}

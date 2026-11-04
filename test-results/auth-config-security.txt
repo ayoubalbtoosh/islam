@@ -1,0 +1,1 @@
+PASS: secret-shaped server key rejected before changing built files. Dummy value used, no real secret.

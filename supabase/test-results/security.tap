@@ -1,0 +1,125 @@
+TAP version 13
+# Subtest: school authorization, RLS, server activity and progress revisions
+    # Subtest: migration compiles and reapplication is idempotent
+    ok 1 - migration compiles and reapplication is idempotent
+      ---
+      duration_ms: 83.237559
+      type: 'test'
+      ...
+    # Subtest: server session trigger records actual canonical identity/time, including denied sessions
+    ok 2 - server session trigger records actual canonical identity/time, including denied sessions
+      ---
+      duration_ms: 4.100407
+      type: 'test'
+      ...
+    # Subtest: anon has no protected table or RPC grants
+    ok 3 - anon has no protected table or RPC grants
+      ---
+      duration_ms: 26.795546
+      type: 'test'
+      ...
+    # Subtest: canonical verified identity overrides spoofed client email and admin claims
+    ok 4 - canonical verified identity overrides spoofed client email and admin claims
+      ---
+      duration_ms: 24.127153
+      type: 'test'
+      ...
+    # Subtest: students cannot promote self, mutate identity, add accounts or read login roster
+    ok 5 - students cannot promote self, mutate identity, add accounts or read login roster
+      ---
+      duration_ms: 40.750527
+      type: 'test'
+      ...
+    # Subtest: record_login requires actual owned Auth session and cannot fabricate timestamps or repeated events
+    ok 6 - record_login requires actual owned Auth session and cannot fabricate timestamps or repeated events
+      ---
+      duration_ms: 47.94356
+      type: 'test'
+      ...
+    # Subtest: changed SDK identity cannot save another account snapshot, and no unfenced overload remains
+    ok 7 - changed SDK identity cannot save another account snapshot, and no unfenced overload remains
+      ---
+      duration_ms: 9.760571
+      type: 'test'
+      ...
+    # Subtest: progress is own-only; direct writes and client timestamps are forbidden
+    ok 8 - progress is own-only; direct writes and client timestamps are forbidden
+      ---
+      duration_ms: 38.928868
+      type: 'test'
+      ...
+    # Subtest: CAS rejects stale/missing revisions without overwriting newer records
+    ok 9 - CAS rejects stale/missing revisions without overwriting newer records
+      ---
+      duration_ms: 22.396501
+      type: 'test'
+      ...
+    # Subtest: disabled existing sessions immediately lose RPC, RLS and admin access
+    ok 10 - disabled existing sessions immediately lose RPC, RLS and admin access
+      ---
+      duration_ms: 43.301114
+      type: 'test'
+      ...
+    # Subtest: admin normalizes new allowlist identities without creating Auth accounts/admin privileges
+    ok 11 - admin normalizes new allowlist identities without creating Auth accounts/admin privileges
+      ---
+      duration_ms: 12.01547
+      type: 'test'
+      ...
+    # Subtest: changing canonical Auth email invalidates access despite an old allowed email claim
+    ok 12 - changing canonical Auth email invalidates access despite an old allowed email claim
+      ---
+      duration_ms: 12.547207
+      type: 'test'
+      ...
+    # Subtest: disabled admin token loses administration and anonymous Auth identity has no access
+    ok 13 - disabled admin token loses administration and anonymous Auth identity has no access
+      ---
+      duration_ms: 15.72577
+      type: 'test'
+      ...
+    # Subtest: admin roster exposes names/email/login facts and no password/session/token material
+    ok 14 - admin roster exposes names/email/login facts and no password/session/token material
+      ---
+      duration_ms: 7.159794
+      type: 'test'
+      ...
+    # Subtest: before-user-created hook is Auth-only and rejects nonallowed/disabled accounts
+    ok 15 - before-user-created hook is Auth-only and rejects nonallowed/disabled accounts
+      ---
+      duration_ms: 26.561479
+      type: 'test'
+      ...
+    # Subtest: migration reapplication preserves stored progress and logs
+    ok 16 - migration reapplication preserves stored progress and logs
+      ---
+      duration_ms: 16.520769
+      type: 'test'
+      ...
+    # Subtest: owner bootstrap permits only the requested administrator and rejects browser roles
+    ok 17 - owner bootstrap permits only the requested administrator and rejects browser roles
+      ---
+      duration_ms: 30.357331
+      type: 'test'
+      ...
+    # Subtest: offline provisioning escapes SQL, normalizes identities and rejects secrets/duplicates/overwrite
+    ok 18 - offline provisioning escapes SQL, normalizes identities and rejects secrets/duplicates/overwrite
+      ---
+      duration_ms: 483.477343
+      type: 'test'
+      ...
+    1..18
+ok 1 - school authorization, RLS, server activity and progress revisions
+  ---
+  duration_ms: 4154.518365
+  type: 'test'
+  ...
+1..1
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4235.114122

@@ -1,0 +1,27 @@
+{
+  "release": "2.0.0",
+  "production_bytes": 2415392,
+  "production_sha256": "70f8ddc681a4e272c4341cafc709cc13f4613976432d6c73b5646347ca3d81c6",
+  "full_browser_report": {
+    "passed": 34,
+    "failed": 0,
+    "skipped": 1
+  },
+  "final_setup_smoke": 1,
+  "content": {
+    "units": 4,
+    "lessons": 26,
+    "imported": 2340,
+    "eligible": 2314,
+    "excluded": 26,
+    "semantic_sample": 52,
+    "lexical_compared": 2340
+  },
+  "sources": {
+    "src/controller.js": "10455912147ddad676247ddff16d55c9c8b97c7f220313676c855b67c11837b5",
+    "src/core.js": "c599260560331fd995c414ea23a716d2dafdf0c307ac8cf7ca4db6d77a509e65",
+    "src/storage.js": "c7b503c8b68fa046cc7ec2f8676fd2b8b539944664bf8b417e46af88dfb98b77",
+    "src/styles.css": "b4f4fb94751723b7782463caa78e162946eca1f0693f7033530f64c5f3cc1ee2",
+    "src/ui.js": "e715991c291963b664c3ecf5f52bd3c6172273e9362b1bc787bb304dc80c8d7a"
+  }
+}
