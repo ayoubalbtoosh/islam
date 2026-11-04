@@ -29,7 +29,7 @@
 3. فعّل Before User Created hook إلى `public.before_user_created`، وتأكيد الإيميل، وعطّل Anonymous Sign-ins. لا توجد واجهة تسجيل ذاتي مفتوحة في الموقع. راجع الحالات الخاصة بإنشاء أول هوية Google في [دليل الخادم](supabase/README.md).
 4. أنشئ حساب المدير من Auth Dashboard بإيميله الصحيح، أو فعّل Google وسجّل بالإيميل المدرج. القائمة المسموحة لا تنشئ حساب Auth بمفردها.
 5. للدخول بجوجل: أنشئ OAuth Web Client داخل Google Cloud، وضع Client ID وClient Secret **داخل إعداد Google Provider في Supabase فقط**. لا يُرسل السر في المحادثة ولا يوضع في HTML أو Git.
-6. اضبط Site URL وRedirect URLs إلى رابط الموقع المنشور الفعلي، مثل `https://amayobalbtoush79-coder.github.io/islam/`؛ لا تسمح بوجهات عودة عشوائية.
+6. اضبط Site URL وRedirect URLs إلى رابط الموقع المنشور الفعلي، مثل `https://ayoubalbtoosh.github.io/islam/`؛ لا تسمح بوجهات عودة عشوائية.
 7. اضبط عنوان مشروع Supabase والمفتاح العام publishable/anon فقط داخل `config/auth.public.json`. هذان إعدادان عامان؛ لا تضع `service_role` أو `sb_secret_…` أو كلمة مرور قاعدة البيانات.
 8. يمكن بدل تعديل الملف إدخال `SUPABASE_URL` و`SUPABASE_PUBLISHABLE_KEY` كقيم عامة في إعدادات البناء على الاستضافة. لا تُدخل أي مفتاح إدارة في هذين الحقلين.
 9. أعد البناء ثم ارفع `dist/index.html` للاستضافة الحالية. اختبر الدخول الفعلي قبل دعوة الطلاب.
