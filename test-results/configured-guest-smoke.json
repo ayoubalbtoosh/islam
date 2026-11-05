@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-11-05T01:41:25.771Z",
+  "passed": 2,
+  "failed": 0,
+  "results": [
+    {
+      "viewportWidth": 1366,
+      "status": "passed",
+      "checks": [
+        "configured gate buttons enabled",
+        "no credentials entered or OAuth action clicked",
+        "temporary guest real question and result",
+        "guest transfer controls absent",
+        "reload clears guest progress",
+        "no document overflow"
+      ]
+    },
+    {
+      "viewportWidth": 360,
+      "status": "passed",
+      "checks": [
+        "configured gate buttons enabled",
+        "no credentials entered or OAuth action clicked",
+        "temporary guest real question and result",
+        "guest transfer controls absent",
+        "reload clears guest progress",
+        "no document overflow"
+      ]
+    }
+  ],
+  "externalRequests": [],
+  "errors": [],
+  "limitations": [
+    "Uses unchanged production HTML with its current public configuration.",
+    "All external transport is blocked; no authentication endpoint or live account is exercised.",
+    "Email login, Google OAuth, provider availability, server allowlist and real synchronization remain unverified."
+  ]
+}

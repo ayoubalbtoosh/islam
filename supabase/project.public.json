@@ -2,5 +2,8 @@
   "projectRef": "havrclbzugenqxbarjkl",
   "url": "https://havrclbzugenqxbarjkl.supabase.co",
   "observedFrom": "owner_dashboard_screenshot",
-  "schemaApplicationConfirmed": false
+  "schemaApplicationConfirmed": false,
+  "schemaSetupReportedByOwner": true,
+  "schemaSetupEvidence": "SQL Editor screenshot: Success. No rows returned",
+  "apiConnectionVerified": false
 }

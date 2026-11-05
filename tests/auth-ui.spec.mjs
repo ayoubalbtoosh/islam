@@ -8,7 +8,9 @@ const require=createRequire(import.meta.url),{chromium}=require('playwright');
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),base=process.env.TEST_BASE_URL||'http://127.0.0.1:4173';
 await mkdir(path.join(root,'artifacts'),{recursive:true});
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),args:['--no-sandbox','--disable-dev-shm-usage']});
-const results=[],errors=[];let context,page;
+const results=[],errors=[],blockedExternalRequests=[];let context,page;
+const localOrigin=new URL(base).origin;
+function withAuthConfig(html,config){const marker=/^const AUTH_CONFIG=[^\r\n]*;$/gm;assert.equal([...html.matchAll(marker)].length,1,'Expected exactly one auth configuration marker');return html.replace(marker,'const AUTH_CONFIG='+JSON.stringify(config)+';');}
 const A='11111111-1111-4111-8111-111111111111',B='22222222-2222-4222-8222-222222222222',ADMIN='33333333-3333-4333-8333-333333333333',OUT='44444444-4444-4444-8444-444444444444';
 const clone=x=>JSON.parse(JSON.stringify(x));
 function server(){
@@ -64,15 +66,20 @@ async function newContext({mock=false,backend=server(),viewport={width:1366,heig
     from:()=>({select(){return this;},eq(_,id){this.id=id;return this;},maybeSingle(){return window.__testBackend({name:'read_progress',args:{user_id:this.id},user:session?.user||null});}})
    };}};
   },{ids:{A,B,ADMIN,OUT}});
-  await ctx.route(base+'/**',async route=>{
-   const pathname=new URL(route.request().url()).pathname;if(pathname!=='/'&&pathname!=='/index.html')return route.continue();
-   let html=await readFile(path.join(root,'dist/index.html'),'utf8');
-   html=html.replace('const AUTH_CONFIG={"url":"","publishableKey":""};','const AUTH_CONFIG={"url":"https://mock-project.supabase.test","publishableKey":"sb_publishable_test_only_browser_1234567890"};');
+ }
+ // Every test response sets its own public configuration and blocks external transport.
+ // A deployable project URL/key in the build must never select the live service here.
+ await ctx.route('**/*',async route=>{
+  const target=new URL(route.request().url());
+  if(target.origin!==localOrigin){blockedExternalRequests.push(target.origin);await route.abort('blockedbyclient');return;}
+  if(route.request().resourceType()!=='document'||!['/','/index.html'].includes(target.pathname)){await route.continue();return;}
+  let html=withAuthConfig(await readFile(path.join(root,'dist/index.html'),'utf8'),mock?{url:'https://mock-project.supabase.test',publishableKey:'sb_publishable_test_only_browser_1234567890'}:{url:'',publishableKey:''});
+  if(mock){
    assert.ok(html.includes('const Auth=(()=>{'),'Auth bridge marker missing from production build');
    html=html.replace('const Auth=(()=>{','SupabaseSDK=window.__testSupabaseSDK;\nconst Auth=(()=>{');
-   await route.fulfill({status:200,contentType:'text/html; charset=utf-8',body:html});
-  });
- }
+  }
+  await route.fulfill({status:200,contentType:'text/html; charset=utf-8',body:html});
+ });
  return{ctx,backend};
 }
 async function fresh(options={}){await context?.close();const next=await newContext(options);context=next.ctx;page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});await page.goto(base);await page.waitForFunction(()=>typeof S!=='undefined'&&S.ready&&document.querySelector('#main-content'));return next.backend;}
@@ -81,12 +88,12 @@ async function login(email){await page.locator('#auth-email').fill(email);await 
 async function logout(){await page.evaluate(()=>go('settings'));await page.locator('.account-card [data-action=auth-signout]').click();await page.locator('[data-action=auth-confirm-signout]').click();await page.waitForFunction(()=>Auth.current().mode==='signed-out'&&S.ready&&document.querySelector('#auth-email-form'));}
 async function oneRound(){await page.evaluate(async()=>{await createSession('training','u01_l01','easy','all',2,['a','b'],'none');while(S.session){const q=S.session.questions[S.session.current],a=q.answer;const r=q.type==='true_false'?a.value:['multiple_choice','fill_blank'].includes(q.type)?a.option_id:q.type==='multi_select'?a.option_ids:q.type==='ordering'?a.ordered_ids:Object.fromEntries(a.pairs.map(p=>[p.left_id,p.right_id]));await autoAnswer(r);}await Auth.syncNow();});}
 
-await test('real unconfigured service shows honest login gate without nickname bypass',async()=>{
+await test('explicit unconfigured fixture shows honest login gate without nickname bypass',async()=>{
  await fresh();assert.equal(await page.locator('.auth-screen').count(),1);assert.ok((await page.locator('.auth-panel').textContent()).includes('تسجيل الحسابات بانتظار التفعيل'));
  assert.equal(await page.locator('[data-action=auth-google]').isDisabled(),true);assert.equal(await page.locator('#auth-email-form button[type=submit]').isDisabled(),true);assert.equal(await page.locator('[data-action=save-name]').count(),0);
  assert.equal(await page.locator('#admin-allow-form').count(),0);assert.equal(await page.locator('[data-page=admin]').count(),0);
 });
-await test('real guest progress is temporary, isolated, and cleared by reload',async()=>{
+await test('production guest bridge under unconfigured fixture is temporary isolated and cleared by reload',async()=>{
  await fresh();await page.locator('[data-action=guest-name]').click();await page.waitForFunction(()=>Auth.current().mode==='guest'&&S.profile.name==='ضيف'&&!S.authBusy);
  assert.ok((await page.locator('.identity-guest').textContent()).includes('ضيف — تقدمك مؤقت ويُمسح عند إغلاق/تحديث الصفحة'));assert.equal(await page.evaluate(()=>db.status().persistent),false);
  await page.evaluate(async()=>{await createSession('training','u01_l01','easy','all',1,['a','b'],'none');const q=S.session.questions[0],a=q.answer;await autoAnswer(q.type==='true_false'?a.value:['multiple_choice','fill_blank'].includes(q.type)?a.option_id:q.type==='multi_select'?a.option_ids:q.type==='ordering'?a.ordered_ids:Object.fromEntries(a.pairs.map(p=>[p.left_id,p.right_id])));});
@@ -149,7 +156,7 @@ await test('mocked cloud conflict requires explicit choice and cancellation does
  const before=await page.evaluate(()=>S.profile.name);await page.locator('[data-action=auth-conflict][data-choice=cloud]').click();assert.ok(await page.locator('[data-action=auth-confirm-conflict]').count());await page.locator('[data-action=close-modal]').last().click();assert.equal(await page.evaluate(()=>S.profile.name),before);
  await page.locator('[data-action=auth-conflict][data-choice=cloud]').click();await page.locator('[data-action=auth-confirm-conflict]').click();await page.waitForFunction(()=>S.ready&&S.profile.name==='نسخة سحابية مستقلة'&&Auth.current().cloudStatus==='synced');assert.equal(await page.evaluate(()=>S.session),null);await page.reload();await page.waitForFunction(()=>S.ready&&Auth.current().mode==='account');assert.equal(await page.evaluate(()=>S.profile.name),'نسخة سحابية مستقلة');assert.equal(await page.evaluate(()=>S.session),null);
 });
-await test('no unexpected browser errors in auth UI checks',async()=>assert.deepEqual(errors,[]));
+await test('no unexpected browser errors in auth UI checks',async()=>{assert.deepEqual(errors,[]);assert.deepEqual(blockedExternalRequests,[]);});
 await context?.close();await browser.close();
-const report={generatedAt:new Date().toISOString(),passed:results.filter(r=>r.status==='passed').length,failed:results.filter(r=>r.status==='failed').length,results,errors,limitations:['Guest/unconfigured checks use the actual production bridge and browser memory storage.','Configured account, admin, Google API contract and cloud checks replace SDK transport in a routed HTML response with a deterministic test double. No production test switch exists.','These checks do not prove live Google OAuth, Supabase delivery, hosted RLS or a deployed account service.']};
+const report={generatedAt:new Date().toISOString(),passed:results.filter(r=>r.status==='passed').length,failed:results.filter(r=>r.status==='failed').length,results,errors,blockedExternalRequests,limitations:['Guest/unconfigured checks use the production bridge and browser memory storage with an explicitly empty test-response configuration, independent of deployed public settings.','Configured account, admin, Google API contract and cloud checks replace SDK transport in a routed HTML response with a deterministic test double. Every fixture replaces the configuration generically and blocks external network requests. No production test switch exists.','These checks do not prove live Google OAuth, Supabase delivery, hosted RLS or a deployed account service.']};
 await writeFile(path.join(root,'artifacts/auth-ui-results.json'),JSON.stringify(report,null,2));console.log(`${report.passed} passed, ${report.failed} failed.`);process.exitCode=report.failed?1:0;

@@ -1,7 +1,7 @@
 {
   "version": "2.1.0",
-  "production_bytes": 2700039,
-  "production_sha256": "6cb46165d6bbfd9a4ee9e0d9804fe08bec43bb523a547694d7186dbf1e3d2bf7",
+  "production_bytes": 2700125,
+  "production_sha256": "63e6d032aeaf6d717955019a4aceabfad8de51ea7fdca7d02045c2719803d46c",
   "account_service_configured": false,
   "live_oauth_tested": false,
   "tests": {
@@ -12,5 +12,9 @@
     "auth_ui_real_guest_and_mocked_accounts_passed": 12
   },
   "admin_bootstrap_email": "ayobalbtoosh41@gmail.com",
-  "scope": "guest memory-only; per-account cache and prepared Supabase backend"
+  "scope": "guest memory-only; per-account cache and prepared Supabase backend",
+  "public_client_configuration_present": true,
+  "live_service_verified": false,
+  "live_verification_blocker": "managed proxy CONNECT 403",
+  "configured_guest_smoke_passed": 2
 }
