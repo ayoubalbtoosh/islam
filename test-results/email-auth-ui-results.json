@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2026-11-05T09:04:29.130Z",
+  "testedBuildSha256": "8d4dc32883c7f7575903cab93dfc1408d8f2d1c0ddf12ecb7ff2b3acd81122f5",
+  "passed": 13,
+  "failed": 0,
+  "results": [
+    {
+      "name": "explicit unconfigured fixture shows honest login gate without nickname bypass",
+      "status": "passed",
+      "milliseconds": 3197
+    },
+    {
+      "name": "production guest bridge under unconfigured fixture is temporary isolated and cleared by reload",
+      "status": "passed",
+      "milliseconds": 1992
+    },
+    {
+      "name": "auth gate and guest banner fit phone tablet desktop and preserve source attribution",
+      "status": "passed",
+      "milliseconds": 13961
+    },
+    {
+      "name": "public email signup confirmation leaves user signed out and clears site passwords",
+      "status": "passed",
+      "milliseconds": 3271
+    },
+    {
+      "name": "signup tabs are accessible and mismatched site passwords never reach authentication",
+      "status": "passed",
+      "milliseconds": 1579
+    },
+    {
+      "name": "mocked rejected credentials stay signed out and clear password without logging it",
+      "status": "passed",
+      "milliseconds": 1495
+    },
+    {
+      "name": "public email signup accepts other domains and Gmail with private progress and no self-admin",
+      "status": "passed",
+      "milliseconds": 5839
+    },
+    {
+      "name": "mocked account A/B storage is separate and account A restores from cloud in fresh browser context",
+      "status": "passed",
+      "milliseconds": 6167
+    },
+    {
+      "name": "mocked SDK identity change cannot upload account A progress under account B",
+      "status": "passed",
+      "milliseconds": 4027
+    },
+    {
+      "name": "owner roster and student details expose safe progress without credentials and preserve disable controls",
+      "status": "passed",
+      "milliseconds": 18138
+    },
+    {
+      "name": "mocked offline cloud cannot trap sign-out and preserves account cache",
+      "status": "passed",
+      "milliseconds": 7936
+    },
+    {
+      "name": "mocked cloud conflict requires explicit choice and cancellation does not overwrite data",
+      "status": "passed",
+      "milliseconds": 3389
+    },
+    {
+      "name": "no unexpected browser errors in auth UI checks",
+      "status": "passed",
+      "milliseconds": 5
+    }
+  ],
+  "errors": [],
+  "blockedExternalRequests": [],
+  "screenshotsCaptured": false,
+  "limitations": [
+    "Guest/unconfigured checks use the production bridge and browser memory storage with an explicitly empty test-response configuration, independent of deployed public settings.",
+    "Configured account, admin, Public email signup, confirmation-required and admin student-detail and cloud checks replace SDK transport in a routed HTML response with a deterministic test double. Every fixture replaces the configuration generically and blocks external network requests. No production test switch exists.",
+    "These checks do not prove live email delivery, Supabase availability, hosted RLS or a deployed account service."
+  ]
+}

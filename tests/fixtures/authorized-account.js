@@ -1,7 +1,7 @@
 /** TEST ONLY: inserted into a Playwright response before startApplication().
  * This synthetic account bypasses authentication to isolate the existing game,
  * IndexedDB and lifecycle regressions. It never ships in the production bundle
- * and does not prove OAuth, allowlist authorization, RLS or real cloud sync.
+ * and does not prove email delivery, account registration, RLS or real cloud sync.
  */
 (()=>{
  const identity={mode:'account',configured:true,user:{id:'00000000-0000-4000-8000-000000000042',email:'learner@fixture.test',name:'حساب اختبار محاكى'},isAdmin:false,cloudStatus:'local',error:''};
@@ -15,5 +15,5 @@
  Auth.resetProgress=async()=>{fixture.remoteRecords={};fixture.resetCount++;await db.clear();await db.flush();};
  Auth.signOut=async()=>{await Auth.flush();identity.mode='signed-out';identity.user=null;await db.useGuest();location.reload();};
  Auth.signInEmail=async()=>{throw Error('The game fixture must not exercise real sign-in.');};
- Auth.signInGoogle=async()=>{throw Error('The game fixture must not exercise real OAuth.');};
+ Auth.signUpEmail=async()=>{throw Error('The game fixture must not exercise account creation.');};
 })();

@@ -1,0 +1,41 @@
+{
+  "version": "2.3.0",
+  "bytes": 2717880,
+  "sha256": "8d4dc32883c7f7575903cab93dfc1408d8f2d1c0ddf12ecb7ff2b3acd81122f5",
+  "identical_outputs": [
+    "index.html",
+    "standalone.html",
+    "dist/index.html"
+  ],
+  "node_tests": {
+    "passed": 90,
+    "failed": 0
+  },
+  "auth_browser_tests": {
+    "passed": 13,
+    "failed": 0,
+    "skipped": 0,
+    "external_requests": 0,
+    "scope": "isolated SDK/Auth transport fixtures; actual guest mode"
+  },
+  "sql_tests": {
+    "passed": 21,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "local PostgreSQL/PGlite with Auth/session fixtures"
+  },
+  "backend_003_applied": "unverified",
+  "live_email_signup_and_sync": "unverified",
+  "site_url": "https://ayoubalbtoosh.github.io/islam/",
+  "publication": "GitHub Pages workflow succeeded",
+  "deployment_commit": "6a7214133b849e1f964cfdba155c72b68d8028ab",
+  "game_browser_tests": {
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "selected game regressions with synthetic account fixture"
+  },
+  "setup_sql_smoke": "passed twice; idempotent with owner prerequisite",
+  "pages_run": "https://github.com/ayoubalbtoosh/islam/actions/runs/41999402895",
+  "direct_public_site_render": "unverified: github.io host denied by managed proxy"
+}

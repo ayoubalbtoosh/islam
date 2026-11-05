@@ -1,4 +1,4 @@
-PASS run 1: four RLS tables, four policies, exact administrator allowlist, fenced RPC grants; no Auth users/passwords/student records created.
-PASS run 2: four RLS tables, four policies, exact administrator allowlist, fenced RPC grants; no Auth users/passwords/student records created.
-PASS exact source concatenation and three-transaction preservation, including open-Google-registration migration.
+PASS run 1: four RLS tables, four policies, exact owner UID binding and fenced RPC grants; existing owner only, no Auth users/passwords added.
+PASS run 2: four RLS tables, four policies, exact owner UID binding and fenced RPC grants; existing owner only, no Auth users/passwords added.
+PASS owner preflight before policy changes, exact source concatenation, and three-transaction preservation including public Email/password migration003.
 RESULT: fresh local PostgreSQL setup and idempotent second run passed. No live Supabase operation was performed.

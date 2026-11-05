@@ -1,0 +1,17 @@
+
+> tahadi-tawjihi-islamic@2.3.0 test:browser
+> node tests/browser.spec.mjs
+
+PASS initial load, real data counts, creator separate from learner
+PASS native answer interface: multiple_choice
+PASS native answer interface: fill_blank
+PASS native answer interface: true_false
+PASS native answer interface: multi_select
+PASS native answer interface: matching
+PASS native answer interface: ordering
+PASS all eleven modes start and finish; session counts are unique
+PASS exam difficulty and unit filters, total 45 minutes, last answer kept editable
+PASS settings persist after fresh page, export JSON, malformed import rejected
+PASS confirmed reset clears active session and does not resurrect it on reload
+PASS no browser JavaScript or console errors
+12 passed, 0 failed.

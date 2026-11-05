@@ -1,5 +1,7 @@
 # اختبارات تسجيل Google المفتوح — 2026-11-05
 
+هذا تقرير تاريخي للسياسة السابقة002. أُلغي Google من الواجهة، والسياسة الحالية للتسجيل العام بالبريد وكلمة مرور المنصة ونتائجها في [PUBLIC_EMAIL_TEST_RESULTS.md](PUBLIC_EMAIL_TEST_RESULTS.md).
+
 **نجح 14 اختبارًا محليًا، دون فشل أو تجاوز:** 12 اختبارًا فرعيًا ضمن اختبار الترقية، واختبار الترقية الرئيسي، واختبار تجهيز مشروع جديد. السجل: [open-google-signup.tap](test-results/open-google-signup.tap).
 
 نُفّذ [open-google-signup.test.mjs](tests/open-google-signup.test.mjs) بمحرك PostgreSQL الحقيقي PGlite 0.3.14، مع تعريفات Auth وJWT مصغرة:

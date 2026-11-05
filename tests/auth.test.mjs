@@ -10,19 +10,28 @@ const bank=JSON.parse(fs.readFileSync(new URL('../data/questions.json',import.me
 const A='11111111-1111-4111-8111-111111111111',B='22222222-2222-4222-8222-222222222222';
 const config={url:'https://school-test.supabase.co',publishableKey:'sb_publishable_test_public_key_not_a_secret'};
 const plain=x=>JSON.parse(JSON.stringify(x));
-function runtime({configured=true,sessionUser=A,allowed=true,admin=false,remote=null,networkError=false}={}){
- const local=new Map(),calls=[],events=[];let reloads=0,listener;const server={remote:remote&&plain(remote),networkError,sessionUser,allowed,admin};
+function runtime({configured=true,sessionUser=A,allowed=true,admin=false,remote=null,networkError=false,confirmEmail=false,signupError=false}={}){
+ const local=new Map(),calls=[],events=[];let reloads=0,listener;const server={remote:remote&&plain(remote),networkError,sessionUser,allowed,admin,confirmEmail,signupError};
  const client={auth:{
   getSession:async()=>({data:{session:server.sessionUser?{user:{id:server.sessionUser,email:'student@example.com'}}:null},error:null}),
   onAuthStateChange:fn=>{listener=fn;return{data:{subscription:{unsubscribe(){}}}};},
   signInWithPassword:async payload=>{calls.push({api:'password',payload:plain(payload)});server.sessionUser=server.sessionUser||A;return{data:{session:{user:{id:server.sessionUser}}},error:null};},
-  signInWithOAuth:async payload=>{calls.push({api:'oauth',payload:plain(payload)});return{error:null};},
+  signUp:async payload=>{
+   calls.push({api:'signup',payload:plain(payload)});
+   if(server.signupError)return{data:null,error:{message:'private provider error'}};
+   if(server.confirmEmail)return{data:{user:{id:A},session:null},error:null};
+   server.sessionUser=A;return{data:{session:{user:{id:A}}},error:null};
+  },
   signOut:async()=>{calls.push({api:'signOut'});return{error:null};}
  },
  rpc:async(name,args)=>{
   calls.push({api:name,args:args&&plain(args)});
   if(server.networkError)return{data:null,error:{code:'network'}};
   if(name==='record_login')return{data:{allowed:server.allowed,is_admin:server.admin,user_id:server.sessionUser,email:'student@example.com',display_name:'طالب مسموح'},error:null};
+  if(name==='platform_admin_student_details'){
+   if(server.switchDuringDetails)server.sessionUser=B;
+   return{data:{user:{id:args.p_user_id,email:'student@example.com'},profile:{name:'طالب'},progress:{results:[]},login_events:[]},error:null};
+  }
   if(name==='save_user_progress'){
    if(server.raceToUser){server.sessionUser=server.raceToUser;server.raceToUser=null;}
    if(args.p_user_id!==server.sessionUser)return{data:null,error:{code:'42501'}};
@@ -57,7 +66,7 @@ test('server-approved identity alone sets admin role and prepares isolated accou
  const r=runtime({admin:false});await r.Auth.init();await r.Auth.prepareStorage();assert.equal(r.Auth.current().mode,'account');assert.equal(r.Auth.current().isAdmin,false);assert.equal(r.db.status().userId,A);
  await assert.rejects(r.Auth.adminRoster(),/مخصصة/);assert.equal(r.calls.some(c=>c.api==='platform_admin_roster'),false);
 });
-test('verified but unlisted identity is signed out and no account progress opened',async()=>{
+test('server-disabled identity is signed out and no account progress opened',async()=>{
  const r=runtime({allowed:false});await r.Auth.init();await r.Auth.prepareStorage();assert.equal(r.Auth.current().mode,'signed-out');assert.equal(r.db.status().guest,true);assert.equal(r.calls.some(c=>c.api==='signOut'),true);
 });
 test('password is sent only to official SDK, never app state, progress or admin RPC',async()=>{
@@ -65,8 +74,28 @@ test('password is sent only to official SDK, never app state, progress or admin 
  assert.equal(r.reloads(),1);assert.equal(r.calls.find(c=>c.api==='password').payload.password,password);
  assert.equal(JSON.stringify(r.Auth.current()).includes(password),false);assert.equal(JSON.stringify(await r.db.all()).includes(password),false);assert.equal(JSON.stringify(r.calls.filter(c=>c.api!=='password')).includes(password),false);
 });
-test('Google uses official OAuth redirect without asking for Google password',async()=>{
- const r=runtime({sessionUser:null});await r.Auth.init();await r.Auth.signInGoogle();const oauth=r.calls.find(c=>c.api==='oauth');assert.equal(oauth.payload.provider,'google');assert.equal(oauth.payload.options.redirectTo,'https://example.org/islam/');assert.equal('password' in oauth.payload,false);
+test('email signup sends site password only to official SDK and reloads only a server-approved session',async()=>{
+ const r=runtime({sessionUser:null});await r.Auth.init();await r.Auth.prepareStorage();const password='dummy-signup-password-only';
+ assert.deepEqual(plain(await r.Auth.signUpEmail(' طالب جديد ',' new@example.org ',password)),{confirmationRequired:false});
+ assert.equal(r.reloads(),1);assert.equal(r.Auth.current().mode,'account');
+ assert.deepEqual(r.calls.find(c=>c.api==='signup').payload,{email:'new@example.org',password,options:{data:{display_name:'طالب جديد'},emailRedirectTo:'https://example.org/islam/'}});
+ assert.equal(JSON.stringify(r.Auth.current()).includes(password),false);assert.equal(JSON.stringify(await r.db.all()).includes(password),false);assert.equal(JSON.stringify(r.calls.filter(c=>c.api!=='signup')).includes(password),false);
+ assert.equal('signInGoogle' in r.Auth,false);
+});
+test('confirmation-required signup never creates an authenticated state or a progress scope',async()=>{
+ const r=runtime({sessionUser:null,confirmEmail:true});await r.Auth.init();await r.Auth.prepareStorage();
+ const result=await r.Auth.signUpEmail('طالب','new@example.org','dummy-signup-password');assert.equal(result.confirmationRequired,true);assert.match(result.message,/إذا كان/);
+ assert.equal(r.Auth.current().mode,'signed-out');assert.equal(r.db.status().guest,true);assert.equal(r.reloads(),0);assert.equal(r.calls.some(c=>c.api==='record_login'),false);
+});
+test('signup validation and provider errors never claim successful registration',async()=>{
+ const r=runtime({sessionUser:null,signupError:true});await r.Auth.init();
+ for(const args of [['','a@example.org','dummy-password'],['طالب','invalid','dummy-password'],['طالب','a@example.org','short'],['طالب','a@example.org','x'.repeat(257)]])await assert.rejects(r.Auth.signUpEmail(...args),/أدخل اسمك/);
+ assert.equal(r.calls.some(c=>c.api==='signup'),false);
+ await assert.rejects(r.Auth.signUpEmail('طالب','a@example.org','dummy-password'),/تعذر إنشاء/);assert.equal(r.Auth.current().mode,'signed-out');assert.equal(r.reloads(),0);
+});
+test('signup never opens an account rejected by the server or replaces an authenticated account',async()=>{
+ const rejected=runtime({sessionUser:null,allowed:false});await rejected.Auth.init();await assert.rejects(rejected.Auth.signUpEmail('طالب','a@example.org','dummy-password'),/تعذر فتح الحساب/);assert.equal(rejected.Auth.current().mode,'signed-out');assert.equal(rejected.reloads(),0);
+ const active=runtime();await active.Auth.init();await assert.rejects(active.Auth.signUpEmail('طالب','a@example.org','dummy-password'),/سجّل الخروج/);assert.equal(active.calls.some(c=>c.api==='signup'),false);
 });
 test('cloud restore validates record schema and canonical bank before local hydration',async()=>{
  const r=runtime({remote:{user_id:A,revision:3,updated_at:new Date().toISOString(),records:{profile:{name:'محفوظ',xp:40,coins:0,level:1}}}});await r.Auth.init();await r.Auth.prepareStorage();assert.equal((await r.db.get('profile')).name,'محفوظ');assert.equal(r.Auth.current().cloudStatus,'synced');assert.equal((await r.db.get('cloud-sync')).revision,3);
@@ -93,6 +122,12 @@ test('failed cloud reset does not erase local account progress',async()=>{
 test('administrator APIs use server RPC checks without submitting passwords or roles',async()=>{
  const r=runtime({admin:true});await r.Auth.init();await r.Auth.prepareStorage();await r.Auth.adminRoster();await r.Auth.adminAllowAccount('student2@example.com','طالب ثان');await r.Auth.adminDisableAccount('student2@example.com',true);
  assert.deepEqual(r.calls.find(c=>c.api==='admin_allow_account').args,{p_email:'student2@example.com',p_display_name:'طالب ثان'});assert.deepEqual(r.calls.find(c=>c.api==='admin_disable_account').args,{p_email:'student2@example.com',p_disabled:true});
+});
+test('student details require an administrator and valid target, then check identity again before return',async()=>{
+ const student=runtime();await student.Auth.init();await assert.rejects(student.Auth.adminStudentDetails(B),/مخصصة/);assert.equal(student.calls.some(c=>c.api==='platform_admin_student_details'),false);
+ const r=runtime({admin:true});await r.Auth.init();await r.Auth.prepareStorage();await assert.rejects(r.Auth.adminStudentDetails('bad-id'),/معرّف/);
+ const detail=await r.Auth.adminStudentDetails(B);assert.equal(detail.user.id,B);assert.deepEqual(r.calls.find(c=>c.api==='platform_admin_student_details').args,{p_user_id:B});
+ r.server.switchDuringDetails=true;await assert.rejects(r.Auth.adminStudentDetails(B),/تغير حساب/);assert.equal(r.Auth.current().mode,'signed-out');
 });
 test('choosing another identity never imports previous account or guest data',async()=>{
  const r=runtime();await r.Auth.init();await r.Auth.prepareStorage();await r.db.put('profile',{name:'A',xp:10});await r.Auth.flush();r.server.sessionUser=B;r.server.remote=null;

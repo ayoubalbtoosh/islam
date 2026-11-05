@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2026-11-05T08:59:12.835Z",
+  "browser": "Chromium /usr/bin/chromium via Playwright",
+  "baseUrl": "http://127.0.0.1:4173",
+  "results": [
+    {
+      "name": "initial load, real data counts, creator separate from learner",
+      "status": "passed",
+      "milliseconds": 2506
+    },
+    {
+      "name": "native answer interface: multiple_choice",
+      "status": "passed",
+      "milliseconds": 4490
+    },
+    {
+      "name": "native answer interface: fill_blank",
+      "status": "passed",
+      "milliseconds": 1282
+    },
+    {
+      "name": "native answer interface: true_false",
+      "status": "passed",
+      "milliseconds": 3404
+    },
+    {
+      "name": "native answer interface: multi_select",
+      "status": "passed",
+      "milliseconds": 3197
+    },
+    {
+      "name": "native answer interface: matching",
+      "status": "passed",
+      "milliseconds": 1622
+    },
+    {
+      "name": "native answer interface: ordering",
+      "status": "passed",
+      "milliseconds": 1511
+    },
+    {
+      "name": "all eleven modes start and finish; session counts are unique",
+      "status": "passed",
+      "milliseconds": 4137
+    },
+    {
+      "name": "exam difficulty and unit filters, total 45 minutes, last answer kept editable",
+      "status": "passed",
+      "milliseconds": 1365
+    },
+    {
+      "name": "settings persist after fresh page, export JSON, malformed import rejected",
+      "status": "passed",
+      "milliseconds": 2554
+    },
+    {
+      "name": "confirmed reset clears active session and does not resurrect it on reload",
+      "status": "passed",
+      "milliseconds": 2038
+    },
+    {
+      "name": "no browser JavaScript or console errors",
+      "status": "passed",
+      "milliseconds": 1
+    }
+  ],
+  "consoleErrors": [],
+  "passed": 12,
+  "failed": 0,
+  "skipped": 0,
+  "notes": [
+    "All data were isolated in fresh test browser contexts.",
+    "The historical game and persistence regressions use tests/fixtures/authorized-account.js injected into test responses only. It simulates an authorized non-admin account and an in-memory cloud endpoint; it does not test live email signup/login, email delivery, RLS or real cloud synchronization. Production HTML and auth configuration are not altered.",
+    "Account progress reset returns to the authenticated account display name; guest no-persistence behavior is covered by the separate authentication UI suite.",
+    "Some lifecycle tests call actual application functions directly using real bank questions. Native type controls, setup, exam navigation and backup controls are also exercised through actual DOM actions.",
+    "Timer expiry is accelerated by moving recorded start timestamps backward; no claim of a 45-minute wall-clock wait.",
+    "No testing on physical phones, Safari or Firefox."
+  ],
+  "testedBuildSha256": "8d4dc32883c7f7575903cab93dfc1408d8f2d1c0ddf12ecb7ff2b3acd81122f5",
+  "scope": "Selected historical game regressions on final email-auth build; not a new full historical suite run."
+}

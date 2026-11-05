@@ -1,0 +1,138 @@
+TAP version 13
+# Subtest: 003 upgrade after 001 only protects owner identity and public Email study data
+    # Subtest: binds only preexisting confirmed owner once and preserves installed history/progress
+    ok 1 - binds only preexisting confirmed owner once and preserves installed history/progress
+      ---
+      duration_ms: 116.664903
+      type: 'test'
+      ...
+    # Subtest: any Email domain registers without approval; confirmation follows Auth session issuance
+    ok 2 - any Email domain registers without approval; confirmation follows Auth session issuance
+      ---
+      duration_ms: 60.038281
+      type: 'test'
+      ...
+    # Subtest: hook permits arbitrary Email signup, rejects explicit blocks/anonymous/Google and spoofed user roles
+    ok 3 - hook permits arbitrary Email signup, rejects explicit blocks/anonymous/Google and spoofed user roles
+      ---
+      duration_ms: 702.670271
+      type: 'test'
+      ...
+    # Subtest: Google identity and editable metadata cannot claim Email access or administrator authority
+    ok 4 - Google identity and editable metadata cannot claim Email access or administrator authority
+      ---
+      duration_ms: 52.004979
+      type: 'test'
+      ...
+    # Subtest: student snapshots remain own-only, CAS guarded and tied to expected immutable identity
+    ok 5 - student snapshots remain own-only, CAS guarded and tied to expected immutable identity
+      ---
+      duration_ms: 52.079597
+      type: 'test'
+      ...
+    # Subtest: bound admin receives all safe results/answers/visits/settings, never arbitrary secrets or Auth credentials
+    ok 6 - bound admin receives all safe results/answers/visits/settings, never arbitrary secrets or Auth credentials
+      ---
+      duration_ms: 142.70969
+      type: 'test'
+      ...
+    # Subtest: blocking survives repeated signup metadata, login and migration; admin may still inspect safe study records
+    ok 7 - blocking survives repeated signup metadata, login and migration; admin may still inspect safe study records
+      ---
+      duration_ms: 187.656786
+      type: 'test'
+      ...
+    # Subtest: real session logging is idempotent and private admin tables cannot be read or modified by students
+    ok 8 - real session logging is idempotent and private admin tables cannot be read or modified by students
+      ---
+      duration_ms: 48.811129
+      type: 'test'
+      ...
+    # Subtest: deleting owner removes binding but never initialization; confirmed same-email replacement cannot regain admin
+    ok 9 - deleting owner removes binding but never initialization; confirmed same-email replacement cannot regain admin
+      ---
+      duration_ms: 103.488214
+      type: 'test'
+      ...
+    1..9
+ok 1 - 003 upgrade after 001 only protects owner identity and public Email study data
+  ---
+  duration_ms: 5539.536964
+  type: 'test'
+  ...
+# Subtest: 003 upgrade after 001+002 protects owner identity and public Email study data
+    # Subtest: binds only preexisting confirmed owner once and preserves installed history/progress
+    ok 1 - binds only preexisting confirmed owner once and preserves installed history/progress
+      ---
+      duration_ms: 64.237178
+      type: 'test'
+      ...
+    # Subtest: any Email domain registers without approval; confirmation follows Auth session issuance
+    ok 2 - any Email domain registers without approval; confirmation follows Auth session issuance
+      ---
+      duration_ms: 46.871849
+      type: 'test'
+      ...
+    # Subtest: hook permits arbitrary Email signup, rejects explicit blocks/anonymous/Google and spoofed user roles
+    ok 3 - hook permits arbitrary Email signup, rejects explicit blocks/anonymous/Google and spoofed user roles
+      ---
+      duration_ms: 20.90188
+      type: 'test'
+      ...
+    # Subtest: Google identity and editable metadata cannot claim Email access or administrator authority
+    ok 4 - Google identity and editable metadata cannot claim Email access or administrator authority
+      ---
+      duration_ms: 31.558356
+      type: 'test'
+      ...
+    # Subtest: student snapshots remain own-only, CAS guarded and tied to expected immutable identity
+    ok 5 - student snapshots remain own-only, CAS guarded and tied to expected immutable identity
+      ---
+      duration_ms: 25.917965
+      type: 'test'
+      ...
+    # Subtest: bound admin receives all safe results/answers/visits/settings, never arbitrary secrets or Auth credentials
+    ok 6 - bound admin receives all safe results/answers/visits/settings, never arbitrary secrets or Auth credentials
+      ---
+      duration_ms: 72.64499
+      type: 'test'
+      ...
+    # Subtest: blocking survives repeated signup metadata, login and migration; admin may still inspect safe study records
+    ok 7 - blocking survives repeated signup metadata, login and migration; admin may still inspect safe study records
+      ---
+      duration_ms: 228.266695
+      type: 'test'
+      ...
+    # Subtest: real session logging is idempotent and private admin tables cannot be read or modified by students
+    ok 8 - real session logging is idempotent and private admin tables cannot be read or modified by students
+      ---
+      duration_ms: 27.861436
+      type: 'test'
+      ...
+    # Subtest: deleting owner removes binding but never initialization; confirmed same-email replacement cannot regain admin
+    ok 9 - deleting owner removes binding but never initialization; confirmed same-email replacement cannot regain admin
+      ---
+      duration_ms: 80.927319
+      type: 'test'
+      ...
+    1..9
+ok 2 - 003 upgrade after 001+002 protects owner identity and public Email study data
+  ---
+  duration_ms: 2533.212172
+  type: 'test'
+  ...
+# Subtest: 003 first-run prerequisite rolls back cleanly and full setup safely initializes a confirmed owner
+ok 3 - 003 first-run prerequisite rolls back cleanly and full setup safely initializes a confirmed owner
+  ---
+  duration_ms: 2290.052853
+  type: 'test'
+  ...
+1..3
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 10953.166393

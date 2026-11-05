@@ -1,4 +1,4 @@
-/** Official Supabase SDK handles passwords and OAuth; this application never stores them. */
+/** Official Supabase SDK handles site passwords; this application never stores them. */
 const Auth=(()=>{
  const copy=value=>JSON.parse(JSON.stringify(value));
  const state={mode:'signed-out',configured:false,user:null,isAdmin:false,cloudStatus:'local',error:''};
@@ -33,7 +33,7 @@ const Auth=(()=>{
   if(!session?.user?.id){state.mode='signed-out';state.user=null;state.isAdmin=false;return;}
   const {data,error}=await client.rpc('record_login');
   if(error)fail('تعذر التحقق من صلاحية الحساب. حاول مجددًا، أو تواصل مع الإدارة.');
-  if(!data?.allowed){await client.auth.signOut({scope:'local'});state.mode='signed-out';state.user=null;state.isAdmin=false;fail('تعذر فتح الحساب. تأكد من توثيق البريد وطريقة الدخول، أو تواصل مع الإدارة إذا كان الحساب معطّلًا.');}
+  if(!data?.allowed){await client.auth.signOut({scope:'local'});state.mode='signed-out';state.user=null;state.isAdmin=false;fail('تعذر فتح الحساب. تواصل مع الإدارة إذا كان حسابك معطّلًا.');}
   if(data.user_id!==session.user.id||typeof data.email!=='string')fail('تعذر التحقق من هوية الحساب.');
   state.mode='account';state.user={id:data.user_id,email:data.email,name:data.display_name||data.email};state.isAdmin=data.is_admin===true;state.error='';
  }
@@ -157,15 +157,23 @@ const Auth=(()=>{
   state.error='';const result=await client.auth.signInWithPassword({email:email.trim(),password});
   // Never assign password to app state, progress, logs, analytics or an admin record.
   if(result.error)fail('تعذر تسجيل الدخول. تحقق من بيانات حساب المنصة أو تواصل مع الإدارة.');
+  if(!result.data?.session?.user?.id)fail('لم تُفتح جلسة الحساب. أكّد بريدك إذا كان تأكيد البريد مفعّلًا ثم حاول مجددًا.');
   try{await verifySession(result.data.session);}catch(error){state.error=error.message;emit();throw error;}
   emit();location.reload();
  }
- async function signInGoogle(){
-  await init();if(!client)fail('تسجيل Google غير مفعّل بعد. يمكنك المتابعة كضيف مؤقتًا.');
-  if(!['https:','http:'].includes(location.protocol))fail('افتح الموقع من رابطه المنشور لتسجيل الدخول بحساب Google.');
+ async function signUpEmail(name,email,password){
+  await init();if(!client)fail('تسجيل الحسابات غير مفعّل بعد. يمكنك المتابعة كضيف مؤقتًا.');
+  if(state.mode==='account')fail('سجّل الخروج قبل إنشاء حساب آخر.');
+  if(typeof name!=='string'||!name.trim()||name.trim().length>80||typeof email!=='string'||email.trim().length>254||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())||typeof password!=='string'||password.length<8||password.length>256)fail('أدخل اسمك وإيميلًا صالحًا وكلمة مرور خاصة بالموقع من 8 إلى 256 حرفًا.');
+  if(!['https:','http:'].includes(location.protocol))fail('افتح الموقع من رابطه المنشور لإنشاء حساب.');
   const redirect=new URL(location.href);redirect.search='';redirect.hash='';
-  const result=await client.auth.signInWithOAuth({provider:'google',options:{redirectTo:redirect.href,queryParams:{prompt:'select_account'}}});
-  if(result.error)fail('تعذر بدء تسجيل Google. حاول مجددًا أو تواصل مع الإدارة.');
+  state.error='';
+  const result=await client.auth.signUp({email:email.trim(),password,options:{data:{display_name:name.trim()},emailRedirectTo:redirect.href}});
+  if(result.error)fail('تعذر إنشاء الحساب. جرّب بيانات حساب صالحة وكلمة مرور أقوى، أو سجّل الدخول إذا كان لديك حساب.');
+  // A confirmation response is not an authenticated session, including duplicate-email responses.
+  if(!result.data?.session?.user?.id)return {confirmationRequired:true,message:'إذا كان الإيميل متاحًا للتسجيل، تحقق من رسالة تأكيد البريد ثم سجّل الدخول. إذا كان لديك حساب، استخدم تسجيل الدخول.'};
+  try{await verifySession(result.data.session);}catch(error){state.error=error.message;emit();throw error;}
+  emit();location.reload();return {confirmationRequired:false};
  }
  async function enterGuest(){
   if(state.mode==='account')fail('سجّل الخروج من حسابك قبل المتابعة كضيف.');
@@ -194,7 +202,14 @@ const Auth=(()=>{
   await db.replaceAll({'cloud-sync':{revision,snapshotHash,lastSyncedAt:data.updated_at}},{silent:true,scopeToken:token});state.cloudStatus='synced';state.error='';emit();
  }
  async function adminRoster(){requireAdmin();await checkSession(state.user.id);const {data,error}=await client.rpc('platform_admin_roster');if(error)fail('تعذر تحميل لوحة الإدارة أو لم تعد لديك صلاحيتها.');return data;}
- async function adminAllowAccount(email,name){requireAdmin();await checkSession(state.user.id);const {data,error}=await client.rpc('admin_allow_account',{p_email:email,p_display_name:name});if(error)fail('تعذر إضافة الحساب إلى القائمة المسموحة.');return data;}
+ async function adminStudentDetails(userId){
+  requireAdmin();if(typeof userId!=='string'||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(userId))fail('معرّف الطالب غير صالح.');
+  const id=state.user.id;await checkSession(id);
+  const {data,error}=await client.rpc('platform_admin_student_details',{p_user_id:userId});
+  if(error||!data)fail('تعذر تحميل بيانات الطالب أو لم تعد لديك صلاحية الإدارة.');
+  await checkSession(id);return data;
+ }
+ async function adminAllowAccount(email,name){requireAdmin();await checkSession(state.user.id);const {data,error}=await client.rpc('admin_allow_account',{p_email:email,p_display_name:name});if(error)fail('تعذر تحديث بيانات الحساب أو تفعيله.');return data;}
  async function adminDisableAccount(email,disabled){requireAdmin();await checkSession(state.user.id);const {data,error}=await client.rpc('admin_disable_account',{p_email:email,p_disabled:!!disabled});if(error)fail('تعذر تغيير حالة الحساب. لا يمكن تعطيل آخر مدير.');return data;}
- return {init,current,prepareStorage,signInEmail,signInGoogle,enterGuest,signOut,syncNow,flush,resolveConflict,resetProgress,adminRoster,adminAllowAccount,adminDisableAccount,publicConfig};
+ return {init,current,prepareStorage,signInEmail,signUpEmail,enterGuest,signOut,syncNow,flush,resolveConflict,resetProgress,adminRoster,adminStudentDetails,adminAllowAccount,adminDisableAccount,publicConfig};
 })();

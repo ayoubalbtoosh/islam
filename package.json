@@ -1,8 +1,8 @@
 {
   "name": "tahadi-tawjihi-islamic",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "private": true,
-  "description": "منصة تحدي التوجيهي — تسجيل مفتوح بحساب Google وضيف مؤقت",
+  "description": "منصة تحدي التوجيهي — إيميل وكلمة مرور خاصة بالموقع وضيف مؤقت",
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
