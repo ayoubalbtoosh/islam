@@ -1,74 +1,75 @@
 {
-  "generatedAt": "2026-11-05T01:41:10.205Z",
+  "generatedAt": "2026-11-05T08:15:33.618Z",
   "passed": 12,
   "failed": 0,
   "results": [
     {
       "name": "explicit unconfigured fixture shows honest login gate without nickname bypass",
       "status": "passed",
-      "milliseconds": 1279
+      "milliseconds": 1228
     },
     {
       "name": "production guest bridge under unconfigured fixture is temporary isolated and cleared by reload",
       "status": "passed",
-      "milliseconds": 1542
+      "milliseconds": 1724
     },
     {
       "name": "auth gate and guest banner fit phone tablet desktop and preserve source attribution",
       "status": "passed",
-      "milliseconds": 6958
+      "milliseconds": 5084
     },
     {
       "name": "mocked provider uses official Google OAuth API without accepting a Google password",
       "status": "passed",
-      "milliseconds": 775
+      "milliseconds": 887
     },
     {
       "name": "mocked rejected credentials stay signed out and clear password without logging it",
       "status": "passed",
-      "milliseconds": 1242
+      "milliseconds": 1262
     },
     {
-      "name": "mocked allowlist denies an authenticated but unapproved email",
+      "name": "mocked verified Google signup accepts custom domains and Gmail with private progress and no self-admin",
       "status": "passed",
-      "milliseconds": 1026
+      "milliseconds": 5782
     },
     {
       "name": "mocked account A/B storage is separate and account A restores from cloud in fresh browser context",
       "status": "passed",
-      "milliseconds": 4917
+      "milliseconds": 12100
     },
     {
       "name": "mocked SDK identity change cannot upload account A progress under account B",
       "status": "passed",
-      "milliseconds": 1653
+      "milliseconds": 2571
     },
     {
-      "name": "mocked admin roster is role-gated escaped and supports allow/disable without passwords",
+      "name": "mocked owner roster shows automatic Google registration and can disable and re-enable without passwords",
       "status": "passed",
-      "milliseconds": 4164
+      "milliseconds": 8692
     },
     {
       "name": "mocked offline cloud cannot trap sign-out and preserves account cache",
       "status": "passed",
-      "milliseconds": 2399
+      "milliseconds": 3370
     },
     {
       "name": "mocked cloud conflict requires explicit choice and cancellation does not overwrite data",
       "status": "passed",
-      "milliseconds": 2941
+      "milliseconds": 3418
     },
     {
       "name": "no unexpected browser errors in auth UI checks",
       "status": "passed",
-      "milliseconds": 1
+      "milliseconds": 0
     }
   ],
   "errors": [],
   "blockedExternalRequests": [],
+  "screenshotsCaptured": false,
   "limitations": [
     "Guest/unconfigured checks use the production bridge and browser memory storage with an explicitly empty test-response configuration, independent of deployed public settings.",
-    "Configured account, admin, Google API contract and cloud checks replace SDK transport in a routed HTML response with a deterministic test double. Every fixture replaces the configuration generically and blocks external network requests. No production test switch exists.",
+    "Configured account, admin, Google API contract, verified-Google auto-registration and cloud checks replace SDK transport in a routed HTML response with a deterministic test double. Every fixture replaces the configuration generically and blocks external network requests. No production test switch exists.",
     "These checks do not prove live Google OAuth, Supabase delivery, hosted RLS or a deployed account service."
   ]
 }

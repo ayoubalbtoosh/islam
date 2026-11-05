@@ -2,20 +2,21 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 const { PGlite } = await import(process.env.PGLITE_MODULE || '@electric-sql/pglite');
-const [combined, migration, owner] = await Promise.all([
+const [combined, migration, owner, google] = await Promise.all([
   readFile(new URL('../setup-school.sql', import.meta.url), 'utf8'),
   readFile(new URL('../migrations/001_school_auth.sql', import.meta.url), 'utf8'),
   readFile(new URL('../bootstrap-owner.sql', import.meta.url), 'utf8'),
+  readFile(new URL('../migrations/002_open_google_signup.sql', import.meta.url), 'utf8'),
 ]);
-assert.ok(combined.endsWith(migration + '\n' + owner), 'Both source files must be included byte-for-byte.');
-assert.equal((combined.match(/^begin;$/gm) || []).length, 2, 'Keep the two original transactions.');
+assert.ok(combined.endsWith(migration + '\n' + owner + '\n' + google), 'All three source files must be included byte-for-byte.');
+assert.equal((combined.match(/^begin;$/gm) || []).length, 3, 'Keep the three original transactions.');
 const database = new PGlite();
 try {
   await database.exec(`
     create role anon; create role authenticated; create role supabase_auth_admin;
     create schema auth;
     create table auth.users (id uuid primary key, email text unique, email_confirmed_at timestamptz,
-      is_anonymous boolean default false, raw_app_meta_data jsonb default '{}', encrypted_password text);
+      is_anonymous boolean default false, raw_app_meta_data jsonb default '{}', raw_user_meta_data jsonb default '{}', encrypted_password text);
     create table auth.sessions (id uuid primary key, user_id uuid references auth.users(id),
       created_at timestamptz not null default now(), not_after timestamptz);
     create function auth.jwt() returns jsonb language sql stable as $$
@@ -48,7 +49,7 @@ try {
     assert.equal(policies, 4);
     console.log(`PASS run ${run}: four RLS tables, four policies, exact administrator allowlist, fenced RPC grants; no Auth users/passwords/student records created.`);
   }
-  console.log('PASS exact source concatenation and two-transaction preservation.');
+  console.log('PASS exact source concatenation and three-transaction preservation, including open-Google-registration migration.');
   console.log('RESULT: fresh local PostgreSQL setup and idempotent second run passed. No live Supabase operation was performed.');
 } finally {
   await database.close();

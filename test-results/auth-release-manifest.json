@@ -1,7 +1,7 @@
 {
-  "version": "2.1.0",
-  "production_bytes": 2700125,
-  "production_sha256": "63e6d032aeaf6d717955019a4aceabfad8de51ea7fdca7d02045c2719803d46c",
+  "version": "2.2.0",
+  "production_bytes": 2699042,
+  "production_sha256": "bc28a3859c814b7adbe61a25d4b050f329af371444f157d999eff12190b56bf9",
   "account_service_configured": false,
   "live_oauth_tested": false,
   "tests": {
@@ -9,12 +9,16 @@
     "sql_local_passed": 19,
     "historical_browser_with_account_fixture_passed": 35,
     "historical_browser_skipped": 1,
-    "auth_ui_real_guest_and_mocked_accounts_passed": 12
+    "auth_ui_real_guest_and_mocked_accounts_passed": 12,
+    "open_google_sql_local_passed": 14,
+    "open_google_auth_ui_mock_passed": 12
   },
   "admin_bootstrap_email": "ayobalbtoosh41@gmail.com",
   "scope": "guest memory-only; per-account cache and prepared Supabase backend",
   "public_client_configuration_present": true,
   "live_service_verified": false,
   "live_verification_blocker": "managed proxy CONNECT 403",
-  "configured_guest_smoke_passed": 2
+  "configured_guest_smoke_passed": 2,
+  "registration_policy": "Any verified Google account joins as student; explicit disabled accounts remain blocked; owner role unchanged",
+  "open_google_upgrade_live_confirmed": false
 }

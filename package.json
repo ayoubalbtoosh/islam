@@ -1,8 +1,8 @@
 {
   "name": "tahadi-tawjihi-islamic",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
-  "description": "منصة تحدي التوجيهي في التربية الإسلامية — حسابات مسموحة وضيف مؤقت",
+  "description": "منصة تحدي التوجيهي — تسجيل مفتوح بحساب Google وضيف مؤقت",
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",

@@ -1,0 +1,17 @@
+
+> tahadi-tawjihi-islamic@2.1.0 test:auth
+> node tests/auth-ui.spec.mjs
+
+PASS explicit unconfigured fixture shows honest login gate without nickname bypass
+PASS production guest bridge under unconfigured fixture is temporary isolated and cleared by reload
+PASS auth gate and guest banner fit phone tablet desktop and preserve source attribution
+PASS mocked provider uses official Google OAuth API without accepting a Google password
+PASS mocked rejected credentials stay signed out and clear password without logging it
+PASS mocked verified Google signup accepts custom domains and Gmail with private progress and no self-admin
+PASS mocked account A/B storage is separate and account A restores from cloud in fresh browser context
+PASS mocked SDK identity change cannot upload account A progress under account B
+PASS mocked owner roster shows automatic Google registration and can disable and re-enable without passwords
+PASS mocked offline cloud cannot trap sign-out and preserves account cache
+PASS mocked cloud conflict requires explicit choice and cancellation does not overwrite data
+PASS no unexpected browser errors in auth UI checks
+12 passed, 0 failed.

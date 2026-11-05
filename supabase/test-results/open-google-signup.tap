@@ -1,0 +1,95 @@
+TAP version 13
+# Subtest: 002 upgrades installed data to open verified-Google registration without relaxing identity/RLS/admin controls
+    # Subtest: upgrade backfills verified Google users without deleting existing progress/history or re-enabling blocks
+    ok 1 - upgrade backfills verified Google users without deleting existing progress/history or re-enabling blocks
+      ---
+      duration_ms: 55.904565
+      type: 'test'
+      ...
+    # Subtest: unlisted first-time Google and custom-domain Workspace accounts auto-register as students
+    ok 2 - unlisted first-time Google and custom-domain Workspace accounts auto-register as students
+      ---
+      duration_ms: 47.762083
+      type: 'test'
+      ...
+    # Subtest: spoofed user metadata/JWT Google claims and unknown verified Email identities are denied
+    ok 3 - spoofed user metadata/JWT Google claims and unknown verified Email identities are denied
+      ---
+      duration_ms: 56.291499
+      type: 'test'
+      ...
+    # Subtest: unverified or anonymous Google users have no access; real confirmation enrolls later
+    ok 4 - unverified or anonymous Google users have no access; real confirmation enrolls later
+      ---
+      duration_ms: 17.950849
+      type: 'test'
+      ...
+    # Subtest: linking Google via canonical provider metadata triggers enrollment, while owner role remains unchanged
+    ok 5 - linking Google via canonical provider metadata triggers enrollment, while owner role remains unchanged
+      ---
+      duration_ms: 16.286925
+      type: 'test'
+      ...
+    # Subtest: display names use bounded display-only metadata with control characters removed and email fallback
+    ok 6 - display names use bounded display-only metadata with control characters removed and email fallback
+      ---
+      duration_ms: 14.912549
+      type: 'test'
+      ...
+    # Subtest: Google accounts cannot promote themselves or access administrative tables/functions
+    ok 7 - Google accounts cannot promote themselves or access administrative tables/functions
+      ---
+      duration_ms: 214.983565
+      type: 'test'
+      ...
+    # Subtest: disabled Google identities stay blocked through profile changes, login RPC and repeated migration
+    ok 8 - disabled Google identities stay blocked through profile changes, login RPC and repeated migration
+      ---
+      duration_ms: 47.805087
+      type: 'test'
+      ...
+    # Subtest: Google session activity is server-owned, allowed and idempotent; fallback enrolls missing registry rows
+    ok 9 - Google session activity is server-owned, allowed and idempotent; fallback enrolls missing registry rows
+      ---
+      duration_ms: 48.31184
+      type: 'test'
+      ...
+    # Subtest: own-only progress RLS, identity fence and CAS still protect newly registered Google users
+    ok 10 - own-only progress RLS, identity fence and CAS still protect newly registered Google users
+      ---
+      duration_ms: 37.308034
+      type: 'test'
+      ...
+    # Subtest: hook allows new Google/Workspace, preserves blocks and manual Email accounts, rejects spoofed or unknown Email
+    ok 11 - hook allows new Google/Workspace, preserves blocks and manual Email accounts, rejects spoofed or unknown Email
+      ---
+      duration_ms: 183.877316
+      type: 'test'
+      ...
+    # Subtest: anonymous API role and non-Google Github identities remain denied
+    ok 12 - anonymous API role and non-Google Github identities remain denied
+      ---
+      duration_ms: 9.962051
+      type: 'test'
+      ...
+    1..12
+ok 1 - 002 upgrades installed data to open verified-Google registration without relaxing identity/RLS/admin controls
+  ---
+  duration_ms: 4465.042958
+  type: 'test'
+  ...
+# Subtest: fresh three-part setup admits first Google user and remains idempotent
+ok 2 - fresh three-part setup admits first Google user and remains idempotent
+  ---
+  duration_ms: 2431.023831
+  type: 'test'
+  ...
+1..2
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6967.255145

@@ -12,7 +12,7 @@ const Auth=(()=>{
  const current=()=>copy(state);
  const emit=()=>{if(typeof window.dispatchEvent==='function')window.dispatchEvent(new CustomEvent('platform-auth-change',{detail:current()}));};
  const fail=message=>{throw new Error(message);};
- const requireAccount=()=>{if(state.mode!=='account'||!client||!state.user)fail('سجّل الدخول بحساب مسموح أولًا.');};
+ const requireAccount=()=>{if(state.mode!=='account'||!client||!state.user)fail('سجّل الدخول بحسابك أولًا.');};
  const requireAdmin=()=>{requireAccount();if(!state.isAdmin)fail('هذه الصفحة مخصصة لإدارة المنصة.');};
  const scopeAlive=(id,token)=>state.mode==='account'&&state.user?.id===id&&db.scopeToken()===token;
  function publicConfig(value){
@@ -33,7 +33,7 @@ const Auth=(()=>{
   if(!session?.user?.id){state.mode='signed-out';state.user=null;state.isAdmin=false;return;}
   const {data,error}=await client.rpc('record_login');
   if(error)fail('تعذر التحقق من صلاحية الحساب. حاول مجددًا، أو تواصل مع الإدارة.');
-  if(!data?.allowed){await client.auth.signOut({scope:'local'});state.mode='signed-out';state.user=null;state.isAdmin=false;fail('هذا الحساب غير موجود في قائمة الحسابات المسموحة أو جرى تعطيله.');}
+  if(!data?.allowed){await client.auth.signOut({scope:'local'});state.mode='signed-out';state.user=null;state.isAdmin=false;fail('تعذر فتح الحساب. تأكد من توثيق البريد وطريقة الدخول، أو تواصل مع الإدارة إذا كان الحساب معطّلًا.');}
   if(data.user_id!==session.user.id||typeof data.email!=='string')fail('تعذر التحقق من هوية الحساب.');
   state.mode='account';state.user={id:data.user_id,email:data.email,name:data.display_name||data.email};state.isAdmin=data.is_admin===true;state.error='';
  }
