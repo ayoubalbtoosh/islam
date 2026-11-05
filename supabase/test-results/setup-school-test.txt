@@ -1,0 +1,4 @@
+PASS run 1: four RLS tables, four policies, exact administrator allowlist, fenced RPC grants; no Auth users/passwords/student records created.
+PASS run 2: four RLS tables, four policies, exact administrator allowlist, fenced RPC grants; no Auth users/passwords/student records created.
+PASS exact source concatenation and two-transaction preservation.
+RESULT: fresh local PostgreSQL setup and idempotent second run passed. No live Supabase operation was performed.
