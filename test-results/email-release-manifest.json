@@ -37,5 +37,6 @@
   },
   "setup_sql_smoke": "passed twice; idempotent with owner prerequisite",
   "pages_run": "https://github.com/ayoubalbtoosh/islam/actions/runs/41999402895",
-  "direct_public_site_render": "unverified: github.io host denied by managed proxy"
+  "direct_public_site_render": "unverified: github.io host denied by managed proxy",
+  "tested_source_commit": "6a520c165f18e891ae60c389b5a02c8527989f88"
 }
