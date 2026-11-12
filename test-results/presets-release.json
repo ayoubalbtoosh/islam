@@ -11,5 +11,14 @@
   "favicon": "inline SVG book, green/gold",
   "requiresNewSqlMigration": false,
   "liveSupabaseSyncVerified": false,
-  "deployment": "pending"
+  "deployment": {
+    "status": "success",
+    "pagesCommit": "a98561b38bf1d62e468e25c17bf328c4e3dee325",
+    "runUrl": "https://github.com/ayoubalbtoosh/islam/actions/runs/43145357177",
+    "conclusion": "Success",
+    "duration": "28s",
+    "publishedGitHtmlMatchesTestedBuild": true,
+    "directSiteRenderingVerified": false
+  },
+  "sourceCommit": "1a42d17818c2dc0397f0f8d347c82d5a431b6173"
 }
