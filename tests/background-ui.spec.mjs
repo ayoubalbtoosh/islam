@@ -19,6 +19,23 @@ async function ready(){await page.waitForFunction(()=>S.ready&&Auth.current().mo
 async function settings(){await page.evaluate(()=>go('settings'));await page.waitForSelector('#setting-background');}
 async function color(value){await page.locator('#setting-background').evaluate((input,value)=>{input.value=value;input.dispatchEvent(new Event('input',{bubbles:true}));},value);}
 async function save(){await page.locator('[data-action="save-settings"]').first().click();await page.waitForFunction(()=>document.querySelector('.toast')?.textContent.includes('تم حفظ الإعدادات'));await page.evaluate(()=>db.flush());}
+async function openHeader(){
+ if(!await page.locator('#header-colors').count())await page.locator('[data-action="colors-toggle"]').click();
+ await page.waitForSelector('#header-colors');
+}
+async function headerColor(key,value){
+ const id=key==='sidebarColor'?'header-sidebar-color':'header-background';
+ await openHeader();
+ await page.locator('#'+id).evaluate((input,value)=>{input.value=value;input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new Event('change',{bubbles:true}));},value);
+ await page.waitForFunction(async ({key,value,id})=>(await db.get('settings',{}))[key]===value&&document.getElementById(id)?.value===value,{key,value,id});
+ await page.evaluate(()=>db.flush());
+}
+const cssRGB=hex=>'rgb('+hex.slice(1).match(/../g).map(x=>parseInt(x,16)).join(', ')+')';
+async function sidebar(){return page.evaluate(()=>({bg:getComputedStyle(document.querySelector('.sidebar')).backgroundColor,fg:getComputedStyle(document.querySelector('.sidebar .nav-item')).color}));}
+function contrast(a,b){
+ const l=value=>{const [r,g,b]=value.match(/[0-9.]+/g).slice(0,3).map(Number).map(x=>{x/=255;return x<=.04045?x/12.92:((x+.055)/1.055)**2.4;});return .2126*r+.7152*g+.0722*b;};
+ const x=l(a),y=l(b);return(Math.max(x,y)+.05)/(Math.min(x,y)+.05);
+}
 async function bg(){return page.evaluate(()=>({bg:getComputedStyle(document.body).backgroundColor,fg:getComputedStyle(document.body).color,custom:document.documentElement.style.getPropertyValue('--bg'),theme:document.documentElement.dataset.theme}));}
 async function test(name,fn){const started=Date.now();try{await fn();results.push({name,status:'passed',milliseconds:Date.now()-started});console.log('PASS '+name);}catch(error){results.push({name,status:'failed',error:error.stack});console.error('FAIL '+name+': '+error.message);}}
 try{
@@ -52,6 +69,52 @@ try{
   await page.setViewportSize({width:390,height:844});await settings();await color('#4e3190');await save();
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
   await mkdir(new URL('artifacts/',root),{recursive:true});await page.screenshot({path:new URL('artifacts/background-mobile.png',root).pathname,fullPage:true});
+ });
+ await test('Header color picker sits beside theme and account controls and keeps page and menu colors independent',async()=>{
+  await page.setViewportSize({width:1366,height:900});
+  for(const next of ['home','units','challenges']){
+   await page.evaluate(next=>go(next),next);
+   assert.equal(await page.locator('.topbar [data-action="colors-toggle"]').count(),1);
+   assert.equal(await page.locator('.topbar [data-action="toggle-theme"]').count(),1);
+   assert.equal(await page.locator('.topbar .avatar').count(),1);
+  }
+  await headerColor('backgroundColor','#315288');await headerColor('sidebarColor','#faf1a7');
+  assert.equal((await bg()).custom,'#315288');assert.equal((await sidebar()).bg,cssRGB('#faf1a7'));
+  assert.ok(contrast((await sidebar()).bg,(await sidebar()).fg)>=4.5,'Sidebar text must contrast with its own chosen background');
+  await page.reload();await ready();await openHeader();
+  assert.equal((await bg()).custom,'#315288');assert.equal((await sidebar()).bg,cssRGB('#faf1a7'));
+  assert.equal(await page.locator('#header-background').inputValue(),'#315288');
+  assert.equal(await page.locator('#header-sidebar-color').inputValue(),'#faf1a7');
+  const saved=await page.evaluate(()=>db.get('settings',{}));assert.equal(saved.backgroundColor,'#315288');assert.equal(saved.sidebarColor,'#faf1a7');
+ });
+ await test('Resetting either header color preserves the other color and existing player preferences',async()=>{
+  await page.locator('[data-action="colors-reset"][data-target="backgroundColor"]').click();
+  await page.waitForFunction(async ()=>(await db.get('settings',{})).backgroundColor==='');
+  assert.equal((await bg()).custom,'');assert.equal((await sidebar()).bg,cssRGB('#faf1a7'));
+  await headerColor('backgroundColor','#0a5566');
+  await page.locator('[data-action="colors-reset"][data-target="sidebarColor"]').click();
+  await page.waitForFunction(async ()=>(await db.get('settings',{})).sidebarColor==='');
+  assert.equal((await bg()).custom,'#0a5566');assert.notEqual((await sidebar()).bg,cssRGB('#faf1a7'));
+  await page.reload();await ready();
+  assert.equal((await bg()).custom,'#0a5566');
+  const saved=await page.evaluate(()=>db.get('settings',{}));assert.equal(saved.sidebarColor,'');assert.equal(saved.sounds,true);
+  assert.equal(await page.evaluate(()=>S.profile.name),'اختبار لون محفوظ');
+ });
+ await test('Header picker and colored mobile menu fit narrow screens and Escape restores button focus',async()=>{
+  for(const width of [360,390]){
+   await page.setViewportSize({width,height:844});await page.evaluate(()=>go('home'));await openHeader();
+   const panel=await page.locator('#header-colors').boundingBox();assert.ok(panel.x>=0&&panel.x+panel.width<=width+1,'Picker must fit viewport');
+   if(width===390)await page.screenshot({path:new URL('artifacts/header-colors-mobile.png',root).pathname});
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
+   await page.keyboard.press('Escape');await page.waitForSelector('#header-colors',{state:'hidden'});
+   assert.equal(await page.evaluate(()=>document.activeElement?.dataset.action),'colors-toggle');
+  }
+  await openHeader();await headerColor('sidebarColor','#ffffff');
+  await page.locator('[data-action="colors-close"]').click();await page.waitForSelector('#header-colors',{state:'hidden'});
+  await page.locator('[data-action="menu"]').first().click();await page.waitForSelector('.layout.sidebar-open');
+  assert.equal((await sidebar()).bg,cssRGB('#ffffff'));assert.ok(contrast((await sidebar()).bg,(await sidebar()).fg)>=4.5);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
+  await mkdir(new URL('artifacts/',root),{recursive:true});await page.screenshot({path:new URL('artifacts/header-sidebar-mobile.png',root).pathname});
  });
  await test('No browser errors or external network calls and frozen build stays unchanged',async()=>{
   assert.deepEqual(errors,[]);assert.deepEqual(externalRequests,[]);

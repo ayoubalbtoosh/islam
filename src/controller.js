@@ -265,9 +265,18 @@ async function resetData(){
  }catch(error){S.busy=false;S.importing=false;throw error;}
 }
 function showReset(){S.modal=`<h2>تأكيد حذف جميع بيانات التقدم</h2><p>هذا الإجراء لا يمكن التراجع عنه إلا إذا كانت لديك نسخة احتياطية. هل تريد المتابعة؟</p><div class="modal-actions"><button class="btn btn-outline" data-action="close-modal">إلغاء</button><button class="btn btn-danger" data-action="reset-all">نعم، احذف بياناتي</button></div>`;render();}
+async function saveHeaderColor(key,color){
+ if(!['backgroundColor','sidebarColor'].includes(key)||color!==''&&!/^#[0-9a-f]{6}$/i.test(color)||S.writerBlocked||S.writerSuspended)return;
+ const previous=S.settings[key];S.settings[key]=color;
+ try{await saveState();}catch(error){S.settings[key]=previous;throw error;}
+ finally{render();if(S.colorsOpen)document.getElementById(key==='sidebarColor'?'header-sidebar-color':'header-background')?.focus({preventScroll:true});}
+}
 async function saveSettings(){S.profile.name=document.getElementById('setting-name')?.value.trim().slice(0,32)||'طالب';S.settings.theme=document.getElementById('setting-theme')?.value||'dark';const color=document.getElementById('setting-background')?.value;S.settings.backgroundColor=document.getElementById('setting-custom-background')?.checked&&/^#[0-9a-f]{6}$/i.test(color||'')?color:'';S.settings.sounds=!!document.getElementById('setting-sounds')?.checked;for(const d of DIFFICULTIES)S.settings.timers[d]=document.getElementById(`timer-${d}`)?.value||'default';await saveState();render();notify('تم حفظ الإعدادات.');}
 async function replay(){const r=S.finished||S.results.at(-1);if(!r)return go('challenges');if(r.mode==='exam')return setup('exam');if(r.mode==='mistakes')return setup('mistakes');if(r.mode==='daily'||r.mode==='weekly')return setup(r.mode);await createSession(r.mode,r.lessonId||S.lessonId,r.difficulty,r.scope||'all',r.requestedCount||10,r.players||S.players,r.timerSeconds??S.roundTimer);}
 async function onAction(btn){const action=btn.dataset.action;if(action==='writer-retry'){location.reload();return;}if(S.writerBlocked||S.writerSuspended)return;if(action.startsWith('online-')){await Online.action(btn);return;}switch(action){
+ case 'colors-toggle':S.colorsOpen=!S.colorsOpen;render();if(S.colorsOpen)document.getElementById('header-background')?.focus({preventScroll:true});break;
+ case 'colors-close':closeHeaderColors(true);break;
+ case 'colors-reset':await saveHeaderColor(btn.dataset.target,'');break;
  case 'navigate':go(btn.dataset.page);break;
  case 'begin-session':{const el=btn;el.disabled=true;el.setAttribute('aria-busy','true');return startForm().finally(()=>{if(el.isConnected){el.disabled=false;el.removeAttribute('aria-busy');}});break;}
  case 'unit':unit(btn.dataset.unit);break;
@@ -303,9 +312,12 @@ async function onAction(btn){const action=btn.dataset.action;if(action==='writer
  case 'confirm-import':await confirmImport();break;
  case 'close-modal':S.pendingImport=null;S.modal=null;render();break;
  }}
-document.addEventListener('click',event=>{const b=event.target.closest('[data-action]');if(!b||b.disabled)return;if(b.classList.contains('modal-backdrop')&&event.target.closest('.modal'))return;event.preventDefault();onAction(b).catch(error=>{console.warn(error.message);notify('تعذر تنفيذ الإجراء: '+error.message);});});
+document.addEventListener('click',event=>{if(S.colorsOpen&&!event.target.closest('.appearance-picker'))closeHeaderColors();const b=event.target.closest('[data-action]');if(!b||b.disabled)return;if(b.classList.contains('modal-backdrop')&&event.target.closest('.modal'))return;event.preventDefault();onAction(b).catch(error=>{console.warn(error.message);notify('تعذر تنفيذ الإجراء: '+error.message);});});
 
 document.addEventListener('input',event=>{
+ if(['header-background','header-sidebar-color'].includes(event.target?.id)){
+  applyAppearance({...S.settings,[event.target.id==='header-background'?'backgroundColor':'sidebarColor']:event.target.value});return;
+ }
  if(['setting-background','setting-custom-background','setting-theme'].includes(event.target?.id)){
   const checkbox=document.getElementById('setting-custom-background');
   if(event.target.id==='setting-background'&&checkbox)checkbox.checked=true;
@@ -321,6 +333,7 @@ document.addEventListener('input',event=>{
 });
 document.addEventListener('submit',event=>{if(event.target?.id!=='setup-form')return;event.preventDefault();startForm().catch(error=>notify('تعذر بدء الجولة: '+error.message));});
 document.addEventListener('change',async event=>{try{const t=event.target;
+ if(['header-background','header-sidebar-color'].includes(t.id)){await saveHeaderColor(t.id==='header-background'?'backgroundColor':'sidebarColor',t.value);return;}
  if(t.id==='form-unit'){S.unitId=t.value;S.lessonId=unitFor(S.unitId)?.lessons?.[0]?.id||S.lessonId;const lessonSelect=document.getElementById('form-lesson');if(lessonSelect)lessonSelect.innerHTML=(unitFor(S.unitId)?.lessons||[]).map(l=>`<option value="${l.id}">${e(l.name)}</option>`).join('');}
  if(t.id==='form-lesson')S.lessonId=t.value;
  if(t.id==='form-scope')S.scope=t.value;
@@ -328,7 +341,7 @@ document.addEventListener('change',async event=>{try{const t=event.target;
  if(t.dataset.match!==undefined){const current=responseFor(S.session);const next={...(current&&typeof current==='object'&&!Array.isArray(current)?current:{}),[t.dataset.match]:t.value};if(isAnswered(S.session.questions[S.session.current],next))await autoAnswer(next);else {S.selected=next;captureDraft().catch(console.warn);}}
  if(t.id==='import-file'&&t.files?.[0])await importData(t.files[0]);
 }catch(error){console.warn(error.message);notify('تعذر حفظ الاختيار: '+error.message);}});
-window.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.modal){S.pendingImport=null;S.modal=null;render();}if(S.page==='game'&&!S.modal&&S.session?.phase==='question'&&e.key==='Enter'&&e.target.tagName!=='BUTTON'&&e.target.tagName!=='SELECT'){e.preventDefault();if(S.session.questions[S.session.current].type==='multi_select')autoAnswer(responseFor(S.session)).catch(error=>notify('تعذر اعتماد الإجابة: '+error.message));}});
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.colorsOpen){e.preventDefault();closeHeaderColors(true);return;}if(e.key==='Escape'&&S.modal){S.pendingImport=null;S.modal=null;render();}if(S.page==='game'&&!S.modal&&S.session?.phase==='question'&&e.key==='Enter'&&e.target.tagName!=='BUTTON'&&e.target.tagName!=='SELECT'){e.preventDefault();if(S.session.questions[S.session.current].type==='multi_select')autoAnswer(responseFor(S.session)).catch(error=>notify('تعذر اعتماد الإجابة: '+error.message));}});
 let tickBusy=false;
 let lastCountdownKey='';
 async function clockTick(){

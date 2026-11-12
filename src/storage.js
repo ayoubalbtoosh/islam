@@ -136,8 +136,9 @@ function validateBackup(data,byId){
  }
  const timers=['default','none','6','10','15','20','30','40','45','60','90','120'];
  if(records.settings!==undefined){
-  const color=records.settings?.backgroundColor;
-  if(color!==undefined&&color!==''&&(typeof color!=='string'||!/^#[0-9a-f]{6}$/i.test(color)))fail('لون الخلفية');
+  for(const key of ['backgroundColor','sidebarColor']){const color=records.settings?.[key];
+   if(color!==undefined&&color!==''&&(typeof color!=='string'||!/^#[0-9a-f]{6}$/i.test(color)))fail('لون الخلفية');
+  }
   const s=records.settings;if(!object(s)||s.theme!==undefined&&!['dark','light'].includes(s.theme)||s.sounds!==undefined&&typeof s.sounds!=='boolean'||s.roundTimer!==undefined&&!timers.includes(String(s.roundTimer))||s.feedback!==undefined&&typeof s.feedback!=='boolean')fail('الإعدادات');
   if(s.timers!==undefined&&(!object(s.timers)||Object.entries(s.timers).some(([k,v])=>!['easy','medium','hard'].includes(k)||!timers.includes(String(v)))))fail('إعدادات المؤقت');
  }
