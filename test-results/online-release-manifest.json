@@ -1,0 +1,50 @@
+{
+  "version": "2.4.0",
+  "generatedAt": "2026-11-12T02:26:55.686372+00:00",
+  "buildSha256": "9884c40c59267810822d6dad885d5ce4855fb1a6ae8c3b4a36bff43851e033a9",
+  "buildBytes": 2741504,
+  "sourceBranch": "accounts-setup",
+  "pagesBranch": "gh-pages",
+  "site": "https://ayoubalbtoosh.github.io/islam/",
+  "checkCommand": "npm run check",
+  "checkExitCode": 0,
+  "checks": {
+    "node": {
+      "passed": 100,
+      "failed": 0
+    },
+    "gamesBrowser": {
+      "passed": 35,
+      "failed": 0,
+      "skipped": 1
+    },
+    "emailBrowser": {
+      "passed": 13,
+      "failed": 0
+    },
+    "duelSql": {
+      "passed": 4,
+      "failed": 0
+    },
+    "duelBrowser": {
+      "passed": 6,
+      "failed": 0
+    },
+    "emailMigrationSql": {
+      "passed": 21,
+      "failed": 0
+    }
+  },
+  "liveSupabaseMigrationApplied": false,
+  "liveSupabaseAuthTested": false,
+  "physicalTwoDeviceTested": false,
+  "localTwoBrowserTested": true,
+  "deployment": {
+    "state": "pending"
+  },
+  "limitations": [
+    "Hosted Supabase004 requires owner SQL Editor execution after003.",
+    "Local browser contexts use actual PostgreSQL duel RPCs and simulated Auth transport, not physical devices.",
+    "Current proxy denies Supabase/API/Pages hosts; draft domain additions saved but unapplied."
+  ]
+}

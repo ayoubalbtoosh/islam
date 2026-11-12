@@ -1,0 +1,31 @@
+▶ 003 upgrade after 001 only protects owner identity and public Email study data
+  ✔ binds only preexisting confirmed owner once and preserves installed history/progress (110.147111ms)
+  ✔ any Email domain registers without approval; confirmation follows Auth session issuance (76.064994ms)
+  ✔ hook permits arbitrary Email signup, rejects explicit blocks/anonymous/Google and spoofed user roles (25.323963ms)
+  ✔ Google identity and editable metadata cannot claim Email access or administrator authority (61.678492ms)
+  ✔ student snapshots remain own-only, CAS guarded and tied to expected immutable identity (39.569264ms)
+  ✔ bound admin receives all safe results/answers/visits/settings, never arbitrary secrets or Auth credentials (123.661262ms)
+  ✔ blocking survives repeated signup metadata, login and migration; admin may still inspect safe study records (184.033766ms)
+  ✔ real session logging is idempotent and private admin tables cannot be read or modified by students (80.297677ms)
+  ✔ deleting owner removes binding but never initialization; confirmed same-email replacement cannot regain admin (95.151562ms)
+✔ 003 upgrade after 001 only protects owner identity and public Email study data (3960.669884ms)
+▶ 003 upgrade after 001+002 protects owner identity and public Email study data
+  ✔ binds only preexisting confirmed owner once and preserves installed history/progress (62.055102ms)
+  ✔ any Email domain registers without approval; confirmation follows Auth session issuance (44.077137ms)
+  ✔ hook permits arbitrary Email signup, rejects explicit blocks/anonymous/Google and spoofed user roles (20.557958ms)
+  ✔ Google identity and editable metadata cannot claim Email access or administrator authority (42.046611ms)
+  ✔ student snapshots remain own-only, CAS guarded and tied to expected immutable identity (39.75336ms)
+  ✔ bound admin receives all safe results/answers/visits/settings, never arbitrary secrets or Auth credentials (96.237089ms)
+  ✔ blocking survives repeated signup metadata, login and migration; admin may still inspect safe study records (103.308079ms)
+  ✔ real session logging is idempotent and private admin tables cannot be read or modified by students (44.394844ms)
+  ✔ deleting owner removes binding but never initialization; confirmed same-email replacement cannot regain admin (104.681813ms)
+✔ 003 upgrade after 001+002 protects owner identity and public Email study data (1956.268525ms)
+✔ 003 first-run prerequisite rolls back cleanly and full setup safely initializes a confirmed owner (3153.768941ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9174.561183

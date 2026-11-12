@@ -28,6 +28,10 @@ function runtime({configured=true,sessionUser=A,allowed=true,admin=false,remote=
   calls.push({api:name,args:args&&plain(args)});
   if(server.networkError)return{data:null,error:{code:'network'}};
   if(name==='record_login')return{data:{allowed:server.allowed,is_admin:server.admin,user_id:server.sessionUser,email:'student@example.com',display_name:'طالب مسموح'},error:null};
+  if(name.startsWith('duel_')||name==='platform_admin_duels'){
+   if(server.switchDuringDuel)server.sessionUser=B;
+   return{data:{id:'test-room'},error:server.duelError||null};
+  }
   if(name==='platform_admin_student_details'){
    if(server.switchDuringDetails)server.sessionUser=B;
    return{data:{user:{id:args.p_user_id,email:'student@example.com'},profile:{name:'طالب'},progress:{results:[]},login_events:[]},error:null};
@@ -146,4 +150,38 @@ test('SDK identity changes suspend account writes before another identity can us
 test('save RPC carries expected user identity so token-change race cannot write A progress under B',async()=>{
  const r=runtime();await r.Auth.init();await r.Auth.prepareStorage();await r.db.put('profile',{name:'A-only',xp:20});r.server.raceToUser=B;await assert.rejects(r.Auth.syncNow());
  assert.equal(r.calls.find(c=>c.api==='save_user_progress').args.p_user_id,A);assert.equal(r.server.remote,null);assert.equal((await r.db.get('profile')).name,'A-only');
+});
+
+test('online RPC requires an account, restricts endpoints and checks admin before sending',async()=>{
+ const guest=runtime({sessionUser:null});await guest.Auth.init();await guest.Auth.enterGuest();
+ await assert.rejects(guest.Auth.duelRpc('duel_create'),/سجّل الدخول/);
+ const student=runtime();await student.Auth.init();
+ await assert.rejects(student.Auth.duelRpc('platform_admin_duels'),/مخصصة لإدارة/);
+ await assert.rejects(student.Auth.duelRpc('save_user_progress'),/غير صالح/);
+ assert.ok(!student.calls.some(x=>x.api==='platform_admin_duels'));
+ assert.equal((await student.Auth.duelRpc('duel_create')).id,'test-room');
+ const admin=runtime({admin:true});await admin.Auth.init();
+ assert.equal((await admin.Auth.duelRpc('platform_admin_duels',{p_limit:20,p_offset:0})).id,'test-room');
+});
+test('online RPC discards response after account change and never writes study progress',async()=>{
+ const r=runtime();await r.Auth.init();await r.Auth.prepareStorage();
+ await r.Auth.duelRpc('duel_state',{p_room_id:'test-room'});
+ assert.ok(!r.calls.some(x=>x.api==='save_user_progress'));
+ r.server.switchDuringDuel=true;
+ await assert.rejects(r.Auth.duelRpc('duel_create'),/تغير حساب/);
+ assert.equal(r.Auth.current().mode,'signed-out');
+});
+test('online RPC reports missing migration and safe room errors without leaking backend details',async()=>{
+ const r=runtime();await r.Auth.init();
+ r.server.duelError={code:'PGRST202',message:'private backend details'};
+ await assert.rejects(r.Auth.duelRpc('duel_create'),/ترقية المواجهات/);
+ r.server.duelError={code:'22023',message:'room_unavailable: internal ID secret'};
+ await assert.rejects(r.Auth.duelRpc('duel_join',{p_code:'INVALID'}),error=>/تأكد من الرمز/.test(error.message)&&!error.message.includes('secret'));
+});
+
+test('email confirmation keeps only a valid room invitation in the return URL',async()=>{
+ const r=runtime({sessionUser:null,confirmEmail:true});await r.Auth.init();
+ r.ctx.location.href='https://example.org/islam/?room=012345abcd&untrusted=ignored#fragment';
+ await r.Auth.signUpEmail('طالب','student@example.org','test-private-password');
+ assert.equal(r.calls.find(c=>c.api==='signup').payload.options.emailRedirectTo,'https://example.org/islam/?room=012345ABCD');
 });

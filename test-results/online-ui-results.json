@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-11-12T02:26:12.029Z",
+  "testedBuildSha256": "9884c40c59267810822d6dad885d5ce4855fb1a6ae8c3b4a36bff43851e033a9",
+  "passed": 6,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Email sign-in opens independent mobile and desktop accounts; stored progress remains separate",
+      "status": "passed",
+      "milliseconds": 2674
+    },
+    {
+      "name": "Host creates an invite code; another authenticated client joins the same server room",
+      "status": "passed",
+      "milliseconds": 3550
+    },
+    {
+      "name": "Reload reconnects the player to the active room without resetting deadline or progress",
+      "status": "passed",
+      "milliseconds": 432
+    },
+    {
+      "name": "Five shared questions are scored by PostgreSQL and final result appears on both clients",
+      "status": "passed",
+      "milliseconds": 4344
+    },
+    {
+      "name": "Server denies unrelated student access and exposes saved result to the existing owner admin",
+      "status": "passed",
+      "milliseconds": 2151
+    },
+    {
+      "name": "No unhandled browser errors or external requests; build unchanged during checks",
+      "status": "passed",
+      "milliseconds": 7
+    }
+  ],
+  "browserErrors": [],
+  "externalRequests": [],
+  "environment": {
+    "browser": "Chromium",
+    "clients": [
+      "isolated browser context 390x844",
+      "isolated browser context 1366x900"
+    ],
+    "database": "PGlite PostgreSQL executing migrations 001 + owner bootstrap +003 +004",
+    "auth": "Email session issuance and SDK transport fixtures"
+  },
+  "limitations": [
+    "Two isolated browser clients simulate separate devices; no physical phone or second physical computer was used.",
+    "Hosted Supabase, actual Email Auth token issuance, SMTP delivery, live GitHub Pages and hosted migration application are not validated by this local test."
+  ]
+}

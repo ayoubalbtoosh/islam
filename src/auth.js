@@ -166,7 +166,8 @@ const Auth=(()=>{
   if(state.mode==='account')fail('سجّل الخروج قبل إنشاء حساب آخر.');
   if(typeof name!=='string'||!name.trim()||name.trim().length>80||typeof email!=='string'||email.trim().length>254||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())||typeof password!=='string'||password.length<8||password.length>256)fail('أدخل اسمك وإيميلًا صالحًا وكلمة مرور خاصة بالموقع من 8 إلى 256 حرفًا.');
   if(!['https:','http:'].includes(location.protocol))fail('افتح الموقع من رابطه المنشور لإنشاء حساب.');
-  const redirect=new URL(location.href);redirect.search='';redirect.hash='';
+  const redirect=new URL(location.href),roomCode=redirect.searchParams.get('room');redirect.search='';redirect.hash='';
+  if(/^[A-F0-9]{10}$/i.test(roomCode||''))redirect.searchParams.set('room',roomCode.toUpperCase());
   state.error='';
   const result=await client.auth.signUp({email:email.trim(),password,options:{data:{display_name:name.trim()},emailRedirectTo:redirect.href}});
   if(result.error)fail('تعذر إنشاء الحساب. جرّب بيانات حساب صالحة وكلمة مرور أقوى، أو سجّل الدخول إذا كان لديك حساب.');
@@ -211,5 +212,24 @@ const Auth=(()=>{
  }
  async function adminAllowAccount(email,name){requireAdmin();await checkSession(state.user.id);const {data,error}=await client.rpc('admin_allow_account',{p_email:email,p_display_name:name});if(error)fail('تعذر تحديث بيانات الحساب أو تفعيله.');return data;}
  async function adminDisableAccount(email,disabled){requireAdmin();await checkSession(state.user.id);const {data,error}=await client.rpc('admin_disable_account',{p_email:email,p_disabled:!!disabled});if(error)fail('تعذر تغيير حالة الحساب. لا يمكن تعطيل آخر مدير.');return data;}
- return {init,current,prepareStorage,signInEmail,signUpEmail,enterGuest,signOut,syncNow,flush,resolveConflict,resetProgress,adminRoster,adminStudentDetails,adminAllowAccount,adminDisableAccount,publicConfig};
+ async function duelRpc(name,args={}){
+  const allowed=['duel_create','duel_join','duel_state','duel_answer','duel_leave','duel_recent','platform_admin_duels'];
+  if(!allowed.includes(name))fail('طلب مواجهة غير صالح.');
+  requireAccount();if(name==='platform_admin_duels')requireAdmin();
+  const id=state.user.id;await checkSession(id);
+  const {data,error}=await client.rpc(name,args);
+  await checkSession(id);
+  if(error){
+   if(error.code==='PGRST202'||error.code==='42883')fail('المواجهات غير مفعّلة على الخادم بعد. يلزم تطبيق ترقية المواجهات في Supabase.');
+   const message=String(error.message||'');
+   if(/room_unavailable|room_full|room_not_found|invalid_code|invalid_room_code|self_join|cannot_join_own_room/.test(message))fail('تعذر الانضمام: تأكد من الرمز وأن الغرفة مفتوحة ولا يدخلها حسابك نفسه.');
+   if(/active_room|room_limit|already_in_room/.test(message))fail('لديك غرفة مفتوحة بالفعل. استأنفها أو غادرها أولًا.');
+   if(/rate_limit/.test(message))fail('طلبات كثيرة. انتظر قليلًا ثم حاول مجددًا.');
+   if(/question|answer/.test(message))fail('لم تُعتمد الإجابة. حدّث الغرفة للتحقق من السؤال الحالي.');
+   if(error.code==='42501')fail('لا توجد صلاحية لهذا الطلب. تحقق من الحساب وعضوية الغرفة.');
+   fail('تعذر الاتصال بخدمة المواجهات. حاول تحديث الغرفة؛ التقدم الدراسي محفوظ منفصلًا.');
+  }
+  return data;
+ }
+ return {init,current,prepareStorage,signInEmail,signUpEmail,enterGuest,signOut,syncNow,flush,resolveConflict,resetProgress,adminRoster,adminStudentDetails,adminAllowAccount,adminDisableAccount,publicConfig,duelRpc};
 })();

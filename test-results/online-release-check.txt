@@ -1,0 +1,242 @@
+
+> tahadi-tawjihi-islamic@2.4.0 check
+> npm run build && npm test && npm run test:browser && npm run test:auth && npm run test:online:sql && npm run test:online:browser
+
+
+> tahadi-tawjihi-islamic@2.4.0 build
+> node scripts/build.mjs
+
+Production + standalone built: 4 units, 26 lessons, 2340 bank records, 2741504 bytes.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> tahadi-tawjihi-islamic@2.4.0 test
+> node --test --test-isolation=none tests/*.test.mjs
+
+✔ unconfigured service is honest and guest progress never persists (15.85559ms)
+✔ public configuration rejects service-role secrets and invalid origins (1.483701ms)
+✔ server-approved identity alone sets admin role and prepares isolated account storage (14.144768ms)
+✔ server-disabled identity is signed out and no account progress opened (1.880904ms)
+✔ password is sent only to official SDK, never app state, progress or admin RPC (1.423679ms)
+✔ email signup sends site password only to official SDK and reloads only a server-approved session (3.425795ms)
+✔ confirmation-required signup never creates an authenticated state or a progress scope (1.582956ms)
+✔ signup validation and provider errors never claim successful registration (2.016509ms)
+✔ signup never opens an account rejected by the server or replaces an authenticated account (3.233687ms)
+✔ cloud restore validates record schema and canonical bank before local hydration (43.6298ms)
+✔ cloud saves use per-account CAS and internal metadata is never uploaded (49.413115ms)
+✔ concurrent-device revision conflict preserves local progress rather than overwriting remote (22.703107ms)
+✔ failed cloud request reports no confirmed save and leaves account cache intact (17.647977ms)
+✔ reset advances cloud revision to empty snapshot and prevents restored deleted progress (14.958998ms)
+✔ failed cloud reset does not erase local account progress (13.520825ms)
+✔ administrator APIs use server RPC checks without submitting passwords or roles (7.357569ms)
+✔ student details require an administrator and valid target, then check identity again before return (9.809759ms)
+✔ choosing another identity never imports previous account or guest data (15.313066ms)
+✔ offline cloud failure cannot prevent local logout or erase saved account cache (14.163116ms)
+✔ SDK identity changes suspend account writes before another identity can use its cached records (13.934237ms)
+✔ save RPC carries expected user identity so token-change race cannot write A progress under B (68.480913ms)
+✔ online RPC requires an account, restricts endpoints and checks admin before sending (6.388175ms)
+✔ online RPC discards response after account change and never writes study progress (9.940191ms)
+✔ online RPC reports missing migration and safe room errors without leaking backend details (2.052004ms)
+✔ email confirmation keeps only a valid room invitation in the return URL (1.314456ms)
+✔ authenticated bootstrap initializes auth and storage before any profile reads (4.4041ms)
+✔ account name keeps explicit stored name and uses email when account name is blank (2.997423ms)
+✔ guest and signed-out bootstrap leave user name empty and do not fabricate an account (2.269125ms)
+✔ Web Lock rejects second tab before auth init or storage preparation (1.480994ms)
+✔ Web Lock boot still initializes auth in order and holds the writer lock (1.769917ms)
+✔ auth storage preparation failure renders retry and performs no profile reads (1.669506ms)
+✔ guest and signed-out cannot export, parse an import, or confirm a pending import (4.969163ms)
+✔ account reset delegates cloud and local clearing to Auth then reloads (3.769148ms)
+✔ account cloud reset failure preserves current round and releases reset guards (1.251333ms)
+✔ guest reset clears only in-memory scope without calling account reset (1.357029ms)
+✔ queued session snapshot cannot write to a newly switched account scope (1.236397ms)
+✔ import discards foreign cloud revision and preserves current account metadata (1.308129ms)
+✔ pending import from a previous account cannot replace the next account data (1.351256ms)
+✔ legacy controller without Auth keeps direct bootstrap behavior (1.238595ms)
+✔ account backup export excludes internal cloud revision metadata (1.295579ms)
+✔ auth replacement blocks draft capture before draining queued saves and preserves chosen cloud round (1.633854ms)
+✔ auth replacement rollback retains current round and restores flags without replacing state (1.101769ms)
+✔ auth replacement waits in-flight finish and rollback does not resurrect completed round (1.767644ms)
+✔ auth replacement drain failure releases guards and preserves local round (1.252171ms)
+✔ auth replacement rollback releases completed failed-finish busy state without deleting retained round (1.229259ms)
+✔ all original records: schema accepts approved bank; native wrong shapes fail safely (38.476851ms)
+✔ each native question answer survives presentation shuffle (83.909747ms)
+✔ six repeated attempts use a whole bag without duplicate and avoid previous round (51.135536ms)
+✔ score timeout is unattempted and no wrong-answer points (27.211973ms)
+✔ exam respects scope/easy and never substitutes hard (33.104693ms)
+✔ duel creates 20 questions for 10 each with equal pair difficulty/topic and no duplicate (60.151067ms)
+✔ duel handoff waits without decrement and alternates exactly (27.081358ms)
+✔ expired answer cannot score; single submission auto-advances once (38.467761ms)
+✔ last exam answer retained, revision allowed, explicit finish is idempotent (62.603546ms)
+✔ exam expires during modal and away from game, not after 45 min per question (28.035442ms)
+✔ ordinary paused round preserves remaining time; partial draft saved (29.579406ms)
+✔ endless extension exhausts finite pool without repeat (29.413256ms)
+✔ two concurrent clicks record one answer and transition once (29.73049ms)
+✔ duel streak looks only at the current competitor history (46.23421ms)
+✔ failed atomic result write preserves active round and rolls back XP (73.264952ms)
+✔ duel replay prioritizes different question set when pool is sufficient (64.702286ms)
+✔ new challenge refuses to replace an active saved round (89.653332ms)
+✔ valid backup import waits for confirmation and cancellation preserves data (64.288853ms)
+✔ confirmed import replaces in one operation then reloads without stale active writes (64.081596ms)
+✔ mistake review honors selected unit and difficulty (83.041762ms)
+✔ reset drains queued active saves and pagehide cannot recreate cleared progress (25.292726ms)
+✔ failed reset releases guards and preserves active round and cache (28.857715ms)
+✔ single-writer boot refuses another tab without initializing or writing (28.421386ms)
+✔ single-writer boot holds exclusive lock through app lifetime and releases on pagehide (65.640501ms)
+✔ answer storage failure renders recoverable lock; next retries save before advancing (26.70961ms)
+✔ guest can see account requirement without reading rooms or scheduling polling (2.481085ms)
+✔ polling pauses while hidden, resumes on visibility, and stops for a terminal result (5.274833ms)
+✔ an answer waits for an in-flight poll and never overlaps RPCs (3.407704ms)
+✔ a stopped or changed identity cannot apply a late room response (2.600785ms)
+✔ failed polling backs off, prevents blind answer resubmission, then recovers (1.944022ms)
+✔ private question output is escaped and polling does not replace unchanged question controls (1.529252ms)
+✔ explicit guest never reads or writes any persistent storage, including settings and bags (2.260881ms)
+✔ each guest selection starts fresh and guest progress never migrates into an account (1.58013ms)
+✔ accounts use separate namespaces and legacy records stay untouched (1.441746ms)
+✔ account UUID validation rejects unsafe selectors before touching storage (1.537182ms)
+✔ account IndexedDB names are isolated; guest does not attempt even a backend probe (1.359707ms)
+✔ switch cancels queued old writes and explicit old tokens cannot leak across accounts (1.708669ms)
+✔ subscribers receive account snapshots only; hydration is silent and unsubscribe works (1.327587ms)
+✔ legacy default behavior is retained until an explicit identity selection (1.148354ms)
+✔ cloud metadata accepts only nonnegative integer revision and a SHA-256 hash (1.971726ms)
+✔ silent metadata writes never schedule another cloud save and metadata remains account-isolated (1.387257ms)
+✔ switch waits for an in-flight IndexedDB transaction and closes only the old account connection (7.786709ms)
+✔ legacy localStorage records survive initialization and writes are isolated snapshots (3.27873ms)
+✔ queued batch persists related result/profile changes and deletes active together (4.478868ms)
+✔ denied storage stays usable in memory and explicitly reports non-persistence (1.226646ms)
+✔ quota failure retains this tab progress and announces fallback instead of claiming persistence (1.859096ms)
+✔ backup validates before replacement; malformed/prototype/unknown keys are rejected (2.16637ms)
+✔ valid legacy backup roundtrips without clearing separate data on a failed validation (2.542156ms)
+✔ active backups reject foreign questions and replace question text/answers with bundled content (2.678966ms)
+✔ duplicate results and malformed response IDs are rejected (1.825005ms)
+✔ duel imports require both players, finite separate scores and an explicit valid winner (3.387983ms)
+✔ result import rejects invalid rewards, duplicate question items and invalid optional scopes (3.401534ms)
+✔ achievement imports require a map of valid dated entries (2.82675ms)
+✔ active session imports accept real current epoch values and validate optional runtime settings (4.407895ms)
+✔ visited lesson metadata roundtrips but cannot inject invalid last lesson or timestamps (4.54291ms)
+ℹ tests 100
+ℹ suites 0
+ℹ pass 100
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1871.531576
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> tahadi-tawjihi-islamic@2.4.0 test:browser
+> node tests/browser.spec.mjs
+
+PASS initial load, real data counts, creator separate from learner
+PASS lesson visit is distinct from solved/completed/mastered and survives reload
+PASS 78 actual lesson-level sessions, all requested timer choices and exam counts
+PASS all four units, 26 lessons and three difficulty setup pages
+PASS actual setup buttons select level, lesson, count and timer
+PASS native answer interface: multiple_choice
+PASS native answer interface: fill_blank
+PASS native answer interface: true_false
+PASS native answer interface: multi_select
+PASS native answer interface: matching
+PASS native answer interface: ordering
+PASS training feedback is opt-in and compound partial answer survives reload
+PASS all eleven modes start and finish; session counts are unique
+PASS six-second mode excludes long compound types; deadline timeout progresses once
+PASS late answer is rejected, repeated answer and finish are idempotent
+PASS replay and persistent rotation avoid previous round with enough alternatives
+PASS duel readiness, equal per-player questions, alternation, hidden answers, winner and replay
+PASS duel tie derives from answers and survives reload at handoff
+PASS exam difficulty and unit filters, total 45 minutes, last answer kept editable
+PASS exam timeout submits while confirmation modal is open, once only
+PASS settings persist after fresh page, export JSON, malformed import rejected
+PASS IndexedDB actual backup export/import roundtrip restores profile and completed results
+PASS storage denied retains playable session and reports memory fallback
+PASS desktop and phone layouts, no horizontal overflow, all pages and light theme
+PASS exam reload preserves deadline and saved answer, revised answer reaches final result
+PASS 360px game/setup/results: matching ordering, exam navigation stay within viewport
+PASS mistake scope honors selected unit and difficulty buttons update pressed state
+PASS injected active-save failure keeps answer locked and Next retry preserves it
+PASS second tab cannot overwrite progress and acquires writer lock after first closes
+PASS closing Chromium process and reopening same profile preserves ongoing exam
+PASS sound toggle initializes short Web Audio effects and mute persists
+PASS confirmed reset clears active session and does not resurrect it on reload
+PASS fixed daily weekly counts and endless setup labels match actual rules
+SKIP standalone file opens without network dependencies: Managed Chromium policy blocks file:// navigation; local Windows file opening remains untested.
+PASS standalone inline bundle renders in opaque origin without external requests
+PASS no browser JavaScript or console errors
+35 passed, 0 failed.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> tahadi-tawjihi-islamic@2.4.0 test:auth
+> node tests/auth-ui.spec.mjs
+
+PASS explicit unconfigured fixture shows honest login gate without nickname bypass
+PASS production guest bridge under unconfigured fixture is temporary isolated and cleared by reload
+PASS auth gate and guest banner fit phone tablet desktop and preserve source attribution
+PASS public email signup confirmation leaves user signed out and clears site passwords
+PASS signup tabs are accessible and mismatched site passwords never reach authentication
+PASS mocked rejected credentials stay signed out and clear password without logging it
+PASS public email signup accepts other domains and Gmail with private progress and no self-admin
+PASS mocked account A/B storage is separate and account A restores from cloud in fresh browser context
+PASS mocked SDK identity change cannot upload account A progress under account B
+PASS owner roster and student details expose safe progress without credentials and preserve disable controls
+PASS mocked offline cloud cannot trap sign-out and preserves account cache
+PASS mocked cloud conflict requires explicit choice and cancellation does not overwrite data
+PASS no unexpected browser errors in auth UI checks
+13 passed, 0 failed.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> tahadi-tawjihi-islamic@2.4.0 test:online:sql
+> node --test supabase/tests/online-duels.test.mjs
+
+✔ 004 additive migration, canonical bank, grants and Auth/progress preservation (2073.619915ms)
+✔ room joins, own-room recovery, privacy, one guest and valid ordered answers (1529.734096ms)
+✔ server scores, terminal persistence, recent history and authorized admin pagination (1011.372598ms)
+✔ tie, timeout, forfeit, expiry, blocked identity and room-rate limits (1353.917986ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6136.063085
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+
+> tahadi-tawjihi-islamic@2.4.0 test:online:browser
+> node tests/online-ui.spec.mjs
+
+PASS Email sign-in opens independent mobile and desktop accounts; stored progress remains separate
+PASS Host creates an invite code; another authenticated client joins the same server room
+PASS Reload reconnects the player to the active room without resetting deadline or progress
+PASS Five shared questions are scored by PostgreSQL and final result appears on both clients
+PASS Server denies unrelated student access and exposes saved result to the existing owner admin
+PASS No unhandled browser errors or external requests; build unchanged during checks
+6 passed, 0 failed.
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

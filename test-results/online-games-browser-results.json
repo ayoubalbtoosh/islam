@@ -1,0 +1,200 @@
+{
+  "generatedAt": "2026-11-12T02:25:08.534Z",
+  "browser": "Chromium /usr/bin/chromium via Playwright",
+  "baseUrl": "http://127.0.0.1:4173",
+  "results": [
+    {
+      "name": "initial load, real data counts, creator separate from learner",
+      "status": "passed",
+      "milliseconds": 1186
+    },
+    {
+      "name": "lesson visit is distinct from solved/completed/mastered and survives reload",
+      "status": "passed",
+      "milliseconds": 1433
+    },
+    {
+      "name": "78 actual lesson-level sessions, all requested timer choices and exam counts",
+      "status": "passed",
+      "milliseconds": 5868
+    },
+    {
+      "name": "all four units, 26 lessons and three difficulty setup pages",
+      "status": "passed",
+      "milliseconds": 2358
+    },
+    {
+      "name": "actual setup buttons select level, lesson, count and timer",
+      "status": "passed",
+      "milliseconds": 983
+    },
+    {
+      "name": "native answer interface: multiple_choice",
+      "status": "passed",
+      "milliseconds": 969
+    },
+    {
+      "name": "native answer interface: fill_blank",
+      "status": "passed",
+      "milliseconds": 987
+    },
+    {
+      "name": "native answer interface: true_false",
+      "status": "passed",
+      "milliseconds": 958
+    },
+    {
+      "name": "native answer interface: multi_select",
+      "status": "passed",
+      "milliseconds": 1205
+    },
+    {
+      "name": "native answer interface: matching",
+      "status": "passed",
+      "milliseconds": 854
+    },
+    {
+      "name": "native answer interface: ordering",
+      "status": "passed",
+      "milliseconds": 1189
+    },
+    {
+      "name": "training feedback is opt-in and compound partial answer survives reload",
+      "status": "passed",
+      "milliseconds": 3194
+    },
+    {
+      "name": "all eleven modes start and finish; session counts are unique",
+      "status": "passed",
+      "milliseconds": 3761
+    },
+    {
+      "name": "six-second mode excludes long compound types; deadline timeout progresses once",
+      "status": "passed",
+      "milliseconds": 1078
+    },
+    {
+      "name": "late answer is rejected, repeated answer and finish are idempotent",
+      "status": "passed",
+      "milliseconds": 1116
+    },
+    {
+      "name": "replay and persistent rotation avoid previous round with enough alternatives",
+      "status": "passed",
+      "milliseconds": 1954
+    },
+    {
+      "name": "duel readiness, equal per-player questions, alternation, hidden answers, winner and replay",
+      "status": "passed",
+      "milliseconds": 1944
+    },
+    {
+      "name": "duel tie derives from answers and survives reload at handoff",
+      "status": "passed",
+      "milliseconds": 1409
+    },
+    {
+      "name": "exam difficulty and unit filters, total 45 minutes, last answer kept editable",
+      "status": "passed",
+      "milliseconds": 1210
+    },
+    {
+      "name": "exam timeout submits while confirmation modal is open, once only",
+      "status": "passed",
+      "milliseconds": 1332
+    },
+    {
+      "name": "settings persist after fresh page, export JSON, malformed import rejected",
+      "status": "passed",
+      "milliseconds": 1825
+    },
+    {
+      "name": "IndexedDB actual backup export/import roundtrip restores profile and completed results",
+      "status": "passed",
+      "milliseconds": 1819
+    },
+    {
+      "name": "storage denied retains playable session and reports memory fallback",
+      "status": "passed",
+      "milliseconds": 1118
+    },
+    {
+      "name": "desktop and phone layouts, no horizontal overflow, all pages and light theme",
+      "status": "passed",
+      "milliseconds": 9720
+    },
+    {
+      "name": "exam reload preserves deadline and saved answer, revised answer reaches final result",
+      "status": "passed",
+      "milliseconds": 1439
+    },
+    {
+      "name": "360px game/setup/results: matching ordering, exam navigation stay within viewport",
+      "status": "passed",
+      "milliseconds": 3166
+    },
+    {
+      "name": "mistake scope honors selected unit and difficulty buttons update pressed state",
+      "status": "passed",
+      "milliseconds": 1039
+    },
+    {
+      "name": "injected active-save failure keeps answer locked and Next retry preserves it",
+      "status": "passed",
+      "milliseconds": 1273
+    },
+    {
+      "name": "second tab cannot overwrite progress and acquires writer lock after first closes",
+      "status": "passed",
+      "milliseconds": 1945
+    },
+    {
+      "name": "closing Chromium process and reopening same profile preserves ongoing exam",
+      "status": "passed",
+      "milliseconds": 3569
+    },
+    {
+      "name": "sound toggle initializes short Web Audio effects and mute persists",
+      "status": "passed",
+      "milliseconds": 1336
+    },
+    {
+      "name": "confirmed reset clears active session and does not resurrect it on reload",
+      "status": "passed",
+      "milliseconds": 1765
+    },
+    {
+      "name": "fixed daily weekly counts and endless setup labels match actual rules",
+      "status": "passed",
+      "milliseconds": 2359
+    },
+    {
+      "name": "standalone file opens without network dependencies",
+      "status": "skipped",
+      "reason": "Managed Chromium policy blocks file:// navigation; local Windows file opening remains untested.",
+      "milliseconds": 796
+    },
+    {
+      "name": "standalone inline bundle renders in opaque origin without external requests",
+      "status": "passed",
+      "milliseconds": 1324
+    },
+    {
+      "name": "no browser JavaScript or console errors",
+      "status": "passed",
+      "milliseconds": 0
+    }
+  ],
+  "consoleErrors": [],
+  "passed": 35,
+  "failed": 0,
+  "skipped": 1,
+  "notes": [
+    "All data were isolated in fresh test browser contexts.",
+    "The historical game and persistence regressions use tests/fixtures/authorized-account.js injected into test responses only. It simulates an authorized non-admin account and an in-memory cloud endpoint; it does not test live email signup/login, email delivery, RLS or real cloud synchronization. Production HTML and auth configuration are not altered.",
+    "Account progress reset returns to the authenticated account display name; guest no-persistence behavior is covered by the separate authentication UI suite.",
+    "Some lifecycle tests call actual application functions directly using real bank questions. Native type controls, setup, exam navigation and backup controls are also exercised through actual DOM actions.",
+    "Timer expiry is accelerated by moving recorded start timestamps backward; no claim of a 45-minute wall-clock wait.",
+    "No testing on physical phones, Safari or Firefox."
+  ]
+}

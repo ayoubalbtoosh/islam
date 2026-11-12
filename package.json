@@ -1,8 +1,8 @@
 {
   "name": "tahadi-tawjihi-islamic",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "private": true,
-  "description": "منصة تحدي التوجيهي — إيميل وكلمة مرور خاصة بالموقع وضيف مؤقت",
+  "description": "منصة تحدي التوجيهي — حسابات إيميل وتقدم محفوظ ومواجهات أونلاين بالغرف",
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
@@ -10,13 +10,16 @@
     "dev": "node scripts/build.mjs && node scripts/serve.mjs",
     "test": "node --test --test-isolation=none tests/*.test.mjs",
     "test:browser": "node tests/browser.spec.mjs",
-    "check": "npm run build && npm test && npm run test:browser && npm run test:auth",
-    "test:auth": "node tests/auth-ui.spec.mjs"
+    "check": "npm run build && npm test && npm run test:browser && npm run test:auth && npm run test:online:sql && npm run test:online:browser",
+    "test:auth": "node tests/auth-ui.spec.mjs",
+    "test:online:sql": "node --test supabase/tests/online-duels.test.mjs",
+    "test:online:browser": "node tests/online-ui.spec.mjs"
   },
   "engines": {
     "node": ">=22.8"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.3.14",
     "esbuild": "0.28.2",
     "playwright": "1.62.1"
   },

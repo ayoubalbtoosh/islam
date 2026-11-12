@@ -267,7 +267,7 @@ async function resetData(){
 function showReset(){S.modal=`<h2>تأكيد حذف جميع بيانات التقدم</h2><p>هذا الإجراء لا يمكن التراجع عنه إلا إذا كانت لديك نسخة احتياطية. هل تريد المتابعة؟</p><div class="modal-actions"><button class="btn btn-outline" data-action="close-modal">إلغاء</button><button class="btn btn-danger" data-action="reset-all">نعم، احذف بياناتي</button></div>`;render();}
 async function saveSettings(){S.profile.name=document.getElementById('setting-name')?.value.trim().slice(0,32)||'طالب';S.settings.theme=document.getElementById('setting-theme')?.value||'dark';S.settings.sounds=!!document.getElementById('setting-sounds')?.checked;for(const d of DIFFICULTIES)S.settings.timers[d]=document.getElementById(`timer-${d}`)?.value||'default';await saveState();render();notify('تم حفظ الإعدادات.');}
 async function replay(){const r=S.finished||S.results.at(-1);if(!r)return go('challenges');if(r.mode==='exam')return setup('exam');if(r.mode==='mistakes')return setup('mistakes');if(r.mode==='daily'||r.mode==='weekly')return setup(r.mode);await createSession(r.mode,r.lessonId||S.lessonId,r.difficulty,r.scope||'all',r.requestedCount||10,r.players||S.players,r.timerSeconds??S.roundTimer);}
-async function onAction(btn){const action=btn.dataset.action;if(action==='writer-retry'){location.reload();return;}if(S.writerBlocked||S.writerSuspended)return;switch(action){
+async function onAction(btn){const action=btn.dataset.action;if(action==='writer-retry'){location.reload();return;}if(S.writerBlocked||S.writerSuspended)return;if(action.startsWith('online-')){await Online.action(btn);return;}switch(action){
  case 'navigate':go(btn.dataset.page);break;
  case 'begin-session':{const el=btn;el.disabled=true;el.setAttribute('aria-busy','true');return startForm().finally(()=>{if(el.isConnected){el.disabled=false;el.removeAttribute('aria-busy');}});break;}
  case 'unit':unit(btn.dataset.unit);break;
@@ -337,6 +337,7 @@ async function clockTick(){
 setInterval(()=>clockTick().catch(console.error),200);
 window.addEventListener('visibilitychange',()=>clockTick().catch(console.error));
 window.addEventListener('pagehide',()=>{
+ if(typeof Online!=='undefined')Online.stop();
  const pending=finishingPromise||captureDraft();S.writerSuspended=true;
  pending.catch(console.warn).finally(async()=>{
   await sessionWrite.catch(()=>{});
@@ -363,6 +364,7 @@ async function initialize(){
   if(active?.questions?.length&&!S.results.some(r=>r.id===active.id)){S.session=active;}
   if(S.session){S.session.finishing=false;S.page='game';S.selected=S.session.draft??(S.session.mode==='exam'?S.session.answers[S.session.current]?.response??null:null);resumeSessionClock();}
   S.ready=true;render();
+  if(typeof Online!=='undefined'&&new URL(location.href).searchParams.has('room')&&identity?.mode==='account')go('online');
   if(S.session&&['locked','feedback','advancing'].includes(S.session.phase)){S.session.phase='locked';await nextQuestion();}
   await clockTick();
  }catch(error){console.error(error);app.innerHTML=`<div class="fatal"><h1>تعذر تحميل الموقع</h1><p>${e(error.message)}</p><p>يرجى إعادة فتح الملف في متصفح حديث.</p></div>`;}
