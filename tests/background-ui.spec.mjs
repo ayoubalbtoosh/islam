@@ -71,6 +71,13 @@ try{
   await mkdir(new URL('artifacts/',root),{recursive:true});await page.screenshot({path:new URL('artifacts/background-mobile.png',root).pathname,fullPage:true});
  });
  await test('Header color picker sits beside theme and account controls and keeps page and menu colors independent',async()=>{
+  await openHeader();
+  assert.equal(await page.evaluate(()=>{
+   const saved={page:S.page,session:S.session,answer:autoAnswer};let submissions=0;
+   try{S.page='game';S.session={phase:'question',questions:[{type:'multi_select'}],current:0};autoAnswer=async()=>{submissions++;};
+    document.getElementById('header-background').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));return submissions;
+   }finally{S.page=saved.page;S.session=saved.session;autoAnswer=saved.answer;}
+  }),0,'Enter in the color panel must not submit a game answer');
   await page.setViewportSize({width:1366,height:900});
   for(const next of ['home','units','challenges']){
    await page.evaluate(next=>go(next),next);

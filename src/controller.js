@@ -341,7 +341,7 @@ document.addEventListener('change',async event=>{try{const t=event.target;
  if(t.dataset.match!==undefined){const current=responseFor(S.session);const next={...(current&&typeof current==='object'&&!Array.isArray(current)?current:{}),[t.dataset.match]:t.value};if(isAnswered(S.session.questions[S.session.current],next))await autoAnswer(next);else {S.selected=next;captureDraft().catch(console.warn);}}
  if(t.id==='import-file'&&t.files?.[0])await importData(t.files[0]);
 }catch(error){console.warn(error.message);notify('تعذر حفظ الاختيار: '+error.message);}});
-window.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.colorsOpen){e.preventDefault();closeHeaderColors(true);return;}if(e.key==='Escape'&&S.modal){S.pendingImport=null;S.modal=null;render();}if(S.page==='game'&&!S.modal&&S.session?.phase==='question'&&e.key==='Enter'&&e.target.tagName!=='BUTTON'&&e.target.tagName!=='SELECT'){e.preventDefault();if(S.session.questions[S.session.current].type==='multi_select')autoAnswer(responseFor(S.session)).catch(error=>notify('تعذر اعتماد الإجابة: '+error.message));}});
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.colorsOpen){e.preventDefault();closeHeaderColors(true);return;}if(e.key==='Escape'&&S.modal){S.pendingImport=null;S.modal=null;render();}if(S.page==='game'&&!S.colorsOpen&&!S.modal&&S.session?.phase==='question'&&e.key==='Enter'&&e.target.tagName!=='BUTTON'&&e.target.tagName!=='SELECT'){e.preventDefault();if(S.session.questions[S.session.current].type==='multi_select')autoAnswer(responseFor(S.session)).catch(error=>notify('تعذر اعتماد الإجابة: '+error.message));}});
 let tickBusy=false;
 let lastCountdownKey='';
 async function clockTick(){

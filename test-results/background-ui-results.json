@@ -1,43 +1,43 @@
 {
-  "generatedAt": "2026-11-12T02:47:31.284Z",
-  "testedBuildSha256": "bbc861dc0de76533a4ca3fe84aeb58cc3ae75ecf27c9d836c0122c85ede3a709",
+  "generatedAt": "2026-11-12T02:50:30.207Z",
+  "testedBuildSha256": "e1f79af9ab160a3546d09eac778ae001e30f2cff918e8968789ba39f9799d7fd",
   "passed": 8,
   "failed": 0,
   "results": [
     {
       "name": "Custom background previews immediately and persists with player settings after reload",
       "status": "passed",
-      "milliseconds": 912
+      "milliseconds": 810
     },
     {
       "name": "Saved color remains on other pages and white or black backgrounds adapt text contrast",
       "status": "passed",
-      "milliseconds": 430
+      "milliseconds": 375
     },
     {
       "name": "Reset preview and save restore default theme without losing name or sound preference",
       "status": "passed",
-      "milliseconds": 852
+      "milliseconds": 681
     },
     {
       "name": "Theme toggle exits custom color and custom controls fit a mobile viewport",
       "status": "passed",
-      "milliseconds": 495
+      "milliseconds": 399
     },
     {
       "name": "Header color picker sits beside theme and account controls and keeps page and menu colors independent",
       "status": "passed",
-      "milliseconds": 892
+      "milliseconds": 898
     },
     {
       "name": "Resetting either header color preserves the other color and existing player preferences",
       "status": "passed",
-      "milliseconds": 514
+      "milliseconds": 540
     },
     {
       "name": "Header picker and colored mobile menu fit narrow screens and Escape restores button focus",
       "status": "passed",
-      "milliseconds": 593
+      "milliseconds": 590
     },
     {
       "name": "No browser errors or external network calls and frozen build stays unchanged",
