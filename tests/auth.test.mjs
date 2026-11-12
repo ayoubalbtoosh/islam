@@ -102,7 +102,7 @@ test('signup never opens an account rejected by the server or replaces an authen
  const active=runtime();await active.Auth.init();await assert.rejects(active.Auth.signUpEmail('طالب','a@example.org','dummy-password'),/سجّل الخروج/);assert.equal(active.calls.some(c=>c.api==='signup'),false);
 });
 test('cloud restore validates record schema and canonical bank before local hydration',async()=>{
- const r=runtime({remote:{user_id:A,revision:3,updated_at:new Date().toISOString(),records:{profile:{name:'محفوظ',xp:40,coins:0,level:1}}}});await r.Auth.init();await r.Auth.prepareStorage();assert.equal((await r.db.get('profile')).name,'محفوظ');assert.equal(r.Auth.current().cloudStatus,'synced');assert.equal((await r.db.get('cloud-sync')).revision,3);
+ const r=runtime({remote:{user_id:A,revision:3,updated_at:new Date().toISOString(),records:{profile:{name:'محفوظ',xp:40,coins:0,level:1},settings:{backgroundColor:'#aB12Ef'}}}});await r.Auth.init();await r.Auth.prepareStorage();assert.equal((await r.db.get('profile')).name,'محفوظ');assert.equal((await r.db.get('settings')).backgroundColor,'#aB12Ef');assert.equal(r.Auth.current().cloudStatus,'synced');assert.equal((await r.db.get('cloud-sync')).revision,3);
  const broken=runtime({remote:{user_id:A,revision:1,records:{profile:{name:'bad',xp:'invalid'}}}});await broken.Auth.init();await broken.Auth.prepareStorage();assert.equal(await broken.db.get('profile',null),null);assert.equal(broken.Auth.current().cloudStatus,'offline');
 });
 test('cloud saves use per-account CAS and internal metadata is never uploaded',async()=>{

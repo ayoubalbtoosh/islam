@@ -1,0 +1,13 @@
+{
+  "version": "2.4.1",
+  "at": "2026-11-12T02:40:19.989684+00:00",
+  "sha256": "57541bfc473fd41aea4993935215eb6d16f1b425a6267e46b68c1e4106e16bc1",
+  "bytes": 2744842,
+  "checks": {
+    "nodePassed": 100,
+    "backgroundBrowserPassed": 5
+  },
+  "liveSupabaseSyncVerified": false,
+  "requiresNewSqlMigration": false,
+  "deployment": "pending"
+}

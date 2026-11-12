@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-11-12T02:39:17.894Z",
+  "testedBuildSha256": "57541bfc473fd41aea4993935215eb6d16f1b425a6267e46b68c1e4106e16bc1",
+  "passed": 5,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Custom background previews immediately and persists with player settings after reload",
+      "status": "passed",
+      "milliseconds": 832
+    },
+    {
+      "name": "Saved color remains on other pages and white or black backgrounds adapt text contrast",
+      "status": "passed",
+      "milliseconds": 362
+    },
+    {
+      "name": "Reset preview and save restore default theme without losing name or sound preference",
+      "status": "passed",
+      "milliseconds": 719
+    },
+    {
+      "name": "Theme toggle exits custom color and custom controls fit a mobile viewport",
+      "status": "passed",
+      "milliseconds": 389
+    },
+    {
+      "name": "No browser errors or external network calls and frozen build stays unchanged",
+      "status": "passed",
+      "milliseconds": 4
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "limitations": [
+    "Account identity and cloud transport are synthetic fixtures; persistence is real browser IndexedDB.",
+    "No hosted Supabase authentication, actual cross-device cloud sync or physical device was used."
+  ]
+}

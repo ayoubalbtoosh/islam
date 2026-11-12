@@ -1,6 +1,6 @@
 {
   "name": "tahadi-tawjihi-islamic",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "private": true,
   "description": "منصة تحدي التوجيهي — حسابات إيميل وتقدم محفوظ ومواجهات أونلاين بالغرف",
   "type": "module",
@@ -10,10 +10,11 @@
     "dev": "node scripts/build.mjs && node scripts/serve.mjs",
     "test": "node --test --test-isolation=none tests/*.test.mjs",
     "test:browser": "node tests/browser.spec.mjs",
-    "check": "npm run build && npm test && npm run test:browser && npm run test:auth && npm run test:online:sql && npm run test:online:browser",
+    "check": "npm run build && npm test && npm run test:browser && npm run test:auth && npm run test:online:sql && npm run test:online:browser && npm run test:background",
     "test:auth": "node tests/auth-ui.spec.mjs",
     "test:online:sql": "node --test supabase/tests/online-duels.test.mjs",
-    "test:online:browser": "node tests/online-ui.spec.mjs"
+    "test:online:browser": "node tests/online-ui.spec.mjs",
+    "test:background": "node tests/background-ui.spec.mjs"
   },
   "engines": {
     "node": ">=22.8"

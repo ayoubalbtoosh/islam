@@ -41,7 +41,7 @@ test('quota failure retains this tab progress and announces fallback instead of 
 });
 test('backup validates before replacement; malformed/prototype/unknown keys are rejected',async()=>{
  const {db,validateBackup}=runtime({saved:{profile:{name:'طالب',xp:10}}});
- for(const records of [{profile:{name:'طالب',xp:-1}},{results:{}},{evil:{}},JSON.parse('{"__proto__":{}}'),{settings:{theme:'hacked'}},{active:{questions:[]}}]){
+ for(const records of [{profile:{name:'طالب',xp:-1}},{results:{}},{evil:{}},JSON.parse('{"__proto__":{}}'),{settings:{theme:'hacked'}},{settings:{backgroundColor:'red; background: url(test)'}},{settings:{backgroundColor:'#fff'}},{settings:{backgroundColor:42}},{active:{questions:[]}}]){
   assert.throws(()=>validateBackup(backup(records),byId));
  }
  assert.equal((await db.get('profile')).xp,10);
