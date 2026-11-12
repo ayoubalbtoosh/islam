@@ -1,54 +1,55 @@
 {
-  "generatedAt": "2026-11-12T02:50:30.207Z",
-  "testedBuildSha256": "e1f79af9ab160a3546d09eac778ae001e30f2cff918e8968789ba39f9799d7fd",
+  "generatedAt": "2026-11-12T02:59:59.406Z",
+  "testedBuildSha256": "488a9bd4e07f55963d168180c12d70029079711dcdd0a2f04aeb6af3b35810f7",
   "passed": 8,
   "failed": 0,
   "results": [
     {
-      "name": "Custom background previews immediately and persists with player settings after reload",
+      "name": "Header offers a large unnamed preset palette instead of free color inputs on every page",
       "status": "passed",
-      "milliseconds": 810
+      "milliseconds": 441
     },
     {
-      "name": "Saved color remains on other pages and white or black backgrounds adapt text contrast",
+      "name": "Preset choices save automatically and independently for page and menu after reload",
       "status": "passed",
-      "milliseconds": 375
+      "milliseconds": 1019
     },
     {
-      "name": "Reset preview and save restore default theme without losing name or sound preference",
+      "name": "White and black preset backgrounds keep main and menu text independently readable",
       "status": "passed",
-      "milliseconds": 681
+      "milliseconds": 1219
     },
     {
-      "name": "Theme toggle exits custom color and custom controls fit a mobile viewport",
+      "name": "Saving ordinary player settings preserves both preset choices and needs no free color input",
       "status": "passed",
-      "milliseconds": 399
+      "milliseconds": 804
     },
     {
-      "name": "Header color picker sits beside theme and account controls and keeps page and menu colors independent",
+      "name": "Each default reset leaves the other saved color and account preferences unchanged",
       "status": "passed",
-      "milliseconds": 898
+      "milliseconds": 1173
     },
     {
-      "name": "Resetting either header color preserves the other color and existing player preferences",
+      "name": "Keyboard navigation selects presets without submitting game answers and Escape restores focus",
       "status": "passed",
-      "milliseconds": 540
+      "milliseconds": 367
     },
     {
-      "name": "Header picker and colored mobile menu fit narrow screens and Escape restores button focus",
+      "name": "Preset panel and independently colored mobile menu fit 360 and 390 pixel screens",
       "status": "passed",
-      "milliseconds": 590
+      "milliseconds": 899
     },
     {
-      "name": "No browser errors or external network calls and frozen build stays unchanged",
+      "name": "Matching inline book favicon decodes and the frozen build has no browser errors or external requests",
       "status": "passed",
-      "milliseconds": 4
+      "milliseconds": 10
     }
   ],
   "errors": [],
   "externalRequests": [],
   "limitations": [
     "Account identity and cloud transport are synthetic fixtures; persistence is real browser IndexedDB.",
-    "No hosted Supabase authentication, actual cross-device cloud sync or physical device was used."
+    "No hosted Supabase authentication, actual cross-device cloud sync or physical device was used.",
+    "Favicon link and SVG decoding were tested; browser chrome screenshot rendering itself is outside page automation."
   ]
 }

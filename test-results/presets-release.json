@@ -1,0 +1,15 @@
+{
+  "version": "2.4.3",
+  "generatedAt": "2026-11-12T03:01:09.798901+00:00",
+  "sha256": "488a9bd4e07f55963d168180c12d70029079711dcdd0a2f04aeb6af3b35810f7",
+  "bytes": 2753324,
+  "checks": {
+    "nodePassed": 100,
+    "browserPassed": 8
+  },
+  "paletteCount": 72,
+  "favicon": "inline SVG book, green/gold",
+  "requiresNewSqlMigration": false,
+  "liveSupabaseSyncVerified": false,
+  "deployment": "pending"
+}

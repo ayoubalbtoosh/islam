@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#082c23">
 <meta name="description" content="منصة تحدي التوجيهي في التربية الإسلامية، بتحديات فردية ومواجهات واختبارات. إنشاء الطالب أيوب محمد البطوش.">
 <meta name="color-scheme" content="dark light">
+<link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%20%20%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%23082c23%22%2F%3E%0A%20%20%3Crect%20x%3D%224%22%20y%3D%224%22%20width%3D%2256%22%20height%3D%2256%22%20rx%3D%2213%22%20fill%3D%22%230b674c%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M11%2017c8-2%2015%200%2021%204%206-4%2013-6%2021-4v29c-8-2-15%200-21%204-6-4-13-6-21-4Z%22%20fill%3D%22%23f8da91%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M32%2022v27%22%20fill%3D%22none%22%20stroke%3D%22%23082c23%22%20stroke-width%3D%223%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M17%2026c3%200%206%201%209%202m-9%206c3%200%206%201%209%202m12-8c3-1%206-2%209-2m-9%2010c3-1%206-2%209-2%22%20fill%3D%22none%22%20stroke%3D%22%230b674c%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A">
 <title>تحدي التوجيهي | التربية الإسلامية</title>
 <style>:root{color-scheme:dark;--bg:#071712;--panel:#102820;--panel2:#143027;--side:#0b1d18;--fg:#f5f9f4;--sub:#a6beb2;--muted:#789586;--line:#294438;--green:#0da979;--green2:#00d29b;--gold:#e7bd69;--gold2:#f8da91;--red:#f48289;--shade:rgba(0,0,0,.24);--shadow:0 20px 55px rgba(0,0,0,.20)}
 :root[data-theme=light]{color-scheme:light;--bg:#f4f8f5;--panel:#fff;--panel2:#f4faf6;--side:#102b21;--fg:#163427;--sub:#61786c;--muted:#738c7a;--line:#dfe8e1;--green:#07865f;--green2:#0d9d70;--gold:#b47b26;--gold2:#cc912d;--red:#d85060;--shade:rgba(12,40,25,.06);--shadow:0 14px 42px rgba(20,54,31,.08)}
@@ -135,6 +136,8 @@ body{font-family:"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.75}button,inpu
 :root[data-custom-sidebar=true] .sidebar :is(.nav-item.active,.nav-item:hover,.aside-foot,.student-credit,.rank-icon),:root[data-custom-sidebar=true] .mobile-bottom button.active{background:var(--sidebar-soft);color:var(--sidebar-fg)}
 :root[data-custom-sidebar=true] .sidebar .nav-item i{background:var(--sidebar-fg)}
 @media(max-width:600px){.header-colors{position:fixed;top:72px;left:16px;right:16px;width:auto}.top-end{gap:5px}.top-end .top-pill{display:none}}
+
+.color-targets{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--panel2);padding:4px;border-radius:10px}.color-targets button{border:1px solid transparent;background:transparent;color:var(--fg);border-radius:7px;padding:7px;font-weight:700}.color-targets button[aria-pressed=true]{background:var(--panel);border-color:var(--line)}.color-swatches{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:7px;padding:4px}.color-swatch{height:32px;min-width:0;border-radius:7px;border:1px solid #80808080;background:var(--swatch);color:var(--swatch-fg);display:grid;place-items:center;padding:0}.color-swatch[aria-pressed=true]{outline:2px solid var(--fg);outline-offset:2px}.color-swatch:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.header-colors{width:min(350px,calc(100vw - 32px))}@media(max-width:600px){.header-colors{width:auto}.color-swatches{gap:6px}}
 </style>
 </head>
 <body>
@@ -842,9 +845,22 @@ function applySidebarColor(color){
  const soft='#'+rgb.map(x=>Math.round(x+(target-x)*.12).toString(16).padStart(2,'0')).join('');
  root.style.setProperty('--side',color);root.style.setProperty('--sidebar-fg',foreground);root.style.setProperty('--sidebar-soft',soft);
 }
+const BACKGROUND_PRESETS=Object.freeze([
+ '#000000','#ffffff','#ff0000','#ff8000','#ffff00','#00ff00','#00ffff','#0000ff',
+ '#8000ff','#ff00ff','#ff0080','#0080ff','#00ff80','#80ff00','#ffbf00','#00bfff',
+ '#e53935','#fb8c00','#fdd835','#7cb342','#00897b','#1e88e5','#3949ab','#8e24aa',
+ '#f43f5e','#f97316','#eab308','#10b981','#14b8a6','#0ea5e9','#8b5cf6','#ec4899',
+ '#fecaca','#fed7aa','#fef08a','#d9f99d','#a7f3d0','#a5f3fc','#c7d2fe','#f5d0fe',
+ '#fff7ed','#fefce8','#f0fdf4','#f0fdfa','#f0f9ff','#f5f3ff','#fdf2f8','#f8fafc',
+ '#7f1d1d','#78350f','#713f12','#365314','#064e3b','#164e63','#1e3a8a','#581c87',
+ '#2b1016','#2a1b14','#292314','#1c291b','#071712','#082c33','#111b35','#241331',
+ '#111111','#1f2937','#334155','#475569','#64748b','#94a3b8','#cbd5e1','#e5e7eb'
+]);
 function headerColorsView(){
- const valid=color=>typeof color==='string'&&/^#[0-9a-f]{6}$/i.test(color);
- return `<div class="appearance-picker"><button class="icon-btn" type="button" data-action="colors-toggle" title="ألوان الخلفية" aria-label="ألوان الخلفية" aria-expanded="${!!S.colorsOpen}" aria-controls="header-colors">${ico('palette')}</button>${S.colorsOpen?`<section id="header-colors" class="header-colors" role="region" aria-label="ألوان خلفية الصفحة والقائمة"><div class="header-colors-title"><h2>ألوان الخلفية</h2><button class="icon-btn" type="button" data-action="colors-close" aria-label="إغلاق لوحة الألوان">${ico('close',16)}</button></div><label for="header-background">خلفية الصفحة<input id="header-background" type="color" value="${e(valid(S.settings.backgroundColor)?S.settings.backgroundColor:S.settings.theme==='light'?'#f4f8f5':'#071712')}"></label><button class="text-link" type="button" data-action="colors-reset" data-target="backgroundColor">لون الصفحة الافتراضي</button><label for="header-sidebar-color">خلفية القائمة<input id="header-sidebar-color" type="color" value="${e(valid(S.settings.sidebarColor)?S.settings.sidebarColor:'#0b1d18')}"></label><button class="text-link" type="button" data-action="colors-reset" data-target="sidebarColor">لون القائمة الافتراضي</button><p class="muted">لكل خلفية لون مستقل. تُحفظ الألوان تلقائيًا عند اعتماد اختيارك.${authState().mode==='guest'?' ألوان الضيف مؤقتة.':''}</p></section>`:''}</div>`;
+ const target=S.colorTarget==='sidebarColor'?'sidebarColor':'backgroundColor',label=target==='sidebarColor'?'خلفية القائمة':'خلفية الصفحة';
+ const selected=String(S.settings[target]||'').toLowerCase(),focusIndex=Math.max(0,BACKGROUND_PRESETS.indexOf(selected));
+ const options=BACKGROUND_PRESETS.map((color,index)=>`<button class="color-swatch" type="button" data-action="color-preset" data-target="${target}" data-color="${color}" aria-label="اختيار اللون ${nf(index+1)}" aria-pressed="${selected===color}" tabindex="${index===focusIndex?'0':'-1'}" style="--swatch:${color};--swatch-fg:${readableColor(color)}">${selected===color?ico('check',17):''}</button>`).join('');
+ return `<div class="appearance-picker"><button class="icon-btn" type="button" data-action="colors-toggle" title="ألوان الخلفية" aria-label="ألوان الخلفية" aria-expanded="${!!S.colorsOpen}" aria-controls="header-colors">${ico('palette')}</button>${S.colorsOpen?`<section id="header-colors" class="header-colors" role="region" aria-label="ألوان خلفية الصفحة والقائمة"><div class="header-colors-title"><h2>ألوان الخلفية</h2><button class="icon-btn" type="button" data-action="colors-close" aria-label="إغلاق لوحة الألوان">${ico('close',16)}</button></div><div class="color-targets" role="group" aria-label="الخلفية المراد تغييرها">${[['backgroundColor','الصفحة'],['sidebarColor','القائمة']].map(([key,name])=>`<button type="button" data-action="colors-target" data-target="${key}" aria-pressed="${key===target}">${name}</button>`).join('')}</div><div class="color-swatches" role="group" aria-label="${label}" data-target="${target}">${options}</div><button class="text-link" type="button" data-action="colors-reset" data-target="${target}">العودة للون الافتراضي</button><p class="muted">اضغط على اللون لتطبيقه وحفظه.${authState().mode==='guest'?' ألوان الضيف مؤقتة.':''}</p></section>`:''}</div>`;
 }
 function closeHeaderColors(focus=false){
  S.colorsOpen=false;document.getElementById('header-colors')?.remove();
@@ -956,7 +972,7 @@ function achievementsView(){const a=badges();return `${heroTitle('الإنجاز
  <section class="achievement-summary"><div>${ico('trophy',39)}<span><strong>${nf(a.filter(x=>x.unlocked).length)} / ${nf(a.length)}</strong><small>إنجازات حصلت عليها</small></span></div><div class="bar"><i style="width:${a.filter(x=>x.unlocked).length/a.length*100}%"></i></div></section>
  <div class="achievement-grid">${a.map(x=>`<article class="achievement-card ${x.unlocked?'unlocked':'locked'}"><div class="achievement-medal">${ico(x.icon,29)}</div><span class="achievement-state">${x.unlocked?'مكتمل':'لم يكتمل بعد'}</span><h3>${x.title}</h3><p>${x.desc}</p>${x.unlocked?`<span class="achievement-tick">${ico('check',16)} ${x.date?new Date(x.date).toLocaleDateString('ar-JO'):'مكتمل'}</span>`:''}</article>`).join('')}</div>`;}
 function settingsView(){return `${heroTitle('الإعدادات','خصّص تجربتك وتحكم في بياناتك الدراسية')}
- ${accountCardView()}<div class="settings-grid"><section class="surface panel"><h2>${ico('settings')} إعدادات اللاعب</h2><label>اسم العرض <input id="setting-name" maxlength="32" value="${e(S.profile.name)}"></label><label>المظهر الافتراضي <select id="setting-theme"><option value="dark" ${S.settings.theme==='dark'?'selected':''}>داكن</option><option value="light" ${S.settings.theme==='light'?'selected':''}>فاتح</option></select></label><div class="background-settings"><label class="toggle-row">لون خلفية مخصص <input id="setting-custom-background" type="checkbox" ${/^#[0-9a-f]{6}$/i.test(S.settings.backgroundColor||'')?'checked':''}></label><label for="setting-background">اختر لون الخلفية<input id="setting-background" type="color" value="${e(/^#[0-9a-f]{6}$/i.test(S.settings.backgroundColor||'')?S.settings.backgroundColor:S.settings.theme==='light'?'#f4f8f5':'#071712')}"></label><button class="btn btn-outline btn-sm" type="button" data-action="default-background">الخلفية الافتراضية</button><p class="muted">معاينة فورية؛ اضغط حفظ الإعدادات لتثبيت اللون. تتكيف ألوان النصوص تلقائيًا مع الخلفية.</p></div><label class="toggle-row">المؤثرات الصوتية <input id="setting-sounds" type="checkbox" ${S.settings.sounds?'checked':''}></label><button class="btn btn-primary" data-action="save-settings">حفظ الإعدادات ${ico('check',16)}</button></section>
+ ${accountCardView()}<div class="settings-grid"><section class="surface panel"><h2>${ico('settings')} إعدادات اللاعب</h2><label>اسم العرض <input id="setting-name" maxlength="32" value="${e(S.profile.name)}"></label><label>المظهر الافتراضي <select id="setting-theme"><option value="dark" ${S.settings.theme==='dark'?'selected':''}>داكن</option><option value="light" ${S.settings.theme==='light'?'selected':''}>فاتح</option></select></label><div class="background-settings"><button class="btn btn-outline" type="button" data-action="colors-toggle">${ico('palette')} ألوان الصفحة والقائمة</button><p class="muted">اختر لونًا جاهزًا من لوحة الألوان بجانب الشمس والحساب.</p></div><label class="toggle-row">المؤثرات الصوتية <input id="setting-sounds" type="checkbox" ${S.settings.sounds?'checked':''}></label><button class="btn btn-primary" data-action="save-settings">حفظ الإعدادات ${ico('check',16)}</button></section>
  <section class="surface panel"><h2>${ico('clock')} زمن السؤال لكل مستوى</h2><p class="muted">اختر وقتًا افتراضيًا لكل مستوى. ويمكنك تغييره لكل جولة عند بدء التحدي. وضع الست ثواني يبقى ثابتًا، والامتحان ٤٥ دقيقة إجمالية.</p>${DIFFICULTIES.map(d=>`<label>المستوى ${DIFF_NAMES[d]} <select id="timer-${d}"><option value="default" ${S.settings.timers[d]==='default'?'selected':''}>افتراضي (${DEFAULT_TIMERS[d]} ثانية)</option>${TIME_OPTIONS.map(t=>`<option value="${t}" ${String(S.settings.timers[d])===String(t)?'selected':''}>${t} ثانية</option>`).join('')}<option value="none" ${S.settings.timers[d]==='none'?'selected':''}>دون مؤقت</option></select></label>`).join('')}<button class="btn btn-primary" data-action="save-settings">تطبيق الأوقات ${ico('check',16)}</button></section>
  ${authState().mode==='account'?`<section class="surface panel"><h2>${ico('download')} نسخة احتياطية للحساب</h2><p class="muted">ملف التقدم يخص هذا الحساب. المزامنة ونسخة JSON وسيلتان مختلفتان؛ راجع حالة المزامنة أعلاه قبل تغيير الجهاز.</p><p class="storage-status">${e(db.status().mode==='memory'?'التخزين المحلي غير دائم؛ تحقق من المزامنة قبل الإغلاق.':db.status().warning||'مساحة حساب منفصلة في هذا المتصفح.')}</p><div class="button-stack"><button class="btn btn-outline" data-action="export">${ico('download',18)} تصدير ملف التقدم JSON</button><label class="btn btn-outline file-label">${ico('upload',18)} استيراد نسخة لهذا الحساب<input type="file" id="import-file" accept=".json,application/json" hidden></label></div></section>`:`<section class="surface panel"><h2>${ico('lock')} تقدم الضيف مؤقت</h2><p class="muted">لا يُحفظ تقدم الضيف على الجهاز أو في السحابة، ويُمسح عند التحديث أو الإغلاق. التصدير والاستيراد متاحان للحسابات فقط.</p><button class="btn btn-primary" data-action="auth-signout">تسجيل الدخول لحفظ تقدم جديد</button></section>`}
  <section class="surface panel danger-panel"><h2>${ico('info')} إعادة تعيين البيانات</h2><p class="muted">سيؤدي هذا إلى حذف التقدم والنتائج والأخطاء وسجل تبديل الأسئلة على هذا المتصفح، ولن يحذف بنك الأسئلة.</p><button class="btn btn-danger" data-action="confirm-reset">حذف بيانات اللاعب ${ico('refresh',16)}</button></section></div>`;}
@@ -1561,15 +1577,17 @@ async function resetData(){
 }
 function showReset(){S.modal=`<h2>تأكيد حذف جميع بيانات التقدم</h2><p>هذا الإجراء لا يمكن التراجع عنه إلا إذا كانت لديك نسخة احتياطية. هل تريد المتابعة؟</p><div class="modal-actions"><button class="btn btn-outline" data-action="close-modal">إلغاء</button><button class="btn btn-danger" data-action="reset-all">نعم، احذف بياناتي</button></div>`;render();}
 async function saveHeaderColor(key,color){
- if(!['backgroundColor','sidebarColor'].includes(key)||color!==''&&!/^#[0-9a-f]{6}$/i.test(color)||S.writerBlocked||S.writerSuspended)return;
+ if(!['backgroundColor','sidebarColor'].includes(key)||color!==''&&!BACKGROUND_PRESETS.includes(color)||S.writerBlocked||S.writerSuspended)return;
  const previous=S.settings[key];S.settings[key]=color;
  try{await saveState();}catch(error){S.settings[key]=previous;throw error;}
- finally{render();if(S.colorsOpen)document.getElementById(key==='sidebarColor'?'header-sidebar-color':'header-background')?.focus({preventScroll:true});}
+ finally{render();if(S.colorsOpen)document.querySelector('#header-colors .color-swatch[aria-pressed="true"]')?.focus({preventScroll:true});}
 }
-async function saveSettings(){S.profile.name=document.getElementById('setting-name')?.value.trim().slice(0,32)||'طالب';S.settings.theme=document.getElementById('setting-theme')?.value||'dark';const color=document.getElementById('setting-background')?.value;S.settings.backgroundColor=document.getElementById('setting-custom-background')?.checked&&/^#[0-9a-f]{6}$/i.test(color||'')?color:'';S.settings.sounds=!!document.getElementById('setting-sounds')?.checked;for(const d of DIFFICULTIES)S.settings.timers[d]=document.getElementById(`timer-${d}`)?.value||'default';await saveState();render();notify('تم حفظ الإعدادات.');}
+async function saveSettings(){S.profile.name=document.getElementById('setting-name')?.value.trim().slice(0,32)||'طالب';S.settings.theme=document.getElementById('setting-theme')?.value||'dark';S.settings.sounds=!!document.getElementById('setting-sounds')?.checked;for(const d of DIFFICULTIES)S.settings.timers[d]=document.getElementById(`timer-${d}`)?.value||'default';await saveState();render();notify('تم حفظ الإعدادات.');}
 async function replay(){const r=S.finished||S.results.at(-1);if(!r)return go('challenges');if(r.mode==='exam')return setup('exam');if(r.mode==='mistakes')return setup('mistakes');if(r.mode==='daily'||r.mode==='weekly')return setup(r.mode);await createSession(r.mode,r.lessonId||S.lessonId,r.difficulty,r.scope||'all',r.requestedCount||10,r.players||S.players,r.timerSeconds??S.roundTimer);}
 async function onAction(btn){const action=btn.dataset.action;if(action==='writer-retry'){location.reload();return;}if(S.writerBlocked||S.writerSuspended)return;if(action.startsWith('online-')){await Online.action(btn);return;}switch(action){
- case 'colors-toggle':S.colorsOpen=!S.colorsOpen;render();if(S.colorsOpen)document.getElementById('header-background')?.focus({preventScroll:true});break;
+ case 'colors-toggle':S.colorsOpen=!S.colorsOpen;render();if(S.colorsOpen)document.querySelector('#header-colors .color-swatch[tabindex="0"]')?.focus({preventScroll:true});break;
+ case 'colors-target':S.colorTarget=btn.dataset.target==='sidebarColor'?'sidebarColor':'backgroundColor';render();document.querySelector('#header-colors .color-swatch[tabindex="0"]')?.focus({preventScroll:true});break;
+ case 'color-preset':await saveHeaderColor(btn.dataset.target,btn.dataset.color);break;
  case 'colors-close':closeHeaderColors(true);break;
  case 'colors-reset':await saveHeaderColor(btn.dataset.target,'');break;
  case 'navigate':go(btn.dataset.page);break;
@@ -1598,7 +1616,7 @@ async function onAction(btn){const action=btn.dataset.action;if(action==='writer
  case 'resume-game':go('game');break;
  case 'replay-result':await replay();break;
  case 'save-settings':await saveSettings();break;
- case 'default-background':{const checkbox=document.getElementById('setting-custom-background');if(checkbox)checkbox.checked=false;applyAppearance({...S.settings,backgroundColor:'',theme:document.getElementById('setting-theme')?.value||S.settings.theme});break;}
+
  case 'export':await exportData();break;
  case 'confirm-reset':showReset();break;
  case 'reset-all':await resetData();break;
@@ -1610,14 +1628,7 @@ async function onAction(btn){const action=btn.dataset.action;if(action==='writer
 document.addEventListener('click',event=>{if(S.colorsOpen&&!event.target.closest('.appearance-picker'))closeHeaderColors();const b=event.target.closest('[data-action]');if(!b||b.disabled)return;if(b.classList.contains('modal-backdrop')&&event.target.closest('.modal'))return;event.preventDefault();onAction(b).catch(error=>{console.warn(error.message);notify('تعذر تنفيذ الإجراء: '+error.message);});});
 
 document.addEventListener('input',event=>{
- if(['header-background','header-sidebar-color'].includes(event.target?.id)){
-  applyAppearance({...S.settings,[event.target.id==='header-background'?'backgroundColor':'sidebarColor']:event.target.value});return;
- }
- if(['setting-background','setting-custom-background','setting-theme'].includes(event.target?.id)){
-  const checkbox=document.getElementById('setting-custom-background');
-  if(event.target.id==='setting-background'&&checkbox)checkbox.checked=true;
-  applyAppearance({...S.settings,theme:document.getElementById('setting-theme')?.value||S.settings.theme,backgroundColor:checkbox?.checked?document.getElementById('setting-background')?.value:''});return;
- }
+ if(event.target?.id==='setting-theme'){applyAppearance({...S.settings,theme:event.target.value});return;}
  if(event.target?.id!=='lesson-search')return;
  const query=event.target.value.trim().toLocaleLowerCase('ar').normalize('NFKC');
  let visible=0;for(const card of document.querySelectorAll('#lesson-directory .direct-lesson-card')){
@@ -1628,7 +1639,6 @@ document.addEventListener('input',event=>{
 });
 document.addEventListener('submit',event=>{if(event.target?.id!=='setup-form')return;event.preventDefault();startForm().catch(error=>notify('تعذر بدء الجولة: '+error.message));});
 document.addEventListener('change',async event=>{try{const t=event.target;
- if(['header-background','header-sidebar-color'].includes(t.id)){await saveHeaderColor(t.id==='header-background'?'backgroundColor':'sidebarColor',t.value);return;}
  if(t.id==='form-unit'){S.unitId=t.value;S.lessonId=unitFor(S.unitId)?.lessons?.[0]?.id||S.lessonId;const lessonSelect=document.getElementById('form-lesson');if(lessonSelect)lessonSelect.innerHTML=(unitFor(S.unitId)?.lessons||[]).map(l=>`<option value="${l.id}">${e(l.name)}</option>`).join('');}
  if(t.id==='form-lesson')S.lessonId=t.value;
  if(t.id==='form-scope')S.scope=t.value;
@@ -1636,7 +1646,7 @@ document.addEventListener('change',async event=>{try{const t=event.target;
  if(t.dataset.match!==undefined){const current=responseFor(S.session);const next={...(current&&typeof current==='object'&&!Array.isArray(current)?current:{}),[t.dataset.match]:t.value};if(isAnswered(S.session.questions[S.session.current],next))await autoAnswer(next);else {S.selected=next;captureDraft().catch(console.warn);}}
  if(t.id==='import-file'&&t.files?.[0])await importData(t.files[0]);
 }catch(error){console.warn(error.message);notify('تعذر حفظ الاختيار: '+error.message);}});
-window.addEventListener('keydown',e=>{if(e.key==='Escape'&&S.colorsOpen){e.preventDefault();closeHeaderColors(true);return;}if(e.key==='Escape'&&S.modal){S.pendingImport=null;S.modal=null;render();}if(S.page==='game'&&!S.colorsOpen&&!S.modal&&S.session?.phase==='question'&&e.key==='Enter'&&e.target.tagName!=='BUTTON'&&e.target.tagName!=='SELECT'){e.preventDefault();if(S.session.questions[S.session.current].type==='multi_select')autoAnswer(responseFor(S.session)).catch(error=>notify('تعذر اعتماد الإجابة: '+error.message));}});
+window.addEventListener('keydown',e=>{const swatch=e.target.closest?.('.color-swatch');if(swatch&&['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End'].includes(e.key)){e.preventDefault();const all=[...swatch.parentElement.querySelectorAll('.color-swatch')],current=all.indexOf(swatch),step={ArrowLeft:1,ArrowRight:-1,ArrowUp:-8,ArrowDown:8}[e.key]||0,next=e.key==='Home'?0:e.key==='End'?all.length-1:(current+step+all.length)%all.length;all.forEach((button,index)=>button.tabIndex=index===next?0:-1);all[next]?.focus();return;}if(e.key==='Escape'&&S.colorsOpen){e.preventDefault();closeHeaderColors(true);return;}if(e.key==='Escape'&&S.modal){S.pendingImport=null;S.modal=null;render();}if(S.page==='game'&&!S.colorsOpen&&!S.modal&&S.session?.phase==='question'&&e.key==='Enter'&&e.target.tagName!=='BUTTON'&&e.target.tagName!=='SELECT'){e.preventDefault();if(S.session.questions[S.session.current].type==='multi_select')autoAnswer(responseFor(S.session)).catch(error=>notify('تعذر اعتماد الإجابة: '+error.message));}});
 let tickBusy=false;
 let lastCountdownKey='';
 async function clockTick(){

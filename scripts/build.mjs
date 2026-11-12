@@ -26,6 +26,8 @@ const runtimeQuestions = { ...questions, questions: questions.questions.map(q =>
 const code = `${vendor.outputFiles[0].text}\nconst AUTH_CONFIG=${JSON.stringify(authConfig)};\nconst EMBEDDED_LESSONS=${JSON.stringify(lessons)};\nconst EMBEDDED_QUESTIONS=${JSON.stringify(runtimeQuestions)};\n${sources.join('\n')}`;
 new vm.Script(code, { filename: 'app.bundle.js' });
 const css = await read('src/styles.css');
+// Inline the canonical brand icon so Pages and the standalone HTML need no asset request.
+const favicon = 'data:image/svg+xml,' + encodeURIComponent(await read('assets/favicon.svg'));
 const html = `<!doctype html>
 <html lang="ar" dir="rtl" data-theme="dark">
 <head>
@@ -34,6 +36,7 @@ const html = `<!doctype html>
 <meta name="theme-color" content="#082c23">
 <meta name="description" content="منصة تحدي التوجيهي في التربية الإسلامية، بتحديات فردية ومواجهات واختبارات. إنشاء الطالب أيوب محمد البطوش.">
 <meta name="color-scheme" content="dark light">
+<link rel="icon" type="image/svg+xml" sizes="any" href="${favicon}">
 <title>تحدي التوجيهي | التربية الإسلامية</title>
 <style>${css.replace(/<\/style/gi, '<\\/style')}</style>
 </head>
