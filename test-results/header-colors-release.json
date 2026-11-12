@@ -9,5 +9,14 @@
   },
   "requiresNewSqlMigration": false,
   "liveSupabaseSyncVerified": false,
-  "deployment": "pending"
+  "deployment": {
+    "status": "success",
+    "pagesCommit": "1ae801bc19e11d1578037fe8f27a3386243f31ff",
+    "runUrl": "https://github.com/ayoubalbtoosh/islam/actions/runs/43144205912",
+    "conclusion": "Success",
+    "duration": "28s",
+    "publishedGitHtmlMatchesTestedBuild": true,
+    "directSiteRenderingVerified": false
+  },
+  "sourceCommit": "ef165ac49c6caf193c344a3fcfe3878979d8379e"
 }
