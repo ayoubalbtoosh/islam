@@ -40,11 +40,20 @@
   "physicalTwoDeviceTested": false,
   "localTwoBrowserTested": true,
   "deployment": {
-    "state": "pending"
+    "state": "success",
+    "pagesCommit": "f7cf68bfdfd1392146c7dc513f3acbcb23b6b08f",
+    "previousPagesCommit": "6a7214133b849e1f964cfdba155c72b68d8028ab",
+    "runUrl": "https://github.com/ayoubalbtoosh/islam/actions/runs/43141525505",
+    "runConclusion": "Success",
+    "runDuration": "27s",
+    "verifiedAt": "2026-11-12T02:28:45.807946+00:00",
+    "evidence": "Public GitHub Actions run HTML showed gh-pages, expected commit f7cf68bfdfd1392146c7dc513f3acbcb23b6b08f and Status Success; native Git remote ref and published commit HTML SHA256 verified.",
+    "directSiteRenderingVerified": false
   },
   "limitations": [
     "Hosted Supabase004 requires owner SQL Editor execution after003.",
     "Local browser contexts use actual PostgreSQL duel RPCs and simulated Auth transport, not physical devices.",
     "Current proxy denies Supabase/API/Pages hosts; draft domain additions saved but unapplied."
-  ]
+  ],
+  "sourceCommit": "1d1d25dc657dfee4e6d158254fefe5485cfcb897"
 }

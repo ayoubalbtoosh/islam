@@ -1,6 +1,12 @@
 # تحديث المواجهات2.4 —12 نوفمبر2026
 
-الاختبارات المحلية نجحت على حزمة الإنتاج المسجلة في `test-results/online-release-manifest.json`. فرع المصدر هو `accounts-setup` وفرع النشر `gh-pages`؛ النسخة المنشورة وتحقق تشغيلPages يسجلان في_manifest بعد الرفع.
+نُشرت واجهة2.4 علىGitHub Pages بنجاح. [تشغيل النشر رقم4](https://github.com/ayoubalbtoosh/islam/actions/runs/43141525505) يعرض `Success` ومدة27 ثانية،ويرتبط بالتزام النشر `f7cf68bfdfd1392146c7dc513f3acbcb23b6b08f`.
+
+- كود التطبيق المختبر: `1d1d25dc657dfee4e6d158254fefe5485cfcb897` على `accounts-setup`؛ قد تليه تحديثات أدلة فقط.
+- فرع `gh-pages` رُفع دونforce،وبقيت `.nojekyll` محفوظة.
+- حجمHTML:2,741,504 بايت؛SHA256: `9884c40c59267810822d6dad885d5ce4855fb1a6ae8c3b4a36bff43851e033a9`،مطابق للحزمة التي اجتازت `npm run check`.
+- الرابط: `https://ayoubalbtoosh.github.io/islam/`. التحقق من حالة النشر ومحتوىGit تم؛ الرسم المباشر علىgithub.io لم يُتحقق منه بسبب سياسة الاتصال.
+- الأدلة في `test-results/online-release-manifest.json`.
 
 **تفعيلSupabase مستقل:** يجب على مالك المشروع تطبيق `supabase/migrations/004_online_duels.sql` بعد003. لا توجد هنا صلاحية إدارة قاعدة البيانات المستضافة،ولا تأكيد لتطبيق004 أو اختبار دخول حي أو جهازين فعليين. الواجهة تعرض رسالة واضحة إذا كانت دوال المواجهة غير مفعّلة؛ تسجيل البريد والتقدم الحاليان يبقيان على مسارهما السابق.
 
