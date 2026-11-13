@@ -11,5 +11,9 @@
   "liveSupabaseVerified": false,
   "migration": "supabase/migrations/005_educational_online.sql",
   "onlineFullActivityTestBuildSHA256": "36e3b2f2ace7197c6f655c0b5f712e977944cd5ff1b97db8ad4938010fbf871d",
-  "finalFocusedTestBuildSHA256": "ad0f9448b8f915c654d8fd2aae966a58bd90122113efdfcf39a4d0693c982016"
+  "finalFocusedTestBuildSHA256": "ad0f9448b8f915c654d8fd2aae966a58bd90122113efdfcf39a4d0693c982016",
+  "sourceCommit": "d400a1f",
+  "pagesCommit": "ee9348c86a9a7465ca25008bde7aa910e35a9058",
+  "pagesLiveVerification": "blocked: CONNECT 403",
+  "runtimeSecretBindingsPresent": false
 }
