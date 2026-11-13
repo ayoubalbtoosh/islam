@@ -1,0 +1,94 @@
+{
+  "outcomes": [
+    {
+      "game": 1,
+      "rounds": 15,
+      "score": 1000000,
+      "passed": true
+    },
+    {
+      "game": 2,
+      "rounds": 8,
+      "score": 800,
+      "passed": true
+    },
+    {
+      "game": 3,
+      "rounds": 5,
+      "score": 500,
+      "passed": true
+    },
+    {
+      "game": 4,
+      "rounds": 8,
+      "score": 800,
+      "passed": true
+    },
+    {
+      "game": 5,
+      "rounds": 8,
+      "score": 800,
+      "passed": true
+    },
+    {
+      "game": 6,
+      "rounds": 12,
+      "score": 3800,
+      "passed": true
+    },
+    {
+      "game": 7,
+      "rounds": 8,
+      "score": 800,
+      "passed": true
+    },
+    {
+      "game": 8,
+      "rounds": 8,
+      "score": 1276,
+      "passed": true
+    },
+    {
+      "game": 9,
+      "rounds": 8,
+      "score": 800,
+      "passed": true
+    },
+    {
+      "game": 10,
+      "rounds": 5,
+      "score": 500,
+      "passed": true
+    },
+    {
+      "game": 11,
+      "rounds": 8,
+      "score": 800,
+      "passed": true
+    },
+    {
+      "game": 12,
+      "rounds": 8,
+      "score": 800,
+      "passed": true
+    },
+    {
+      "game": 13,
+      "rounds": 8,
+      "score": 800,
+      "passed": true
+    }
+  ],
+  "scope": true,
+  "timeout": true,
+  "wrongAnswer": true,
+  "restoration": true,
+  "duplicatePrevention": true,
+  "keyboard": true,
+  "widths": [
+    360,
+    390,
+    1280
+  ],
+  "errors": []
+}

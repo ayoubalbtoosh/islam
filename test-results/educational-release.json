@@ -1,0 +1,13 @@
+{
+  "bundleSHA256": "279d0f149aee2f81e6d8a1b33c1ceded000d638fa7f65e52ea4822e38cc2d690",
+  "nodeTests": 103,
+  "browserRegression": 35,
+  "authMocked": 13,
+  "backgroundBrowser": 8,
+  "onlineBrowserMocked": 6,
+  "educationalGamesCompleted": 13,
+  "scopeCombinations": 390,
+  "lifecycle": "passed; student/admin simulated, production guest storage exercised",
+  "liveSupabase": "not tested: outbound network denied",
+  "pagesLiveVerification": "pending network access"
+}

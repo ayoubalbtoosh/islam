@@ -1,0 +1,14 @@
+{
+  "curatedTerms": true,
+  "wrongEscapeLocks": true,
+  "timers": [
+    10,
+    "none"
+  ],
+  "towerDeadline": true,
+  "touch": true,
+  "adminRenderer": true,
+  "accountIsolation": true,
+  "guestEphemeral": true,
+  "liveSupabase": false
+}

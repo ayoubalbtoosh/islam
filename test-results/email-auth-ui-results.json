@@ -1,73 +1,73 @@
 {
-  "generatedAt": "2026-11-12T02:25:48.641Z",
-  "testedBuildSha256": "9884c40c59267810822d6dad885d5ce4855fb1a6ae8c3b4a36bff43851e033a9",
+  "generatedAt": "2026-11-13T14:46:32.463Z",
+  "testedBuildSha256": "f4ec48d78a2b13c646e302c5e4ed10287a5bc3e78c10470e11f38c499f919a7f",
   "passed": 13,
   "failed": 0,
   "results": [
     {
       "name": "explicit unconfigured fixture shows honest login gate without nickname bypass",
       "status": "passed",
-      "milliseconds": 1051
+      "milliseconds": 617
     },
     {
       "name": "production guest bridge under unconfigured fixture is temporary isolated and cleared by reload",
       "status": "passed",
-      "milliseconds": 1325
+      "milliseconds": 898
     },
     {
       "name": "auth gate and guest banner fit phone tablet desktop and preserve source attribution",
       "status": "passed",
-      "milliseconds": 4646
+      "milliseconds": 2939
     },
     {
       "name": "public email signup confirmation leaves user signed out and clears site passwords",
       "status": "passed",
-      "milliseconds": 1714
+      "milliseconds": 1147
     },
     {
       "name": "signup tabs are accessible and mismatched site passwords never reach authentication",
       "status": "passed",
-      "milliseconds": 1335
+      "milliseconds": 1027
     },
     {
       "name": "mocked rejected credentials stay signed out and clear password without logging it",
       "status": "passed",
-      "milliseconds": 1413
+      "milliseconds": 1099
     },
     {
       "name": "public email signup accepts other domains and Gmail with private progress and no self-admin",
       "status": "passed",
-      "milliseconds": 4234
+      "milliseconds": 3524
     },
     {
       "name": "mocked account A/B storage is separate and account A restores from cloud in fresh browser context",
       "status": "passed",
-      "milliseconds": 5477
+      "milliseconds": 3570
     },
     {
       "name": "mocked SDK identity change cannot upload account A progress under account B",
       "status": "passed",
-      "milliseconds": 2336
+      "milliseconds": 1336
     },
     {
       "name": "owner roster and student details expose safe progress without credentials and preserve disable controls",
       "status": "passed",
-      "milliseconds": 9831
+      "milliseconds": 8368
     },
     {
       "name": "mocked offline cloud cannot trap sign-out and preserves account cache",
       "status": "passed",
-      "milliseconds": 2389
+      "milliseconds": 1838
     },
     {
       "name": "mocked cloud conflict requires explicit choice and cancellation does not overwrite data",
       "status": "passed",
-      "milliseconds": 2747
+      "milliseconds": 1881
     },
     {
       "name": "no unexpected browser errors in auth UI checks",
       "status": "passed",
-      "milliseconds": 12
+      "milliseconds": 4
     }
   ],
   "errors": [],

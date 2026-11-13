@@ -131,6 +131,11 @@ function validateBackup(data,byId){
  }
  if(records.profile!==undefined){
   const p=records.profile;if(!object(p)||!text(p.name,64)||!finite(p.xp)||p.coins!==undefined&&!finite(p.coins)||p.level!==undefined&&!integer(p.level))fail('بيانات المستخدم');
+  if(p.educationalActive!==undefined){
+   const g=p.educationalActive;
+   if(!object(g)||!text(g.id,160)||!integer(g.game,12)||!Array.isArray(g.ids)||g.ids.length<1||g.ids.length>15||new Set(g.ids).size!==g.ids.length||g.ids.some(qid=>!id(qid)||byId&&!byId.has(qid))||!integer(g.index,Math.max(0,g.ids.length-1))||!finite(g.score,1e9)||typeof g.done!=='boolean'||!scope(g.unit)||g.lesson!=='all'&&!lessonId(g.lesson)||!Array.isArray(g.items)||g.items.length>g.ids.length||JSON.stringify(g).length>100000)fail('جلسة الألعاب التعليمية');
+   if(byId&&g.ids.some(qid=>{const q=byId.get(qid);return (g.unit!=='all'&&q.unit_id!==g.unit)||(g.lesson!=='all'&&q.lesson_id!==g.lesson);}))fail('نطاق الألعاب التعليمية');
+  }
   if(p.lastLessonId!==undefined&&!lessonId(p.lastLessonId))fail('آخر درس');
   if(p.visitedLessons!==undefined&&(!object(p.visitedLessons)||Object.keys(p.visitedLessons).length>26||Object.entries(p.visitedLessons).some(([id,at])=>!lessonId(id)||!date(at))))fail('زيارات الدروس');
  }
@@ -160,6 +165,7 @@ function validateBackup(data,byId){
   if(!Array.isArray(records.results)||records.results.length>20000)fail('سجل النتائج');const seen=new Set();
   for(const r of records.results){
    if(!object(r)||!text(r.id,160)||!r.id||seen.has(r.id)||!modes.includes(r.mode)||!date(r.at)||!Array.isArray(r.items)||r.items.length>2340)fail('نتيجة غير صالحة أو مكررة');seen.add(r.id);
+   if(r.educationalGame!==undefined&&!integer(r.educationalGame,12))fail('نوع اللعبة التعليمية');
    for(const field of ['answered','correct','wrong','accuracy','duration','totalScore','bestStreak','average'])if(r[field]!==undefined&&!finite(r[field],field==='accuracy'?100:1e12))fail('قيم النتيجة');
    if(r.players!==undefined&&!players(r.players))fail('أسماء المتنافسين');
    if(r.mode==='duel'&&(!players(r.players)||!Array.isArray(r.duelScores)||r.duelScores.length!==2||r.duelScores.some(n=>!finite(n))||![null,0,1].includes(r.winner)))fail('نتيجة المواجهة');
