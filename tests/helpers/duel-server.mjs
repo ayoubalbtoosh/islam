@@ -3,7 +3,7 @@ import {readFile} from 'node:fs/promises';
 const {PGlite}=await import(process.env.PGLITE_MODULE||'@electric-sql/pglite');
 export const ids={host:'11111111-1111-4111-8111-111111111111',guest:'22222222-2222-4222-8222-222222222222',admin:'33333333-3333-4333-8333-333333333333',outsider:'44444444-4444-4444-8444-444444444444'};
 const sessionID=id=>'a'+id.slice(1);
-export async function createDuelServer(){
+export async function createDuelServer({educationalFiles=['migrations/005_educational_online.sql']}={}){
  const db=new PGlite();
  await db.exec(`create role anon;create role authenticated;create role supabase_auth_admin;
  create schema auth;
@@ -19,7 +19,7 @@ export async function createDuelServer(){
   {id:ids.outsider,email:'outsider@example.test',name:'لاعب ثالث'},
  ];
  for(const u of users)await db.query(`insert into auth.users(id,email,email_confirmed_at,raw_app_meta_data,raw_user_meta_data,encrypted_password) values($1,$2,now(),'{"provider":"email","providers":["email"]}',$3,'TEST_HASH_NOT_RETURNED')`,[u.id,u.email,JSON.stringify({display_name:u.name})]);
- for(const file of ['migrations/001_school_auth.sql','bootstrap-owner.sql','migrations/003_public_email_signup.sql','migrations/004_online_duels.sql','migrations/005_educational_online.sql'])await db.exec(await readFile(new URL('../../supabase/'+file,import.meta.url),'utf8'));
+ for(const file of ['migrations/001_school_auth.sql','bootstrap-owner.sql','migrations/003_public_email_signup.sql','migrations/004_online_duels.sql',...educationalFiles])await db.exec(await readFile(new URL('../../supabase/'+file,import.meta.url),'utf8'));
  for(const u of users)await db.query('insert into auth.sessions(id,user_id,token) values($1,$2,$3)',[sessionID(u.id),u.id,'TEST_SESSION_NOT_RETURNED']);
  let queue=Promise.resolve();
  const serialize=fn=>{const op=queue.then(fn);queue=op.catch(()=>{});return op;};

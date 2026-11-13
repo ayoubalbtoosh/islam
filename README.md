@@ -124,3 +124,7 @@ npm run check
 ```sh
 npm run test:games:online
 ```
+
+### حل تجاوز حجم SQL Editor
+
+لتفعيل005عبر المتصفح، استخدم [صفحة نسخ الأجزاء الصغيرة](https://ayoubalbtoosh.github.io/islam/setup-online.html) بدل لصق الملف الكامل. شغّل12جزءًا بالترتيب، كل جزء وحده، ثم تأكد من`ready` و2179سجلًا في الفحص الأخير. [تفاصيل النسخة المقسمة](supabase/sql-editor/005/README.md).

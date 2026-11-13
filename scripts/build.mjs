@@ -53,3 +53,7 @@ await writeFile(path.join(root, 'standalone.html'), html);
 await writeFile(path.join(root, 'index.html'), html);
 await rm(path.join(root, 'dist/sw.js'), { force: true });
 console.log(`Production + standalone built: ${lessons.length} units, ${lessons.flatMap(u=>u.lessons).length} lessons, ${questions.questions.length} bank records, ${Buffer.byteLength(html)} bytes.`);
+
+// The admin copy guide is independent of the student app and contains no credentials.
+await (await import('./split-educational-online.mjs')).writeEditorParts({root});
+await import('./build-online-setup.mjs');

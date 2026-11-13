@@ -1,0 +1,60 @@
+{
+  "parts": [
+    {
+      "name": "00_schema.sql",
+      "bytes": 20891
+    },
+    {
+      "name": "01_content.sql",
+      "bytes": 59163
+    },
+    {
+      "name": "02_content.sql",
+      "bytes": 59921
+    },
+    {
+      "name": "03_content.sql",
+      "bytes": 59267
+    },
+    {
+      "name": "04_content.sql",
+      "bytes": 59961
+    },
+    {
+      "name": "05_content.sql",
+      "bytes": 59732
+    },
+    {
+      "name": "06_content.sql",
+      "bytes": 59263
+    },
+    {
+      "name": "07_content.sql",
+      "bytes": 59461
+    },
+    {
+      "name": "08_content.sql",
+      "bytes": 59560
+    },
+    {
+      "name": "09_content.sql",
+      "bytes": 59657
+    },
+    {
+      "name": "10_content.sql",
+      "bytes": 41962
+    },
+    {
+      "name": "99_verify.sql",
+      "bytes": 27419
+    }
+  ],
+  "records": 2179,
+  "exactOriginalData": true,
+  "partialInstallationRejected": true,
+  "repeatedInstallation": true,
+  "studentProgressPreserved": true,
+  "legacyRoomPreserved": true,
+  "activityCreation": true,
+  "hostedSupabase": false
+}

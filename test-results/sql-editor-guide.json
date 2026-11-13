@@ -1,0 +1,12 @@
+{
+  "partsCopiedExactly": 12,
+  "clipboardFallback": true,
+  "confirmationRequired": true,
+  "navigation": true,
+  "widths": [
+    360,
+    1280
+  ],
+  "browserErrors": [],
+  "noDatabaseConnection": true
+}
