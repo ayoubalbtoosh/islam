@@ -9,5 +9,9 @@
   "scopeCombinations": 390,
   "lifecycle": "passed; student/admin simulated, production guest storage exercised",
   "liveSupabase": "not tested: outbound network denied",
-  "pagesLiveVerification": "pending network access"
+  "pagesLiveVerification": "blocked: CONNECT 403 for site and GitHub API",
+  "sourceCommit": "70c79babc9c9c4cacd713ffa77d28e7b22398cce",
+  "pagesCommit": "a6932d136afa1c8b261f9ab360b2891907b46b2d",
+  "remoteHeadsVerified": true,
+  "onlineSqlTests": 4
 }
