@@ -19,7 +19,7 @@ export async function createDuelServer(){
   {id:ids.outsider,email:'outsider@example.test',name:'لاعب ثالث'},
  ];
  for(const u of users)await db.query(`insert into auth.users(id,email,email_confirmed_at,raw_app_meta_data,raw_user_meta_data,encrypted_password) values($1,$2,now(),'{"provider":"email","providers":["email"]}',$3,'TEST_HASH_NOT_RETURNED')`,[u.id,u.email,JSON.stringify({display_name:u.name})]);
- for(const file of ['migrations/001_school_auth.sql','bootstrap-owner.sql','migrations/003_public_email_signup.sql','migrations/004_online_duels.sql'])await db.exec(await readFile(new URL('../../supabase/'+file,import.meta.url),'utf8'));
+ for(const file of ['migrations/001_school_auth.sql','bootstrap-owner.sql','migrations/003_public_email_signup.sql','migrations/004_online_duels.sql','migrations/005_educational_online.sql'])await db.exec(await readFile(new URL('../../supabase/'+file,import.meta.url),'utf8'));
  for(const u of users)await db.query('insert into auth.sessions(id,user_id,token) values($1,$2,$3)',[sessionID(u.id),u.id,'TEST_SESSION_NOT_RETURNED']);
  let queue=Promise.resolve();
  const serialize=fn=>{const op=queue.then(fn);queue=op.catch(()=>{});return op;};
@@ -29,6 +29,8 @@ export async function createDuelServer(){
   read_progress:['select row_to_json(p) as value from public.user_progress p where user_id=$1',a=>[a.user_id]],
   save_user_progress:['select public.save_user_progress($1::jsonb,$2::bigint,$3::uuid) as value',a=>[JSON.stringify(a.p_records),a.p_expected_revision,a.p_user_id]],
   platform_admin_roster:['select public.platform_admin_roster() as value',()=>[]],
+  educational_duel_create:['select public.educational_duel_create($1::int,$2::text,$3::text,$4::int) as value',a=>[a.p_game,a.p_unit,a.p_lesson,a.p_seconds]],
+  educational_duel_finish:['select public.educational_duel_finish($1::uuid) as value',a=>[a.p_room_id]],
   duel_create:['select public.duel_create() as value',()=>[]],
   duel_join:['select public.duel_join($1::text) as value',a=>[a.p_code]],
   duel_state:['select public.duel_state($1::uuid) as value',a=>[a.p_room_id]],

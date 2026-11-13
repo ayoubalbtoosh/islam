@@ -1,0 +1,75 @@
+{
+  "results": [
+    {
+      "name": "Game 1: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 7673
+    },
+    {
+      "name": "Game 2: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 14064
+    },
+    {
+      "name": "Game 3: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 4959
+    },
+    {
+      "name": "Game 4: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 28897
+    },
+    {
+      "name": "Game 5: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 4345
+    },
+    {
+      "name": "Game 6: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 14497
+    },
+    {
+      "name": "Game 7: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 8568
+    },
+    {
+      "name": "Game 8: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 10972
+    },
+    {
+      "name": "Game 9: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 24256
+    },
+    {
+      "name": "Game 10: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 4623
+    },
+    {
+      "name": "Game 11: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 6252
+    },
+    {
+      "name": "Game 12: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 4687
+    },
+    {
+      "name": "Game 13: two clients complete the actual activity with server-scored results",
+      "status": "passed",
+      "milliseconds": 39862
+    }
+  ],
+  "browserErrors": [],
+  "externalRequests": [],
+  "sqlBackend": true,
+  "authTransport": "simulated",
+  "liveSupabase": false,
+  "testedBuildSha256": "36e3b2f2ace7197c6f655c0b5f712e977944cd5ff1b97db8ad4938010fbf871d"
+}

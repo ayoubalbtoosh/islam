@@ -213,13 +213,14 @@ const Auth=(()=>{
  async function adminAllowAccount(email,name){requireAdmin();await checkSession(state.user.id);const {data,error}=await client.rpc('admin_allow_account',{p_email:email,p_display_name:name});if(error)fail('تعذر تحديث بيانات الحساب أو تفعيله.');return data;}
  async function adminDisableAccount(email,disabled){requireAdmin();await checkSession(state.user.id);const {data,error}=await client.rpc('admin_disable_account',{p_email:email,p_disabled:!!disabled});if(error)fail('تعذر تغيير حالة الحساب. لا يمكن تعطيل آخر مدير.');return data;}
  async function duelRpc(name,args={}){
-  const allowed=['duel_create','duel_join','duel_state','duel_answer','duel_leave','duel_recent','platform_admin_duels'];
+  const allowed=['educational_duel_create','educational_duel_finish','duel_create','duel_join','duel_state','duel_answer','duel_leave','duel_recent','platform_admin_duels'];
   if(!allowed.includes(name))fail('طلب مواجهة غير صالح.');
   requireAccount();if(name==='platform_admin_duels')requireAdmin();
   const id=state.user.id;await checkSession(id);
   const {data,error}=await client.rpc(name,args);
   await checkSession(id);
   if(error){
+   if((error.code==='PGRST202'||error.code==='42883')&&name.startsWith('educational_'))fail('الألعاب الأونلاين بانتظار التفعيل من إدارة الموقع. يمكنك اللعب الفردي الآن.');
    if(error.code==='PGRST202'||error.code==='42883')fail('المواجهات غير مفعّلة على الخادم بعد. يلزم تطبيق ترقية المواجهات في Supabase.');
    const message=String(error.message||'');
    if(/room_unavailable|room_full|room_not_found|invalid_code|invalid_room_code|self_join|cannot_join_own_room/.test(message))fail('تعذر الانضمام: تأكد من الرمز وأن الغرفة مفتوحة ولا يدخلها حسابك نفسه.');

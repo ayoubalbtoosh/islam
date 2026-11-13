@@ -1,38 +1,38 @@
 {
-  "generatedAt": "2026-11-13T14:47:03.965Z",
-  "testedBuildSha256": "f4ec48d78a2b13c646e302c5e4ed10287a5bc3e78c10470e11f38c499f919a7f",
+  "generatedAt": "2026-11-13T15:11:36.730Z",
+  "testedBuildSha256": "4cf668995ff44186891b3e1c868b1832cdbdd58d5a39d56f5520499a1b613502",
   "passed": 6,
   "failed": 0,
   "results": [
     {
       "name": "Email sign-in opens independent mobile and desktop accounts; stored progress remains separate",
       "status": "passed",
-      "milliseconds": 2113
+      "milliseconds": 1775
     },
     {
       "name": "Host creates an invite code; another authenticated client joins the same server room",
       "status": "passed",
-      "milliseconds": 3519
+      "milliseconds": 3491
     },
     {
       "name": "Reload reconnects the player to the active room without resetting deadline or progress",
       "status": "passed",
-      "milliseconds": 457
+      "milliseconds": 242
     },
     {
       "name": "Five shared questions are scored by PostgreSQL and final result appears on both clients",
       "status": "passed",
-      "milliseconds": 6481
+      "milliseconds": 3973
     },
     {
       "name": "Server denies unrelated student access and exposes saved result to the existing owner admin",
       "status": "passed",
-      "milliseconds": 1456
+      "milliseconds": 952
     },
     {
       "name": "No unhandled browser errors or external requests; build unchanged during checks",
       "status": "passed",
-      "milliseconds": 2
+      "milliseconds": 15
     }
   ],
   "browserErrors": [],

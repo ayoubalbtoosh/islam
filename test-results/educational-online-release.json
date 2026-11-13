@@ -1,0 +1,15 @@
+{
+  "bundleSHA256": "ad0f9448b8f915c654d8fd2aae966a58bd90122113efdfcf39a4d0693c982016",
+  "onlineActivitiesCompletedByTwoClients": 13,
+  "focusedLifecycleCases": 5,
+  "serverSqlCases": 2,
+  "nodeTests": 103,
+  "legacyOnlineBrowserCases": 6,
+  "backgroundCases": 8,
+  "soloGamesCompleted": 13,
+  "hostedMigrationApplied": false,
+  "liveSupabaseVerified": false,
+  "migration": "supabase/migrations/005_educational_online.sql",
+  "onlineFullActivityTestBuildSHA256": "36e3b2f2ace7197c6f655c0b5f712e977944cd5ff1b97db8ad4938010fbf871d",
+  "finalFocusedTestBuildSHA256": "ad0f9448b8f915c654d8fd2aae966a58bd90122113efdfcf39a4d0693c982016"
+}

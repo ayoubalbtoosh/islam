@@ -1,0 +1,10 @@
+{
+  "games": 13,
+  "scope": true,
+  "timeSeconds": 137,
+  "serverScoring": true,
+  "idempotency": true,
+  "privateReceipts": true,
+  "admin": true,
+  "hostedSupabase": false
+}
