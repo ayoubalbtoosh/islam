@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "eaa1ffe",
+  "pagesCommit": "33597dd8286198b43128fb9e4eaf2251c1af65c8",
+  "guideSHA256": "e093af6e09a43fc41040810bf32d7255299b9572dc73bfc689953b503cd79659",
+  "parts": 12,
+  "maxQueryBytes": 59961,
+  "canonicalRows": 2179,
+  "sqlChecks": "passed",
+  "browserGuide": "passed",
+  "studentAppUnchanged": true,
+  "hostedMigrationApplied": false,
+  "pagesLiveVerification": "blocked: CONNECT 403"
+}
